@@ -9,6 +9,10 @@
     $rs2=mysqli_query($conn,$query2);
     $count2=mysqli_num_rows($rs2);
 
+    $query3="SELECT * FROM tbbrand ";
+    $rs3=mysqli_query($conn,$query3);
+    $count3=mysqli_num_rows($rs3);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,11 +53,12 @@
                         <td style="text-align:center"><img src="<?= $data1[3]?>" alt="Image" width="40" height="30"></td>
                         <td>
                             <?php 
-                                $query1="SELECT * FROM tbbrand where BrandID ='{$data1[0]}'";
-                                $rs1=mysqli_query($conn,$query1);
-                                $count1=mysqli_num_rows($rs1);
-                                $data2= mysqli_fetch_array($rs1)?>
-                                <?php echo $data2[1]?>
+                            while($data3 = mysqli_fetch_array($rs3)):
+                                if($data1[5] == $data3[0]){
+                                    echo $data3[1];
+                                }
+                            endwhile;
+                            ?>
                             
                         </td>
                         <td><?= $data1[6]?></td>

@@ -72,3 +72,26 @@ body { font-family: sans-serif; }
   height: 10rem;
 }
 
+
+/* Card */
+.card {
+  border-radius: 0;
+}
+
+.card:hover{
+  /* border: solid #343434 thin; */
+  box-shadow: 2px 2px;
+}
+
+.card img {
+  border-radius: 0;
+  height: 15rem;
+}
+
+.card .card-body{
+  text-align: center;
+}
+
+.card .card-title {
+  font-weight:700;
+}

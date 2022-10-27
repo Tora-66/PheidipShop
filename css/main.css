@@ -1,0 +1,74 @@
+/* external css: flickity.css */
+
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.carousel {
+  background: rgb(243, 243, 243);
+}
+
+.carousel-cell {
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.carousel-cell img {
+  display: block;
+  height: 200px;
+}
+
+@media screen and ( min-width: 768px ) {
+  .carousel-cell img {
+    height: 400px;
+  }
+}
+
+
+
+.navbar .search{
+  width: 15rem;
+  border-top: solid #727272 thin;
+  border-right: solid #727272 thin;
+  border-bottom: solid #727272 thin;
+  border-left: none;
+}
+
+.navbar .nav-link{
+  color: #343434;
+  font-weight: bold;
+}
+
+.navbar .btn-search {
+  width: 2rem;
+  background-color: white;
+  border-top: solid #727272 thin;
+  border-left: solid #727272 thin;
+  border-bottom: solid #727272 thin;
+  border-right: none;
+}
+
+.carousel {
+  width: 100%;
+}
+
+.carousel-section {
+  margin-top: 5rem;
+}
+
+.carousel-item {
+  background-color: rgb(20, 20, 20);
+}
+
+/* .carousel-item img {
+  height: 35rem;
+  margin: 0 auto;
+  width: 75%;
+} */
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 70%;
+  height: 10rem;
+}
+

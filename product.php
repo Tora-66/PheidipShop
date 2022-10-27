@@ -5,13 +5,13 @@
     $rs=mysqli_query($conn,$query);
     $count=mysqli_num_rows($rs);
 
+    $query1="SELECT * FROM tbbrand ";
+    $rs1=mysqli_query($conn,$query1);
+    $count1=mysqli_num_rows($rs1);
+
     $query2="SELECT * FROM tbtype ";
     $rs2=mysqli_query($conn,$query2);
     $count2=mysqli_num_rows($rs2);
-
-    $query3="SELECT * FROM tbbrand ";
-    $rs3=mysqli_query($conn,$query3);
-    $count3=mysqli_num_rows($rs3);
 
 ?>
 <!DOCTYPE html>
@@ -42,26 +42,30 @@
             if($count == 0):
                 echo '<br>Record not found!';
             else:
-                while($data1= mysqli_fetch_array($rs) 
-                // && $data3= mysqli_fetch_array($rs2)
-                ):
+                while($data1= mysqli_fetch_array($rs)):
             ?>
                     <tr>
                         <td><?= $data1[0]?></td>
                         <td><?= $data1[1]?></td>
-                        <td><?= $data1[2]?></td>
+                        <td> $ <?= $data1[2]?></td>
                         <td style="text-align:center"><img src="<?= $data1[3]?>" alt="Image" width="40" height="30"></td>
                         <td>
-                            <?php 
-                            while($data3 = mysqli_fetch_array($rs3)):
-                                if($data1[5] == $data3[0]){
-                                    echo $data3[1];
-                                }
-                            endwhile;
+                            <?php
+                                while($data2= mysqli_fetch_array($rs1)):
+                                    if($data1[5]==$data2[0]){
+                                        echo $data2[1];}
+                                endwhile;
                             ?>
-                            
                         </td>
-                        <td><?= $data1[6]?></td>
+                        <td>
+                            <?php
+                                while($data3= mysqli_fetch_array($rs2)):
+                                    if($data1[6]==$data3[0]):
+                                        echo $data3[1];
+                                    endif;
+                                endwhile;
+                            ?>
+                        </td>
                         <td><a href="#?id=<?= $data1[0]?>">Update</a></td>
                         <td><a href="detailsProduct.php?id=<?= $data1[0]?>">Details</a></td>
                     </tr>

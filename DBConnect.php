@@ -4,7 +4,7 @@
 $server = "localhost";
 $account = "root";
 $password = "";
-$database = ""; //database's name
+$database = "dbpheidip"; //database's name
 
 #2. Connect Database
 $conn = mysqli_connect($server, $account, $password, $database);

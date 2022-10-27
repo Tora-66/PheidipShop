@@ -167,3 +167,9 @@ ADD FOREIGN KEY (PaymentID) REFERENCES tbPayment(PaymentID);
 ALTER TABLE `tbFeedback`
 ADD FOREIGN KEY (UserID) REFERENCES tbUser_Account(UserID),
 ADD FOREIGN KEY (GuestID) REFERENCES tbGuest(GuestID);
+
+INSERT INTO `tbType`(TypeID, TypeName, Desc) VALUES 
+('001SNE', 'Sneaker', 'Sneaker shoes'),
+('002BOO', 'Boots', 'Boots shoes'),
+('003SAN', 'Sandals', 'Sandals'),
+('004SLI', 'Slippers', 'Slippers');

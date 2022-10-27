@@ -5,7 +5,7 @@
 body { font-family: sans-serif; }
 
 .carousel {
-  background: rgb(243, 243, 243);
+  background: white;
 }
 
 .carousel-cell {
@@ -76,11 +76,12 @@ body { font-family: sans-serif; }
 /* Card */
 .card {
   border-radius: 0;
+  border: none;
 }
 
 .card:hover{
   /* border: solid #343434 thin; */
-  box-shadow: 2px 2px;
+  box-shadow: 3px 3px;
 }
 
 .card img {
@@ -94,4 +95,8 @@ body { font-family: sans-serif; }
 
 .card .card-title {
   font-weight:700;
+}
+
+.card .card-button:hover{
+  box-shadow: 2px 2px;
 }

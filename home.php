@@ -14,8 +14,9 @@
 
 <body>
     <?php
-    include 'php/navigationBar.php';
-    include 'php/carousel.php';
+    include 'navigationBar.php';
+    include 'carousel.php';
+    include 'cardSlider.php';
 
     ?>
 

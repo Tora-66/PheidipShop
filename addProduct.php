@@ -21,7 +21,7 @@ include_once'DBConnect.php';
 
             //thumnail
             if(isset($_FILES['txtThumbnail'])):
-                $folder1 ="images/thumbnail_";
+                $folder1 ="img/thumbnail_";
                 $fileName1= $_FILES["txtThumbnail"]["name"];
                 $fileTmp1= $_FILES["txtThumbnail"]["tmp_name"];
                 $thumbnail=$folder1.$fileName1;
@@ -30,7 +30,7 @@ include_once'DBConnect.php';
 
             //image
             if(isset($_FILES['txtImage'])):
-                $folder2 ="images/image_";
+                $folder2 ="img/image_";
                 $fileName2= $_FILES["txtImage"]["name"];
                 $fileTmp2= $_FILES["txtImage"]["tmp_name"];
                 $image=$folder2.$fileName2;
@@ -38,8 +38,8 @@ include_once'DBConnect.php';
             endif;
 
             //SQL
-            $query = "insert into tbproduct values('{$proId}','{$name}','{$price}','{$thumbnail}','{$image}','{$brandId}','{$typeId}','{$desc}')";
-            $rs =mysqli_query($conn,$query);
+            $query = "insert into tbproduct(ProductID, ProductName, Price, Thumbnail, Image, BrandID, TypeID, `Desc`) values('{$proId}','{$name}','{$price}','{$thumbnail}','{$image}','{$brandId}','{$typeId}','{$desc}');";
+            $rs = mysqli_query($conn,$query);
             if(!$rs):
                 die('nothing to save');
             endif;
@@ -89,7 +89,7 @@ include_once'DBConnect.php';
                     <td><select name="brand" id="brands">
                     <?php while($field = mysqli_fetch_array($rs1)): ?>
 
-                        <option value="./<?= $field[0]?>"><?= $field[1]?></option>
+                        <option value="<?= $field[0]?>"><?= $field[1]?></option>
 
                     <?php endwhile; ?>
                     </select></td>
@@ -99,7 +99,7 @@ include_once'DBConnect.php';
                     <td><select name="type" id="type">
                     <?php while($field = mysqli_fetch_array($rs2)): ?>
 
-                        <option value="./<?= $field[0]?>"><?= $field[1]?></option>
+                        <option value="<?= $field[0]?>"><?= $field[1]?></option>
 
                     <?php endwhile; ?>
                     </select></td>

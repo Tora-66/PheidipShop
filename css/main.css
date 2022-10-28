@@ -1,31 +1,55 @@
+
 /* external css: flickity.css */
 
 * { box-sizing: border-box; }
 
 body { font-family: sans-serif; }
 
+html { overflow-y: scroll; }
+
 .carousel {
-  background: white;
+  background: rgb(255, 255, 255);
+  height: 35rem;
 }
 
+
 .carousel-cell {
+  height: 100%;
   margin-right: 20px;
-  overflow: hidden;
 }
 
 .carousel-cell img {
   display: block;
-  height: 200px;
-}
-
-@media screen and ( min-width: 768px ) {
-  .carousel-cell img {
-    height: 400px;
-  }
+  height: 100%;
 }
 
 
 
+.carousel-section {
+  margin-top: 4rem;
+}
+
+.carousel-item {
+  background-color: rgb(20, 20, 20);
+}
+
+/* .carousel-item img {
+  height: 35rem;
+  margin: 0 auto;
+  width: 75%;
+} */
+
+.carousel-cell .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 10rem;
+  max-width: 100%;
+  width: 100%;
+  left: 0;
+
+}
+
+
+/* Navigation bar */
 .navbar .search{
   width: 15rem;
   border-top: solid #727272 thin;
@@ -48,29 +72,6 @@ body { font-family: sans-serif; }
   border-right: none;
 }
 
-.carousel {
-  width: 100%;
-}
-
-.carousel-section {
-  margin-top: 5rem;
-}
-
-.carousel-item {
-  background-color: rgb(20, 20, 20);
-}
-
-/* .carousel-item img {
-  height: 35rem;
-  margin: 0 auto;
-  width: 75%;
-} */
-
-.carousel-caption {
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 70%;
-  height: 10rem;
-}
 
 
 /* Card */
@@ -81,7 +82,8 @@ body { font-family: sans-serif; }
 
 .card:hover{
   /* border: solid #343434 thin; */
-  box-shadow: 3px 3px;
+  border: solid #727272 thin;
+  box-shadow: 0.5rem 1rem;
 }
 
 .card img {
@@ -90,7 +92,7 @@ body { font-family: sans-serif; }
 }
 
 .card .card-body{
-  text-align: center;
+  text-align: center;;
 }
 
 .card .card-title {
@@ -98,5 +100,5 @@ body { font-family: sans-serif; }
 }
 
 .card .card-button:hover{
-  box-shadow: 2px 2px;
+  
 }

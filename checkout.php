@@ -28,6 +28,9 @@ function total($price, $quantity)
   return $price * $quantity;
 }
 
+if(isset($_POST["btnOrder"])){
+  $address = $_POST["address"];
+}
 ?>
 <html lang="en">
 
@@ -142,10 +145,10 @@ function total($price, $quantity)
     </div>
     <div>
       <h5>Delivery Address</h5>
-      <input type="text">
+      <input type="text" name="address">
     </div>
   </div>
-  <button><a href="addOrder.php">Order</a></button>
+  <button type="submit" name="btnOrder"><a href="addOrder.php">Order</a></button>
   </form>
 
 

@@ -37,7 +37,7 @@
                 <td><?= $data[0]?></td>
                 <td><?= $data[1]?></td>
                 <td style="text-align:center"><img src="<?= $data[2]?>" alt="Image" width="40" height="30"></td>
-                <td><a href="#?code=<?= $data[0]?>">Update</a></td>
+                <td><a href="editBrand.php?code=<?= $data[0]?>">Update</a></td>
                 <td><a href="detailsBrand.php?code=<?= $field[0]?>">Details</a></td>
             </tr>
             <?php 

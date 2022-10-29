@@ -2,13 +2,15 @@
 session_start();
 
 if (!isset($_GET["index"])) :
-    header("Location: Cart.php");
+    header("Location: cart.php");
 endif;
 
 $index = $_GET["index"];
 
-$_SESSION["prodID"] = array_diff($_SESSION["prodID"], $_SESSION["prodID"][$index]);
-$_SESSION["size"] = array_diff($_SESSION["size"], $_SESSION["size"][$index]);
-$_SESSION["quantity"] = array_diff($_SESSION["quantity"], $_SESSION["quantity"][$index]);
+if(($key = array_search($_SESSION["prodID"][$index], $_SESSION["prodID"])) !== false) {
+    unset($_SESSION["prodID"][$key]);
+    unset($_SESSION["size"][$key]);
+    unset($_SESSION["quantity"][$key]);
+}
 
-header("Location: Cart.php");
+header("Location: cart.php");

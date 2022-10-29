@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include_once'DBConnect.php';
+include_once 'DBConnect.php';
     $query1 = "SELECT * FROM tbbrand ";
     $rs1 = mysqli_query($conn,$query1);
     $count1=mysqli_num_rows($rs1);

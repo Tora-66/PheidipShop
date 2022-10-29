@@ -18,7 +18,6 @@ $rs = mysqli_query($conn, $query);
 $count = mysqli_num_rows($rs);
 
 $brand = array();
-
 for ($i = 0; $i < $count; $i++) {
   $rc = mysqli_fetch_array($rs);
   array_push($brand, $rc);
@@ -26,7 +25,7 @@ for ($i = 0; $i < $count; $i++) {
 
 function total($price, $quantity)
 {
-  echo $price * $quantity;
+  return $price * $quantity;
 }
 
 ?>
@@ -73,11 +72,11 @@ function total($price, $quantity)
         <th scope="col">Quantity</th>
         <th scope="col">Price</th>
         <th scope="col">Total</th>
-        <th scope="col">Remove</th>
       </tr>
     </thead>
     <?php
     $count = count($_SESSION["prodID"]);
+    $subtotal = 0;
     for ($i = 0; $i < $count; $i++) :
       $prodID = $_SESSION["prodID"][$i];
       $queryProduct = "SELECT * FROM `tbProduct` WHERE ProductID = '{$prodID}'";
@@ -110,23 +109,43 @@ function total($price, $quantity)
           </td>
           <td>
             <div>
-              <a href="minus.php?index=<?= $i?>">-</a>
-              <p id="quantity"><?= $quantity; ?></p>
-              <a href="add.php?index=<?= $i?>">+</a>
+              <p class="quantity"><?= $quantity; ?></p>
             </div>
           </td>
-          <td>$<span id="price"><?= $rcProduct[2]; ?></span></td>
+          <td>$<span class="price"><?= $rcProduct[2]; ?></span></td>
           <td>
-            <p id="total">$<?= total((float)$rcProduct[2], (int)$quantity) ?></p>
+            <p class="total">$<?= total((float)$rcProduct[2], (int)$quantity) ?></p>
           </td>
-          <td><a href="remove.php?index=<?= $i?>">Remove</a></td>
         </tr>
       </tbody>
     <?php
+    $subtotal = $subtotal + total((float)$rcProduct[2], (int)$quantity);
     endfor;
     ?>
   </table>
-  <button><a href="checkout.php">Checkout</a></button>
+  <div>
+    <div>
+      <h5>Subtotal:</h5>
+      <p>$<?= $subtotal;?></p>
+    </div>
+    <div>
+      <h5>Taxes:</h5>
+      <p>$<?= $subtotal*0.1;?></p>
+    </div>
+    <div>
+      <h5>Total:</h5>
+      <p>$<?= $subtotal*1.1;?></p>
+    </div>
+    <div>
+      <h5>Payment:</h5>
+      <p>Cash</p>
+    </div>
+    <div>
+      <h5>Delivery Address</h5>
+      <input type="text">
+    </div>
+  </div>
+  <button><a href="addOrder.php">Order</a></button>
   </form>
 
 

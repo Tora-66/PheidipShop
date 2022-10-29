@@ -14,6 +14,10 @@ $countProduct = mysqli_num_rows($rsProduct);
 $rcProduct = mysqli_fetch_array($rsProduct);
 
 if (isset($_POST['btnAdd'])) {
+  if(!isset($_SESSION["username"])){
+    header("location: home.php");
+  }
+
   $size = $_POST['options'];
   $quantity = $_POST['quantity'];
 
@@ -38,7 +42,7 @@ if (isset($_POST['btnAdd'])) {
 <body>
   <div class="container">
     <div class="page-header">
-      <span class="login-signup"><a href="Cart.php">Cart</a></span>
+      <span class="login-signup"><a href="cart.php">Cart</a></span>
     </div>
   </div>
   <form method="post">

@@ -3,6 +3,7 @@ USE `dbpheidip`;
 SELECT * FROM `tbOrder_Master`;
 SELECT * FROM `tbInventory`;
 SELECT * FROM `tbOrder_Details`;
+SELECT * FROM `tbProduct`;
 
 INSERT INTO `tbInventory` VALUES 
 ('001', 'M', 0),

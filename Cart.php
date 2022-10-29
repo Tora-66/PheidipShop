@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <?php
 session_start();
+include_once 'DBConnect.php';
 
-include_once 'dbConnect.php';
-
-if (!isset($_SESSION["userID"])) :
-  header("location: home.php");
-endif;
-
-
-
+if (isset($_SESSION["username"])) {
+  $username = $_SESSION["username"];
+  session_write_close();
+} else {
+  session_unset();
+  session_write_close();
+  $url = "./home.php";
+  header("Location: $url");
+}
 
 
 ?>
@@ -31,7 +33,7 @@ endif;
     }
 
     .product-card-img {
-      width: 7rem;
+      width: 10rem;
     }
 
     .quantity {
@@ -44,6 +46,7 @@ endif;
     }
   </style>
 </head>
+
 <body>
   <!-- Form table -->
   <table class="table">
@@ -57,29 +60,49 @@ endif;
         <th scope="col">Remove</th>
       </tr>
     </thead>
-    <tbody>
-      <tr class="text-center align-middle">
-        <th scope="row">1</th>
-        <td>
-          <div class="product-card">
-            <img src="../img/1.jpg" alt="" class="product-card-item product-card-img">
-            <div class="product-card-item">
-              <h5>Name of Product</h5>
-              <p>Brand</p>
+    <?php
+    $count = count($_SESSION["prodID"]);
+    for ($i = 0; $i < $count; $i++) :
+      $prodID = $_SESSION["prodID"][$i];
+      $queryProduct = "SELECT * FROM `tbProduct` WHERE ProductID = '{$prodID}'";
+      $rsProduct = mysqli_query($conn, $queryProduct);
+      $rcProduct = mysqli_fetch_array($rsProduct);
+
+      $size = $_SESSION["size"][$i];
+      $quantity = $_SESSION["quantity"][$i];
+
+    ?>
+      <tbody>
+        <tr class="text-center align-middle">
+          <th scope="row"><?= $i+1; ?></th>
+          <td>
+            <div class="product-card">
+              <img src="<?= $rcProduct[3]; ?>" alt="" class="product-card-item product-card-img">
+              <div class="product-card-item">
+                <h5><?= $rcProduct[1]; ?></h5>
+                <p><?= $rcProduct[5]; ?></p>
+                <p><?= $size; ?></p>
+              </div>
             </div>
-          </div>
-        </td>
-        <td>
-          <input type="number" class="quantity">
-        </td>
-        <td>$99.00</td>
-        <td>
-          <p id="total"></p>
-        </td>
-        <td><a href="">Remove</a></td>
-      </tr>
-    </tbody>
+          </td>
+          <td>
+            <input type="number" class="quantity" value="<?= $quantity; ?>">
+          </td>
+          <td><?= $rcProduct[2]; ?></td>
+          <td>
+            <p id="total"></p>
+          </td>
+          <td><a href="">Remove</a></td>
+        </tr>
+      </tbody>
+    <?php
+    endfor;
+    ?>
   </table>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <?php mysqli_close($conn); ?>
 </body>
 
 </html>

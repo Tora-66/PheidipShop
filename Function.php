@@ -2,23 +2,26 @@
 //Start Session
 session_start();
 
+
 //Connect database
-include_once 'dbConnect.php';
+include_once 'DBConnect.php';
 mysqli_close($conn);
 
 // Check user session
-if(!isset($_SESSION["userID"])):
+if(!isset($_SESSION["username"])):
     header("location: home.php");
   endif;
 
 // Execute sql query
 $query = "";
 $rs = mysqli_query($conn, $query);
+$count = mysqli_num_rows($rs);
 $detailsRecord = mysqli_fetch_array($rs);
 mysqli_close($conn);
 
+
 //Start Shopping Session
-if (!isset($_SESSION["prodID"])) :
+if (!isset($_SESSION["username"])) :
     $_SESSION["prodID"] = array();
     $_SESSION["size"] = array();
     $_SESSION["quantity"] = array();
@@ -62,3 +65,66 @@ WHERE `ProductID` = '{$productID}' AND `Size` = '{$size}';";
 $rs = mysqli_query($conn, $query);
 
 header("location: inventory.php");
+
+// Inventory
+for ($i = 0; $i < $countProduct; $i++) :
+    if ($countInventory == 0) :
+      $rcProduct = mysqli_fetch_array($rsProduct);
+      $InvenID = $rcProduct[0] . "38";
+      $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '38', 0);";
+      $executeInsert = mysqli_query($conn, $queryInsert);
+  
+      $InvenID = $rcProduct[0] . "39";
+      $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '39', 0);";
+      $executeInsert = mysqli_query($conn, $queryInsert);
+  
+      $InvenID = $rcProduct[0] . "40";
+      $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '40', 0);";
+      $executeInsert = mysqli_query($conn, $queryInsert);
+  
+      $InvenID = $rcProduct[0] . "41";
+      $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '41', 0);";
+      $executeInsert = mysqli_query($conn, $queryInsert);
+  
+      $InvenID = $rcProduct[0] . "42";
+      $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '42', 0);";
+      $executeInsert = mysqli_query($conn, $queryInsert);
+  
+    else :
+      for ($x = 0; $x < $countInventory; $x++) :
+        $rcProduct = mysqli_fetch_array($rsProduct);
+        $rcInventory = mysqli_fetch_array($rsInventory);
+        if ($rcProduct[0] !== $rcInventory[1]) :
+          $InvenID = $rcProduct[0] . "38";
+          $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '38', 0);";
+          $executeInsert = mysqli_query($conn, $queryInsert);
+  
+          $InvenID = $rcProduct[0] . "39";
+          $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '39', 0);";
+          $executeInsert = mysqli_query($conn, $queryInsert);
+  
+          $InvenID = $rcProduct[0] . "40";
+          $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '40', 0);";
+          $executeInsert = mysqli_query($conn, $queryInsert);
+  
+          $InvenID = $rcProduct[0] . "41";
+          $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '41', 0);";
+          $executeInsert = mysqli_query($conn, $queryInsert);
+  
+          $InvenID = $rcProduct[0] . "42";
+          $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
+          ('{$InvenID}', '{$rcProduct[0]}', '42', 0);";
+          $executeInsert = mysqli_query($conn, $queryInsert);
+        endif;
+      endfor;
+    endif;
+  endfor;

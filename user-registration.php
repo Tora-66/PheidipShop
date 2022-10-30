@@ -8,22 +8,22 @@ if (! empty($_POST["signup-btn"])) {
 <HTML>
 <HEAD>
 <TITLE>User Registration</TITLE>
-<link href="registerandlogin/assets/css/style.css" type="text/css"
-	rel="stylesheet" />
-<link href="registerandlogin/assets/css/user-registration.css" type="text/css"
-	rel="stylesheet" />
+<link href="registerandlogin/css/style.css" type="text/css"
+	rel="stylesheet"/>
+<link href="registerandlogin/css/user-registration.css" type="text/css"
+	rel="stylesheet"/>
 <script src="registerandlogin/vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
 </HEAD>
 <BODY>
 	<div class="container">
 		<div class="sign-up-container">
 			<div class="login-signup">
-				<a href="index.php">Login</a>
+				<a href="login.php">Login</a>
 			</div>
 			<div class="">
 				<form name="sign-up" action="" method="post"
 					onsubmit="return signupValidation()">
-					<div class="signup-heading">Registration</div>
+					<div class="signup-heading">Welcome to Pheidip!</div>
 				<?php
     if (! empty($registrationResponse["status"])) {
         ?>
@@ -45,27 +45,27 @@ if (! empty($_POST["signup-btn"])) {
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Username<span class="required error" id="username-info"></span>
+								<strong>Username</strong><span class="required error" id="username-info"></span>
 							</div>
 							<input class="input-box-330" type="text" name="username"
-                                                               id="username" pattern="[A-Za-z0-9]{6,20}" placeholder="6 to 20 letters or digits">
+                                                               id="username" pattern="[A-Za-z0-9]{6,20}" placeholder="At least 6 to 20 letters or digits">
 						</div>
 					</div>
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Password<span class="required error" id="signup-password-info"></span>
+								<strong>Password</strong><span class="required error" id="signup-password-info"></span>
 							</div>
 							<input class="input-box-330" type="password"
                                                                name="signup-password" id="signup-password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                                                               placeholder="6 or more characters">
+                                                               placeholder="At least 6 or more characters">
                                                 </div>
-                                                <div style="text-align: justify; font-size: 13px; margin:5px 50px 0 50px; opacity: 0.6">Must contain at least one uppercase, one lowercase letter and one number.</div>
+                                                <div class="sub-text">Must contain at least one uppercase, one lowercase letter and one number.</div>
 					</div>
 					<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Confirm Password<span class="required error"
+								<strong>Confirm Password</strong><span class="required error"
 									id="confirm-password-info"></span>
 							</div>
 							<input class="input-box-330" type="password"
@@ -75,41 +75,43 @@ if (! empty($_POST["signup-btn"])) {
                                         <div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Full Name<span class="required error" id="fullname-info"></span>
+								<strong>Full Name</strong><span class="required error" id="fullname-info"></span>
 							</div>
 							<input class="input-box-330" type="text" name="fullname" id="fullname" pattern="^[a-zA-Z]{3,}( {1,2}[a-zA-Z]{3,}){0,}$"
-                                                               placeholder="at least 3 or more letters">
+                                                               placeholder="At least 3 or more letters">
 						</div>
 					</div>
                                         <div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Email<span class="required error" id="email-info"></span>
+								<strong>Email</strong><span class="required error" id="email-info"></span>
 							</div>
 							<input class="input-box-330" type="email" name="email" id="email"
-                                                        >
+                                                        placeholder="Ex: you@yourdomain.com">
+                                                        
 						</div>
 					</div>
                                         <div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Phone Number<span class="required error" id="phonenum-info"></span>
+								<strong>Phone Number</strong><span class="required error" id="phonenum-info"></span>
 							</div>
                                                     <input class="input-box-330" type="tel" name="phonenum" id="phonenum" pattern="[0-9]{10,14}"
-                                                           placeholder="10 to 14 digits">
+                                                           placeholder="At least 10 to 14 digits">
 						</div>
 					</div>
                                         <div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Address<span class="required error" id="address-info"></span>
+								<strong>Address</strong><span class="required error" id="address-info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="address" id="address">
+							<input class="input-box-330" type="text" name="address" id="address" pattern="^[a-zA-Z]{3,}( {1,2}[a-zA-Z]{3,}){0,}$"
+                                                               placeholder="At least 3 or more letters">
 						</div>
 					</div>
 					<div class="row">
 						<input class="btn" type="submit" name="signup-btn"
-							id="signup-btn" value="Sign up">
+							id="signup-btn" value="Create new account">
 					</div>
 				</form>
 			</div>

@@ -69,6 +69,12 @@ class Member
                 $_POST["phonenum"]               
             );
             $memberId = $this->ds->insert($query, $paramType, $paramValue);
+            $query = 'INSERT INTO tbdelivery_address (userid, address, is_default) VALUES (LAST_INSERT_ID(), ?,1)';
+            $paramType = 's';
+            $paramValue = array(
+                $_POST["address"]
+            );
+            $memberId = $this->ds->insert($query, $paramType, $paramValue);
             if (!empty($memberId)) {
                 $response = array(
                     "status" => "success",

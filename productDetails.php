@@ -13,7 +13,7 @@ $rcProduct = mysqli_fetch_array($rsProduct);
 
 if (isset($_POST['btnAdd'])) {
   if (!isset($_SESSION["username"])) {
-    header("location: home.php");
+    header("location: login.php");
   }
 
   $size = $_POST['options'];

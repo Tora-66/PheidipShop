@@ -70,9 +70,9 @@ if (isset($_SESSION["username"])) {
 							<img src="img/source/Customer_Avatar.jpg" alt="" class="avatar rounded-circle" height="50px" width="100%" />
 						</li>
 						<li class="nav-item mt-3 mx-2">
-							<p class="nav-link fw-normal username"></p>
+							<p class="nav-link fw-normal username">'.$_SESSION["username"].'</p>
 						</li>
-						<div class="vr fw-normal"></div>
+						<div class="vr fw-normal my-3"></div>
 						<li class="nav-item my-auto mx-2">
 							<a class="nav-link fw-normal" href="logout.php">Logout</a>
 						</li>

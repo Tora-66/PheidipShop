@@ -8,9 +8,9 @@ if (! empty($_POST["login-btn"])) {
 <HTML>
 <HEAD>
 <TITLE>Login</TITLE>
-<link href="registerandlogin/assets/css/style.css" type="text/css"
+<link href="registerandlogin/css/style.css" type="text/css"
 	rel="stylesheet" />
-<link href="registerandlogin/assets/css/user-registration.css" type="text/css"
+<link href="registerandlogin/css/user-registration.css" type="text/css"
 	rel="stylesheet" />
 <script src="registerandlogin/vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
 </HEAD>
@@ -30,7 +30,7 @@ if (! empty($_POST["login-btn"])) {
 				<div class="row">
 						<div class="inline-block">
 							<div class="form-label">
-								Username<span class="required error" id="username-info"></span>
+								<strong>Username</strong><span class="required error" id="username-info"></span>
 							</div>
 							<input class="input-box-330" type="text" name="username"
 								id="username">
@@ -38,8 +38,8 @@ if (! empty($_POST["login-btn"])) {
 					</div>
 					<div class="row">
 						<div class="inline-block">
-							<div class="form-label">
-								Password<span class="required error" id="login-password-info"></span>
+                                                    <div class="form-label">
+								<strong>Password</strong><span class="required error" id="login-password-info"></span>
 							</div>
 							<input class="input-box-330" type="password"
 								name="login-password" id="login-password">

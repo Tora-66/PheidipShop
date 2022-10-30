@@ -9,7 +9,7 @@ $query1 = "SELECT * FROM tbbrand ";
 $rs1 = mysqli_query($conn, $query1);
 $count1 = mysqli_num_rows($rs1);
 $brand = array();
-for($i = 0; $i < $count1; $i++){
+for ($i = 0; $i < $count1; $i++) {
     $rc1 = mysqli_fetch_array($rs1);
     array_push($brand, $rc1);
 }
@@ -18,33 +18,26 @@ $query2 = "SELECT * FROM tbtype ";
 $rs2 = mysqli_query($conn, $query2);
 $count2 = mysqli_num_rows($rs2);
 $type = array();
-for($i = 0; $i < $count2; $i++){
+for ($i = 0; $i < $count2; $i++) {
     $rc2 = mysqli_fetch_array($rs2);
     array_push($type, $rc2);
 }
 
+include 'htmlHead.php';
+include 'sidebar.php';
+
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Product List</title>
-</head>
-
-<body>
+<section class="mx-5" style="margin-top: 8rem;">
     <h2>Product List</h2>
-    <a href="addProduct.php">ADD NEW BRAND</a>
+    <div class="container m-0 my-3 p-0">
+        <button class="btn btn-outline-dark"><a href="addProduct.php" class="text-decoration-none text-warning">Add New</a></button>
+    </div>
     <table class="table table-hove table-bordered">
         <tr>
             <th>Product ID</th>
             <th>Name</th>
-            <th>price</th>
+            <th>Price</th>
             <th>Thumbnail</th>
             <th>Brand</th>
             <th>Type</th>
@@ -64,8 +57,8 @@ for($i = 0; $i < $count2; $i++){
                     <td style="text-align:center"><img src="<?= $data1[3] ?>" alt="Image" width="40" height="30"></td>
                     <td>
                         <?php
-                        for($z = 0; $z < count($brand);$z++){
-                            if($data1[5] == $brand[$z][0]){
+                        for ($z = 0; $z < count($brand); $z++) {
+                            if ($data1[5] == $brand[$z][0]) {
                                 echo $brand[$z][1];
                             }
                         }
@@ -73,8 +66,8 @@ for($i = 0; $i < $count2; $i++){
                     </td>
                     <td>
                         <?php
-                        for($z = 0; $z < count($type);$z++){
-                            if($data1[6] == $type[$z][0]){
+                        for ($z = 0; $z < count($type); $z++) {
+                            if ($data1[6] == $type[$z][0]) {
                                 echo $type[$z][1];
                             }
                         }
@@ -86,9 +79,11 @@ for($i = 0; $i < $count2; $i++){
         <?php
             endfor;
         endif;
-        mysqli_close($conn);
+
         ?>
     </table>
-</body>
-
-</html>
+</section>
+<?php
+mysqli_close($conn);
+include 'htmlBody.php';
+?>

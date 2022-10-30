@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 include_once 'DBConnect.php';
 if (isset($_POST["btnAdd"])) :
@@ -19,23 +18,15 @@ if (isset($_POST["btnAdd"])) :
     endif;
     header("location:brand.php");
 endif;
+
+include 'htmlHead.php';
+include 'sidebar.php';
 ?>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Add brands</title>
-</head>
-
-<body>
+<section class="mx-5" style="margin-top: 8rem;">
     <form method="post" enctype="multipart/form-data">
         <caption>
-            <h3>New brand ìnormation Form</h3>
+            <h3>Add Brand</h3>
         </caption>
         <table width="50%">
             <tr>
@@ -57,13 +48,18 @@ endif;
                 <td><textarea name="txtDesc" id="description" cols="30" rows="5"></textarea></td>
             </tr>
             <tr>
-                <td><a href="brand.php">Back to Brand list</a></td>
+                <td>
+                    <div class="container m-0 my-3 p-0">
+                        <button class="btn btn-dark"><a href="brand.php" class="text-decoration-none text-white">Back</a></button>
+                    </div>
+                </td>
                 <td>
                     <input type="submit" value="Add New" name="btnAdd">
                 </td>
             </tr>
         </table>
     </form>
-</body>
-
-</html>
+</section>
+<?php
+include 'htmlBody.php';
+?>

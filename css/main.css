@@ -61,6 +61,7 @@ html { overflow-y: scroll; }
 .navbar .nav-link{
   color: #343434;
   font-weight: bold;
+  margin: auto;
 }
 
 .navbar .btn-search {
@@ -71,6 +72,13 @@ html { overflow-y: scroll; }
   border-bottom: solid #727272 thin;
   border-right: none;
 }
+
+.navbar .avatar{
+  width: 100%;
+  border-radius: 50%;
+  height: 50px;
+}
+
 
 
 
@@ -99,6 +107,28 @@ html { overflow-y: scroll; }
   font-weight:700;
 }
 
-.card .card-button:hover{
-  
+
+/* Table Form */
+.product-card {
+  display: flex;
+}
+
+.product-card-item {
+  margin-right: 0.5rem;
+}
+
+.product-card-img {
+  width: 10rem;
+}
+
+.quantity {
+  width: 3rem;
+}
+
+.table thead th {
+  font-size: large;
+}
+
+#cartView{
+  margin-top: 10rem;
 }

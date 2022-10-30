@@ -28,45 +28,17 @@ function total($price, $quantity)
   return $price * $quantity;
 }
 
-if(isset($_POST["btnOrder"])){
+if (isset($_POST["btnOrder"])) {
   $address = $_POST["address"];
 }
+
+include 'htmlHead.php';
+include 'navigationBar.php';
 ?>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping Cart</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .product-card {
-      display: flex;
-    }
-
-    .product-card-item {
-      margin-right: 0.5rem;
-    }
-
-    .product-card-img {
-      width: 10rem;
-    }
-
-    .quantity {
-      width: 3rem;
-    }
-
-    .table thead th {
-      font-size: large;
-
-    }
-  </style>
-</head>
-
-<body>
-  <form method="post">
-    <!-- Form table -->
+<section style="margin-top: 8rem;">
+<form method="post">
+  <!-- Form table -->
   <table class="table">
     <thead>
       <tr class="text-center">
@@ -122,38 +94,41 @@ if(isset($_POST["btnOrder"])){
         </tr>
       </tbody>
     <?php
-    $subtotal = $subtotal + total((float)$rcProduct[2], (int)$quantity);
+      $subtotal = $subtotal + total((float)$rcProduct[2], (int)$quantity);
     endfor;
     ?>
   </table>
-  <div>
+  <form action="" class="form-control">
     <div>
-      <h5>Subtotal:</h5>
-      <p>$<?= $subtotal;?></p>
+      <div>
+        <h5>Subtotal:</h5>
+        <p>$<?= $subtotal; ?></p>
+      </div>
+      <div>
+        <h5>Taxes:</h5>
+        <p>$<?= $subtotal * 0.1; ?></p>
+      </div>
+      <div>
+        <h5>Total:</h5>
+        <p>$<?= $subtotal * 1.1; ?></p>
+      </div>
+      <div>
+        <h5>Payment:</h5>
+        <p>Cash</p>
+      </div>
+      <div>
+        <h5>Delivery Address</h5>
+        <input type="text" name="address">
+      </div>
     </div>
-    <div>
-      <h5>Taxes:</h5>
-      <p>$<?= $subtotal*0.1;?></p>
-    </div>
-    <div>
-      <h5>Total:</h5>
-      <p>$<?= $subtotal*1.1;?></p>
-    </div>
-    <div>
-      <h5>Payment:</h5>
-      <p>Cash</p>
-    </div>
-    <div>
-      <h5>Delivery Address</h5>
-      <input type="text" name="address">
-    </div>
-  </div>
-  <button type="submit" name="btnOrder"><a href="addOrder.php">Order</a></button>
   </form>
+  <div class="m-2 me-5 pe-3 text-start">
+    <button type="button" class="btn btn-danger" name="addOrder"><a class="text-decoration-none text-white" href="addOrder.php">Submit</a></button>
+  </div>
+</form>
+</section>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-  <?php mysqli_close($conn); ?>
-</body>
-
-</html>
+<?php mysqli_close($conn); 
+include 'htmlBody.php';
+?>

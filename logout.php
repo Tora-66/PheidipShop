@@ -3,5 +3,5 @@
 session_start();
 session_unset();
 session_write_close();
-$url = "./index.php";
+$url = "./home.php";
 header("Location: $url");

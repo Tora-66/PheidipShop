@@ -12,19 +12,19 @@
         $name = $_POST["txtName"];
         $desc = $_POST["txtDesc"];
         if(isset($_FILES['txtPath'])):
-            $folder="images/brand_";
+            $folder="img/brand_";
             $fileName= $_FILES["txtPath"]["name"];
             $fileTmp= $_FILES["txtPath"]["tmp_name"];
             $path=$folder.$fileName;
             move_uploaded_file($fileTmp, $path);
         endif;
-        $query="UPDATE tbbrand SET BrandName ='{$name}',Logo ='{$path}','Desc'='{$desc}' WHERE `tbbrand`.`BrandID` = '{$code}'";
+        $query="UPDATE tbbrand SET BrandName ='{$name}',Logo ='{$path}', `desc`='{$desc}' WHERE `tbbrand`.`BrandID` = '{$code}'";
         $rs=mysqli_query($conn,$query);
         if(!$rs):
             error_clear_last();
             die("Update Fails");
         endif;
-        header("Location: Index.php");
+        header("Location: brand.php");
     endif;
     mysqli_close($conn);
 ?>

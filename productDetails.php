@@ -1,10 +1,8 @@
-<!DOCTYPE html>
 <?php
 session_start();
 
 //Connect database
 include_once 'DBConnect.php';
-
 
 $proID = $_GET["id"];
 
@@ -14,7 +12,7 @@ $countProduct = mysqli_num_rows($rsProduct);
 $rcProduct = mysqli_fetch_array($rsProduct);
 
 if (isset($_POST['btnAdd'])) {
-  if(!isset($_SESSION["username"])){
+  if (!isset($_SESSION["username"])) {
     header("location: home.php");
   }
 
@@ -26,56 +24,74 @@ if (isset($_POST['btnAdd'])) {
   array_push($_SESSION["quantity"], $quantity);
 }
 
+$query1 = "SELECT * FROM tbbrand ";
+$rs1 = mysqli_query($conn, $query1);
+$count1 = mysqli_num_rows($rs1);
+$brand = array();
+for ($i = 0; $i < $count1; $i++) {
+  $rc1 = mysqli_fetch_array($rs1);
+  array_push($brand, $rc1);
+}
 
+include 'htmlHead.php';
+include 'navigationBar.php';
 ?>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Details</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-</head>
-
-<body>
+<section id="productDetails" class="container-fluid section-padding d-flex m-5" style="margin-top: 8rem;">
   <div class="container">
-    <div class="page-header">
-      <span class="login-signup"><a href="cart.php">Cart</a></span>
-    </div>
+    <img src="<?= $rcProduct[4] ?>" alt="" width="100%" height="500px">
   </div>
-  <form method="post">
-    <div class="card m-2" style="width: 18rem">
-      <img src="img/1.jpg" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title"><?= $rcProduct[1] ?></h5>
-        <p class="card-text mx-auto"><?= $rcProduct[5] ?></p>
-        <div class="container">
+  <div class="container m-auto">
+    <form method="post">
+      <h3 class="product-name"><?= $rcProduct[1] ?></h3>
+      <p class="brand-name">
+        <?php
+        for ($z = 0; $z < count($brand); $z++) {
+          if ($rcProduct[5] == $brand[$z][0]) {
+            echo $brand[$z][1];
+          }
+        }
+        ?>
+      </p>
+      <p class="product-price">$<?= $rcProduct[2] ?></p>
+      <div class="size m-0 my-2 p-0">
+        <div class="container d-inline m-0 p-0">
           <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" value="38" />
           <label class="btn btn-secondary" for="option1">38</label>
         </div>
-        <div class="container">
+        <div class="container d-inline mx-1 p-0">
           <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" value="39" />
           <label class="btn btn-secondary" for="option2">39</label>
         </div>
-        <div class="container">
+        <div class="container d-inline mx-1 p-0">
           <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" value="40" />
           <label class="btn btn-secondary" for="option3">40</label>
         </div>
-        <div class="container">
-          <input type="number" name="quantity">
+        <div class="container d-inline mx-1 p-0">
+          <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off" value="41" />
+          <label class="btn btn-secondary" for="option4">41</label>
         </div>
-        <button type="submit" class="btn btn-dark btn-lg rounded-0 card-button" name="btnAdd">
-          <i class="bi bi-cart2 me-2"></i> Add to cart
-        </button>
+        <div class="container d-inline d-inline mx-1 p-0">
+          <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off" value="42" />
+          <label class="btn btn-secondary" for="option5">42</label>
+        </div>
       </div>
-    </div>
-  </form>
+      <div class="container my-2 p-0">
+        <input class="m-0" type="number" name="quantity">
+      </div>
+      <button type="submit" class="btn btn-dark btn-lg rounded-0 card-button" name="btnAdd">
+        <i class="bi bi-cart2 me-2"></i> Add to cart
+      </button>
+      <div class="my-3">
+        <p class="fw-bold my-1">Description</p>
+        <textarea name="description" id="description" cols="40" rows="4" disabled class="bg-white">
+            <?= $rcProduct[7] ?>
+          </textarea>
+      </div>
+    </form>
+  </div>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
-
-  <?php mysqli_close($conn); ?>
-</body>
-
-</html>
+<?php mysqli_close($conn);
+include 'htmlBody.php';
+?>

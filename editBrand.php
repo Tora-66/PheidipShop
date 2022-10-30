@@ -3,8 +3,8 @@
     include_once 'DBConnect.php';
 
     $code = $_GET["code"];
-    $query = "SELECT * FROM tbbrand WHERE BrandID = '{$code}'";
-    $rs = mysqli_query($conn, $query);
+    $query1 = "SELECT * FROM tbbrand WHERE BrandID = '{$code}'";
+    $rs = mysqli_query($conn, $query1);
     $data= mysqli_fetch_array($rs);
 
     #3. Updata data to database
@@ -18,8 +18,9 @@
             $path=$folder.$fileName;
             move_uploaded_file($fileTmp, $path);
         endif;
-        $query="UPDATE tbbrand SET BrandName ='{$name}',Logo ='{$path}', `desc`='{$desc}' WHERE `tbbrand`.`BrandID` = '{$code}'";
-        $rs=mysqli_query($conn,$query);
+
+        $query2="UPDATE tbbrand SET BrandName ='{$name}',Logo ='{$path}',`Desc`='{$desc}' WHERE `tbbrand`.`BrandID` = '{$code}' ";
+        $rs=mysqli_query($conn,$query2);
         if(!$rs):
             error_clear_last();
             die("Update Fails");
@@ -64,7 +65,7 @@
             <tr>
                 <td><a href="brand.php">Back to Brand list</a></td>
                 <td><input type="submit" name="btnSave" value="Save"
-                onclick="return confirm('Are you sure to update <?= $data[0]?>')"></td>
+                onclick="return confirm('Are you sure to update <?= $data[1]?>')"></td>
             
             </tr>
         </table>

@@ -41,7 +41,7 @@
                 <td style="text-align:center"><img src="<?= $data[3]?>" alt="Image" width="40" height="30"></td>
                 <td><?= $data[4]?></td>
                 <td><a href="#?code=<?= $data[0]?>">Update</a></td>
-                <td><a href="detailsBrand.php?code=<?= $field[0]?>">Details</a></td>
+                <td><a href="php/deleteNews.php?code=<?= $data[0]?>">Delete</a></td>
             </tr>
             <?php 
         endwhile;

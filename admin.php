@@ -1,6 +1,6 @@
 <?php
 include_once 'php/DBConnect.php';
-
+$pageTitle = 'Admin';
 
 include 'php/htmlHead.php';
 include 'php/sidebar.php';

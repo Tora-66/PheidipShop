@@ -7,6 +7,10 @@ session_start();
 include_once 'DBConnect.php';
 mysqli_close($conn);
 
+// Set page title
+$pageTitle = "";
+
+
 // Check user session
 if (!isset($_SESSION["username"])) :
   header("location: home.php");
@@ -38,14 +42,6 @@ if (isset($_POST["btnAdd"])) :
     header("location: Login.php");
   endif;
 endif;
-
-// Remove Item
-// if (isset($_POST["btnRemove"])) :
-//     $index = 0; //return index in here
-//     $_SESSION["prodID"] = array_diff($_SESSION["prodID"], $_SESSION["prodID"][$index]);
-//     $_SESSION["size"] = array_diff($_SESSION["size"], $_SESSION["size"][$index]);
-//     $_SESSION["quantity"] = array_diff($_SESSION["quantity"], $_SESSION["quantity"][$index]);
-// endif;
 
 //Empty Cart
 if (isset($_POST['btnEmtpy'])) :

@@ -41,7 +41,7 @@ echo '
                 <a class="nav-link text-light" href="managementUser.php"><i class="bi bi-box mx-2"></i>User Management</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="viewOrder.php"><i class="bi bi-box mx-2"></i>Order Management</a>
+                <a class="nav-link text-light" href="order.php"><i class="bi bi-box mx-2"></i>Order Management</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light" href="inventory.php"><i class="bi bi-box mx-2"></i>Inventory Management</a>

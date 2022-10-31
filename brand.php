@@ -1,11 +1,11 @@
 <?php
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
 $query = "select * from tbbrand";
 $rs    = mysqli_query($conn, $query);
 $count = mysqli_num_rows($rs);
 
 include 'php/htmlHead.php';
-include 'sidebar.php';
+include 'php/sidebar.php';
 ?>
 
 <section style="margin-top: 8rem;">

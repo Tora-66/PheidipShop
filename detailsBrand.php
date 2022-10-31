@@ -31,10 +31,10 @@
             <td><?= $field[1]?></td>
         </tr>
         <tr>
-            <td>description:</td>
+            <td colspan="3">description:</td>
         </tr>
         <tr>
-            <td ><?=$field[3]?></td>
+            <td colspan="3" ><?=$field[3]?></td>
         </tr>
         <tr>
             <td align="center" colspan="3">

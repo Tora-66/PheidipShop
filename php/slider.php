@@ -2,7 +2,7 @@
 
 
 echo '
-<section id="cardSlider" class="section-padding mt-5 cardSlider">
+<section id="cardSlider" class="section-margin cardSlider">
       <div class="carousel" data-flickity=\'{ "wrapAround": true }\'>';
 while ($rcProduct = mysqli_fetch_array($rsProduct)) :
     echo '

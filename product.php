@@ -23,7 +23,7 @@ for ($i = 0; $i < $count2; $i++) {
     array_push($type, $rc2);
 }
 
-include 'htmlHead.php';
+include 'php/htmlHead.php';
 include 'sidebar.php';
 
 ?>
@@ -85,5 +85,5 @@ include 'sidebar.php';
 </section>
 <?php
 mysqli_close($conn);
-include 'htmlBody.php';
+include 'php/htmlBody.php';
 ?>

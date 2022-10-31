@@ -69,7 +69,7 @@ if (isset($_SESSION["username"])) {
 						<li class="nav-item my-auto mx-2">
 							<img src="img/source/Customer_Avatar.jpg" alt="" class="avatar rounded-circle" height="50px" width="100%" />
 						</li>
-						<li class="nav-item mt-3 mx-2">
+						<li class="nav-item my-auto mx-2">
 							<p class="nav-link fw-normal username">'.$_SESSION["username"].'</p>
 						</li>
 						<div class="vr fw-normal my-3"></div>

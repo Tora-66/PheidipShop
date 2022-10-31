@@ -30,7 +30,7 @@ for ($i = 0; $i < $count; $i++) :
 
     // Add Master
     $masterID = "M".substr($detailsID, 0, 3).date('s').$rc[0];
-    $queryMaster = "INSERT INTO `tbOrder_Master` VALUES ('$masterID', '{$detailsID}', '{$rc[0]}', '1', '{NOW()}', '');";
+    $queryMaster = "INSERT INTO `tbOrder_Master` VALUES ('$masterID', '{$detailsID}', '{$rc[0]}', '1', NOW(), '');";
     $rsMaster = mysqli_query($conn, $queryMaster);
 
 endfor;
@@ -42,4 +42,4 @@ mysqli_close($conn);
 unset($_SESSION["prodID"]);
 unset($_SESSION["size"]);
 unset($_SESSION["quantity"]);
-header("Location: home.php");
+header("Location: ../home.php");

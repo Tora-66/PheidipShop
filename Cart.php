@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
 
 if (isset($_SESSION["username"])) {
   $username = $_SESSION["username"];
@@ -28,10 +28,10 @@ function total($price, $quantity)
   echo $price * $quantity;
 }
 
-include 'htmlHead.php';
-include 'navigationBar.php';
+include 'php/htmlHead.php';
+include 'php/navigationBar.php';
 ?>
-<section id="cartView" class="section-padding cart" style="margin-top: 8rem;">
+<section id="cartView" class="section-margin cart">
   <form method="post">
     <!-- Form table -->
     <table class="table">
@@ -79,16 +79,16 @@ include 'navigationBar.php';
             </td>
             <td>
               <div>
-                <a href="minus.php?index=<?= $i ?>">-</a>
+                <a href="php/minus.php?index=<?= $i ?>">-</a>
                 <p id="quantity"><?= $quantity; ?></p>
-                <a href="add.php?index=<?= $i ?>">+</a>
+                <a href="php/add.php?index=<?= $i ?>">+</a>
               </div>
             </td>
             <td>$<span id="price"><?= $rcProduct[2]; ?></span></td>
             <td>
               <p id="total">$<?= total((float)$rcProduct[2], (int)$quantity) ?></p>
             </td>
-            <td><a href="remove.php?index=<?= $i ?>">Remove</a></td>
+            <td><a href="php/remove.php?index=<?= $i ?>">Remove</a></td>
           </tr>
         </tbody>
       <?php
@@ -103,5 +103,5 @@ include 'navigationBar.php';
 
 
 <?php mysqli_close($conn);
-include 'htmlBody.php';
+include 'php/htmlBody.php';
 ?>

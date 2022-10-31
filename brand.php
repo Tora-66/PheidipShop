@@ -4,7 +4,7 @@ $query = "select * from tbbrand";
 $rs    = mysqli_query($conn, $query);
 $count = mysqli_num_rows($rs);
 
-include 'htmlHead.php';
+include 'php/htmlHead.php';
 include 'sidebar.php';
 ?>
 
@@ -44,6 +44,6 @@ include 'sidebar.php';
 </div>
 </section>
 <?php
-include 'htmlBody.php';
+include 'php/htmlBody.php';
 mysqli_close($conn);
 ?>

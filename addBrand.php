@@ -19,7 +19,7 @@ if (isset($_POST["btnAdd"])) :
     header("location:brand.php");
 endif;
 
-include 'htmlHead.php';
+include 'php/htmlHead.php';
 include 'sidebar.php';
 ?>
 
@@ -61,5 +61,5 @@ include 'sidebar.php';
     </form>
 </section>
 <?php
-include 'htmlBody.php';
+include 'php/htmlBody.php';
 ?>

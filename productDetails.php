@@ -2,7 +2,7 @@
 session_start();
 
 //Connect database
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
 
 $proID = $_GET["id"];
 
@@ -33,8 +33,8 @@ for ($i = 0; $i < $count1; $i++) {
   array_push($brand, $rc1);
 }
 
-include 'htmlHead.php';
-include 'navigationBar.php';
+include 'php/htmlHead.php';
+include 'php/navigationBar.php';
 ?>
 
 <section id="productDetails" class="container-fluid section-padding d-flex m-5" style="margin-top: 8rem;">
@@ -93,5 +93,5 @@ include 'navigationBar.php';
 </section>
 
 <?php mysqli_close($conn);
-include 'htmlBody.php';
+include 'php/htmlBody.php';
 ?>

@@ -43,10 +43,10 @@ if (isset($_POST["btnAdd"])) :
     if (!$rs) :
         die('nothing to save');
     endif;
-    header("location:product.php");
+    header("location:inventory.php");
 endif;
 
-include 'htmlHead.php';
+include 'php/htmlHead.php';
 include 'sidebar.php';
 ?>
 <section class="border mx-5 text-center" style="margin-top: 8rem;">

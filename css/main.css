@@ -7,10 +7,15 @@ body { font-family: sans-serif; }
 
 html { overflow-y: scroll; }
 
+.section-margin{
+  margin-top: 8rem;
+}
+
 .carousel {
   background: rgb(255, 255, 255);
   height: 35rem;
 }
+
 
 
 .carousel-cell {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 session_start();
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
 
 if (isset($_SESSION["username"])) {
   $username = $_SESSION["username"];
@@ -28,107 +28,118 @@ function total($price, $quantity)
   return $price * $quantity;
 }
 
-if (isset($_POST["btnOrder"])) {
+if (isset($_POST["addOrder"])) {
   $address = $_POST["address"];
+
+  $queryId = "SELECT UserID FROM tbUser_Account WHERE UserName = '{$_SESSION["username"]}';";
+  $rsId = mysqli_query($conn, $queryId);
+  $rc = mysqli_fetch_array($rsId);
+
+  $userID = $rc[0];
+
+  $queryAddress = "INSERT INTO `tbDelivery_Address` VALUES ('{$userID}', '{$address}', 0)";
+  $rsAddress = mysqli_query($conn, $queryAddress);
+
+  header("location: php/addOrder.php");
 }
 
-include 'htmlHead.php';
-include 'navigationBar.php';
+include 'php/htmlHead.php';
+include 'php/navigationBar.php';
 ?>
 
 <section style="margin-top: 8rem;">
-<form method="post">
-  <!-- Form table -->
-  <table class="table">
-    <thead>
-      <tr class="text-center">
-        <th scope="col"></th>
-        <th scope="col">Product</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Price</th>
-        <th scope="col">Total</th>
-      </tr>
-    </thead>
-    <?php
-    $count = count($_SESSION["prodID"]);
-    $subtotal = 0;
-    for ($i = 0; $i < $count; $i++) :
-      $prodID = $_SESSION["prodID"][$i];
-      $queryProduct = "SELECT * FROM `tbProduct` WHERE ProductID = '{$prodID}'";
-      $rsProduct = mysqli_query($conn, $queryProduct);
-      $rcProduct = mysqli_fetch_array($rsProduct);
-
-      $size = $_SESSION["size"][$i];
-      $quantity = $_SESSION["quantity"][$i];
-
-    ?>
-      <tbody>
-        <tr class="text-center align-middle">
-          <th scope="row"><?= $i + 1; ?></th>
-          <td>
-            <div class="product-card">
-              <img src="<?= $rcProduct[3]; ?>" alt="" class="product-card-item product-card-img">
-              <div class="product-card-item">
-                <h5><?= $rcProduct[1]; ?></h5>
-                <p><?php
-                    for ($x = 0; $x < count($brand); $x++) {
-                      if ($rcProduct[5] == $brand[$x][0]) {
-                        echo $brand[$x][1];
-                      }
-                    }
-
-                    ?></p>
-                <p><?= $size; ?></p>
-              </div>
-            </div>
-          </td>
-          <td>
-            <div>
-              <p class="quantity"><?= $quantity; ?></p>
-            </div>
-          </td>
-          <td>$<span class="price"><?= $rcProduct[2]; ?></span></td>
-          <td>
-            <p class="total">$<?= total((float)$rcProduct[2], (int)$quantity) ?></p>
-          </td>
+  <form method="post">
+    <!-- Form table -->
+    <table class="table">
+      <thead>
+        <tr class="text-center">
+          <th scope="col"></th>
+          <th scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col">Total</th>
         </tr>
-      </tbody>
-    <?php
-      $subtotal = $subtotal + total((float)$rcProduct[2], (int)$quantity);
-    endfor;
-    ?>
-  </table>
-  <form action="" class="form-control">
-    <div>
+      </thead>
+      <?php
+      $count = count($_SESSION["prodID"]);
+      $subtotal = 0;
+      for ($i = 0; $i < $count; $i++) :
+        $prodID = $_SESSION["prodID"][$i];
+        $queryProduct = "SELECT * FROM `tbProduct` WHERE ProductID = '{$prodID}'";
+        $rsProduct = mysqli_query($conn, $queryProduct);
+        $rcProduct = mysqli_fetch_array($rsProduct);
+
+        $size = $_SESSION["size"][$i];
+        $quantity = $_SESSION["quantity"][$i];
+
+      ?>
+        <tbody>
+          <tr class="text-center align-middle">
+            <th scope="row"><?= $i + 1; ?></th>
+            <td>
+              <div class="product-card">
+                <img src="<?= $rcProduct[3]; ?>" alt="" class="product-card-item product-card-img">
+                <div class="product-card-item">
+                  <h5><?= $rcProduct[1]; ?></h5>
+                  <p><?php
+                      for ($x = 0; $x < count($brand); $x++) {
+                        if ($rcProduct[5] == $brand[$x][0]) {
+                          echo $brand[$x][1];
+                        }
+                      }
+
+                      ?></p>
+                  <p><?= $size; ?></p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div>
+                <p class="quantity"><?= $quantity; ?></p>
+              </div>
+            </td>
+            <td>$<span class="price"><?= $rcProduct[2]; ?></span></td>
+            <td>
+              <p class="total">$<?= total((float)$rcProduct[2], (int)$quantity) ?></p>
+            </td>
+          </tr>
+        </tbody>
+      <?php
+        $subtotal = $subtotal + total((float)$rcProduct[2], (int)$quantity);
+      endfor;
+      ?>
+    </table>
+    <form action="" class="form-control">
       <div>
-        <h5>Subtotal:</h5>
-        <p>$<?= $subtotal; ?></p>
+        <div>
+          <h5>Subtotal:</h5>
+          <p>$<?= $subtotal; ?></p>
+        </div>
+        <div>
+          <h5>Taxes:</h5>
+          <p>$<?= $subtotal * 0.1; ?></p>
+        </div>
+        <div>
+          <h5>Total:</h5>
+          <p>$<?= $subtotal * 1.1; ?></p>
+        </div>
+        <div>
+          <h5>Payment:</h5>
+          <p>Cash</p>
+        </div>
+        <div>
+          <h5>Delivery Address</h5>
+          <input type="text" name="address">
+        </div>
       </div>
-      <div>
-        <h5>Taxes:</h5>
-        <p>$<?= $subtotal * 0.1; ?></p>
-      </div>
-      <div>
-        <h5>Total:</h5>
-        <p>$<?= $subtotal * 1.1; ?></p>
-      </div>
-      <div>
-        <h5>Payment:</h5>
-        <p>Cash</p>
-      </div>
-      <div>
-        <h5>Delivery Address</h5>
-        <input type="text" name="address">
-      </div>
+    </form>
+    <div class="m-2 me-5 pe-3 text-start">
+      <button type="submit" class="btn btn-danger" name="addOrder"><a class="text-decoration-none text-white" href="php/addOrder.php">Submit</a></button>
     </div>
   </form>
-  <div class="m-2 me-5 pe-3 text-start">
-    <button type="button" class="btn btn-danger" name="addOrder"><a class="text-decoration-none text-white" href="addOrder.php">Submit</a></button>
-  </div>
-</form>
 </section>
 
 
-<?php mysqli_close($conn); 
-include 'htmlBody.php';
+<?php mysqli_close($conn);
+include 'php/htmlBody.php';
 ?>

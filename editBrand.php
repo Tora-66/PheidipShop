@@ -52,7 +52,7 @@ mysqli_close($conn);
 <body>
     <form method="post" enctype="multipart/form-data">
         <caption>
-            <h3>New brand information Form</h3>
+            <h3>Update brand information Form</h3>
         </caption>
         <a href="brand.php">Back to brand list</a>
         <table width="50%">
@@ -75,9 +75,11 @@ mysqli_close($conn);
                 <td><textarea name="txtDesc" id="description" cols="30" rows="5" value="<?= $data[4] ?>"></textarea></td>
             </tr>
             <tr>
-                <td><a href="brand.php">Back to Brand list</a></td>
-                <td><input type="submit" name="btnSave" value="Save" onclick="return confirm('Are you sure to update <?= $data[1] ?>')"></td>
-
+                <td></td>
+                <td>
+                    <a href="brand.php">Back to Brand list</a>||
+                    <input type="submit" name="btnSave" value="Save" onclick="return confirm('Are you sure to update <?= $data[1] ?>')">
+                </td>
             </tr>
         </table>
     </form>

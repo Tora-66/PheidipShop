@@ -18,7 +18,7 @@
     <title>Brand Details</title>
 </head>
 <body>
-    <caption><h2>Brand Detials</h2></caption>
+    <caption><h2><?= $field[1]?> Detials</h2></caption>
     <table class="table table-hove table-bordered"" width="50%">
             
         <tr>

@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <?php
-include_once'Connect.php';
-if(isset($_POST["btnAdd"])):
+include_once 'php/DBConnect.php';
+
+if (isset($_POST["btnAdd"])) :
     $desc = $_POST["txtDesc"];
     $title = $_POST["txttitle"];
-    if(isset($_FILES['txtPath'])):
-        $folder="image/brand_";
+    if (isset($_FILES['txtPath'])) :
+        $folder = "img/news_";
         //Kiem tra du lieu xem co hop le hay khong
-        $fileName= $_FILES["txtPath"]["name"];
-        $fileTmp= $_FILES["txtPath"]["tmp_name"];  //tmp_name: Đường đr0     ẫn của hình
-        $path=$folder.$fileName;
+        $fileName = $_FILES["txtPath"]["name"];
+        $fileTmp = $_FILES["txtPath"]["tmp_name"];  //tmp_name: Đường đr0     ẫn của hình
+        $path = $folder . $fileName;
         move_uploaded_file($fileTmp, $path);
     endif;
-    $query = "insert into tbnews (Title, Content, Image, NewsDate) values('{$title}', '{$desc}' ,'{$path}', now())";
-            $rs =mysqli_query($conn,$query);
-            if(!$rs):
-                die('nothing to save');
-            endif;
-            header("location:ViewsNews.php");
+    $query = "INSERT INTO `tbNews`(`Title`, `Content`, `Image`, `NewsDate`) VALUES ('{$title}', \"{$desc}\" ,'{$path}', now());";
+    $rs = mysqli_query($conn, $query);
+    if (!$rs) :
+        die('nothing to save');
+    endif;
+    header("location:ViewsNews.php");
 endif;
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,9 +33,12 @@ endif;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Add brands</title>
 </head>
+
 <body>
-<form method="post" enctype="multipart/form-data">
-<caption><h3>New brand infnormation Form</h3></caption>
+    <form method="post" enctype="multipart/form-data">
+        <caption>
+            <h3>New brand infnormation Form</h3>
+        </caption>
         <table width="50%">
             <tr>
                 <td>Image: </td>
@@ -43,7 +48,7 @@ endif;
             </tr>
             <tr>
                 <td>Title</td>
-                <td><input type="text" name = "txttitle"></td>
+                <td><input type="text" name="txttitle"></td>
             </tr>
             <tr>
                 <td>News: </td>
@@ -58,4 +63,5 @@ endif;
         </table>
     </form>
 </body>
+
 </html>

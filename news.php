@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php 
-    include_once 'Connect.php';
+    include_once 'php/DBConnect.php';
     $query = "select * from tbnews";
     $rs    = mysqli_query($conn, $query);
     $count = mysqli_num_rows($rs);

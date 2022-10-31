@@ -1,9 +1,9 @@
 <?php
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
 
 
 include 'php/htmlHead.php';
-include 'sidebar.php';
+include 'php/sidebar.php';
 ?>
 
 

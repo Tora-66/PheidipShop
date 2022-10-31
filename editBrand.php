@@ -41,7 +41,7 @@
 </head>
 <body>
     <form method="post" enctype="multipart/form-data">
-        <caption><h3>New brand ìnormation Form</h3></caption>
+        <caption><h3>New brand information Form</h3></caption>
         <a href="brand.php">Back to brand list</a> 
         <table width="50%">
             <tr>

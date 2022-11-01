@@ -1,6 +1,9 @@
 <?php
 ##1. Connect to databse
 include_once 'php/DBConnect.php';
+
+$pageTitle = "Product Management";
+
 $query = "SELECT * FROM tbproduct";
 $rs = mysqli_query($conn, $query);
 $count = mysqli_num_rows($rs);

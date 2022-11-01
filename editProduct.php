@@ -118,7 +118,7 @@
                     <td>Brand: </td>
                     <td><select name="brand" id="brands" >
                     <?php while($field1 = mysqli_fetch_array($rs2)): 
-                        if($data[5]=$field1[0]):
+                        if($data[5]==$field1[0]):
                             $selected = 'selected';
                         ?>
                         

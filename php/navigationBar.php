@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (isset($_SESSION["username"])) {
   echo '
 <div class="container">
@@ -65,9 +64,6 @@ if (isset($_SESSION["username"])) {
 					<ul class="navbar-nav m-auto mb-2 mb-lg-0">
             <li class="nav-item my-auto mx-2">
               <a class="nav-link fw-normal" href="cart.php"><img src="img/source/cart.png" alt="" height="25px"></a>
-						</li>
-						<li class="nav-item my-auto mx-2">
-							<img src="img/source/Customer_Avatar.jpg" alt="" class="avatar rounded-circle" height="50px" width="100%" />
 						</li>
 						<li class="nav-item my-auto mx-2">
 							<p class="nav-link fw-normal username">'.$_SESSION["username"].'</p>

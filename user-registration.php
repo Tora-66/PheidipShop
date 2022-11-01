@@ -105,7 +105,7 @@ if (! empty($_POST["signup-btn"])) {
 							<div class="form-label">
 								<strong>Address</strong><span class="required error" id="address-info"></span>
 							</div>
-							<input class="input-box-330" type="text" name="address" id="address" pattern="^[a-zA-Z]{3,}( {1,2}[a-zA-Z]{3,}){0,}$"
+							<input class="input-box-330" type="text" name="address" id="address" pattern="{3,}"
                                                                placeholder="At least 3 or more letters">
 						</div>
 					</div>

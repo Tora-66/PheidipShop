@@ -2,6 +2,8 @@
 session_start();
 include_once 'php/DBConnect.php';
 
+$pageTitle = "Shopping Cart";
+
 if (isset($_SESSION["username"])) {
   $username = $_SESSION["username"];
   session_write_close();

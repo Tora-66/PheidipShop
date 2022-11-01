@@ -38,7 +38,7 @@ echo '
                 <a class="nav-link text-light" href="#"><i class="bi bi-box mx-2"></i>Dashboard</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="managementUser.php"><i class="bi bi-box mx-2"></i>User Management</a>
+                <a class="nav-link text-light" href="user.php"><i class="bi bi-box mx-2"></i>User Management</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light" href="order.php"><i class="bi bi-box mx-2"></i>Order Management</a>

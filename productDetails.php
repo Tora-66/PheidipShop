@@ -3,6 +3,7 @@ session_start();
 
 //Connect database
 include_once 'php/DBConnect.php';
+$pageTitle = "Product Details";
 
 $proID = $_GET["id"];
 
@@ -37,7 +38,7 @@ include 'php/htmlHead.php';
 include 'php/navigationBar.php';
 ?>
 
-<section id="productDetails" class="container-fluid section-padding d-flex m-5" style="margin-top: 8rem;">
+<section id="productDetails" class="section-margin d-flex container-fluid">
   <div class="container">
     <img src="<?= $rcProduct[4] ?>" alt="" width="100%" height="500px">
   </div>
@@ -92,6 +93,7 @@ include 'php/navigationBar.php';
   </div>
 </section>
 
-<?php mysqli_close($conn);
+<?php
+mysqli_close($conn);
 include 'php/htmlBody.php';
 ?>

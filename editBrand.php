@@ -19,7 +19,7 @@
             move_uploaded_file($fileTmp, $path);
         endif;
 
-        if ($path !== "images/brand_") {
+        if ($path !== "img/brand_") {
             $query2 = "UPDATE tbbrand SET BrandName ='{$name}',Logo ='{$path}',`Desc`='{$desc}' WHERE `tbbrand`.`BrandID` = '{$code}' ";
             $rs = mysqli_query($conn, $query2);
         }else{

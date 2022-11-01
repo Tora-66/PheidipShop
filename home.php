@@ -3,6 +3,8 @@
 session_start();
 include_once 'php/DBConnect.php';
 
+$pageTitle = "Pheidip Shop";
+
 
 $showLogin = "";
 $hideLogout = "";

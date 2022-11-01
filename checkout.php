@@ -1,7 +1,8 @@
-<!DOCTYPE html>
 <?php
 session_start();
 include_once 'php/DBConnect.php';
+
+$pageTitle = "Checkout";
 
 if (isset($_SESSION["username"])) {
   $username = $_SESSION["username"];
@@ -13,14 +14,14 @@ if (isset($_SESSION["username"])) {
   header("Location: $url");
 }
 
-$query = "SELECT * FROM `tbBrand`;";
-$rs = mysqli_query($conn, $query);
-$count = mysqli_num_rows($rs);
+$queryBrand = "SELECT * FROM `tbBrand`;";
+$rsBrand = mysqli_query($conn, $queryBrand);
+$countBrand = mysqli_num_rows($rsBrand);
 
 $brand = array();
-for ($i = 0; $i < $count; $i++) {
-  $rc = mysqli_fetch_array($rs);
-  array_push($brand, $rc);
+for ($i = 0; $i < $countBrand; $i++) {
+  $rcBrand = mysqli_fetch_array($rsBrand);
+  array_push($brand, $rcBrand);
 }
 
 function total($price, $quantity)
@@ -28,20 +29,71 @@ function total($price, $quantity)
   return $price * $quantity;
 }
 
-if (isset($_POST["addOrder"])) {
-  $address = $_POST["address"];
-
-  $queryId = "SELECT UserID FROM tbUser_Account WHERE UserName = '{$_SESSION["username"]}';";
-  $rsId = mysqli_query($conn, $queryId);
-  $rc = mysqli_fetch_array($rsId);
-
-  $userID = $rc[0];
-
-  $queryAddress = "INSERT INTO `tbDelivery_Address` VALUES ('{$userID}', '{$address}', 0)";
-  $rsAddress = mysqli_query($conn, $queryAddress);
-
-  header("location: php/addOrder.php");
+$queryPayment = "SELECT `PaymentID`, `Method` FROM tbPayment;";
+$rsPayment = mysqli_query($conn, $queryPayment);
+$countPayment = mysqli_num_rows($rsPayment);
+$payment = array();
+for ($i = 0; $i < $countPayment; $i++) {
+  $rcPayment = mysqli_fetch_array($rsPayment);
+  array_push($payment, $rcPayment);
 }
+
+$queryId = "SELECT `UserID`  FROM tbUser_Account WHERE UserName = '{$_SESSION["username"]}';";
+$rsId = mysqli_query($conn, $queryId);
+$rc = mysqli_fetch_array($rsId);
+$userID = $rc[0];
+
+$queryAddress = "SELECT * FROM `tbdelivery_address` WHERE `UserID` = '{$userID}';";
+$rsAddress = mysqli_query($conn, $queryAddress);
+$countAddress = mysqli_num_rows($rsAddress);
+$address = array();
+for ($i = 0; $i < $countAddress; $i++) {
+  $rcAddress = mysqli_fetch_array($rsAddress);
+  array_push($address, $rcAddress);
+}
+
+// Add order 
+if (isset($_POST["addOrder"])) {
+
+  //Add address
+  $delivery = $_POST['delivery'];
+  if ($deliver !== "") {
+    $queryInsertAddress = "INSERT INTO `tbdelivery_address`(`UserID`, `Address`, `Is_default`) VALUES ({$userID}, '{$delivery}', 0)";
+    $rsInsertAddress = mysqli_query($conn, $queryInsertAddress);
+  }
+
+  $count = count($_SESSION["prodID"]);
+  for ($i = 0; $i < $count; $i++) :
+    $prodID = $_SESSION["prodID"][$i];
+    $size = $_SESSION["size"][$i];
+    $quantity = $_SESSION["quantity"][$i];
+
+
+    $queryInventory = "SELECT `InventoryID` FROM `tbInventory` WHERE `ProductID` = '{$prodID}' AND `Size` = '{$size}';";
+    $rsInventory = mysqli_query($conn, $queryInventory);
+    $rcInventory = mysqli_fetch_array($rsInventory);
+
+    // Add Details
+
+    $detailsID = substr($rcInventory[0], 3, 3) . "$quantity" . date('s');
+    $queryDetails = "INSERT INTO `tbOrder_Details` VALUES ('$detailsID', '{$rcInventory[0]}', {$quantity});";
+    $rsDetails = mysqli_query($conn, $queryDetails);
+
+    // Reduce Quantity in Inventory
+    $queryStock = "UPDATE `tbInventory` SET `Quantity` = `Quantity` - {$quantity} WHERE `InventoryID` = '{$rcInventory[0]}';";
+    $rsStock = mysqli_query($conn, $queryStock);
+
+    // Add Master
+    $paymentID = $_POST['payment'];
+    $note = $_POST['note'];
+    $masterID = "M" . substr($detailsID, 0, 3) . date('s') . $rc[0];
+    $queryMaster = "INSERT INTO `tbOrder_Master` VALUES ('$masterID', '{$detailsID}', '{$userID}', '{$paymentID}', NOW(), '{$note}');";
+    $rsMaster = mysqli_query($conn, $queryMaster);
+  endfor;
+  
+  header("Location: php/clearCart.php");
+}
+
 
 include 'php/htmlHead.php';
 include 'php/navigationBar.php';
@@ -109,32 +161,86 @@ include 'php/navigationBar.php';
       endfor;
       ?>
     </table>
-    <form action="" class="form-control">
-      <div>
-        <div>
-          <h5>Subtotal:</h5>
-          <p>$<?= $subtotal; ?></p>
-        </div>
-        <div>
-          <h5>Taxes:</h5>
-          <p>$<?= $subtotal * 0.1; ?></p>
-        </div>
-        <div>
-          <h5>Total:</h5>
-          <p>$<?= $subtotal * 1.1; ?></p>
-        </div>
-        <div>
-          <h5>Payment:</h5>
-          <p>Cash</p>
-        </div>
-        <div>
-          <h5>Delivery Address</h5>
-          <input type="text" name="address">
+
+
+    <div class="container-fluid text-start my-5">
+      <div class="row align-items-start border-bottom">
+        <div class="col fs-3 fw-bold">
+          Order Confirmation
         </div>
       </div>
-    </form>
+      <div class="row align-items-start justify-content-start">
+        <div class="col-2 fw-bold">
+          Subtotal:
+        </div>
+        <div class="col-10">
+          $<?= $subtotal; ?>
+        </div>
+      </div>
+      <div class="row align-items-start justify-content-start">
+        <div class="col-2 fw-bold">
+          Taxes:
+        </div>
+        <div class="col-10">
+          $<?= $subtotal * 0.1; ?>
+        </div>
+      </div>
+      <div class="row align-items-start justify-content-start">
+        <div class="col-2 fw-bold">
+          Total:
+        </div>
+        <div class="col-10">
+          $<?= $subtotal * 1.1; ?>
+        </div>
+      </div>
+      <div class="row align-items-start justify-content-start">
+        <div class="col-2 fw-bold">
+          Payment:
+        </div>
+        <div class="col-10">
+          <select class="form-select" name="payment" id="payment">
+            <?php for ($i = 0; $i < count($payment); $i++) : ?>
+              <option value="<?= $payment[$i][0] ?>"><?= $payment[$i][1] ?></option>
+            <?php endfor; ?>
+          </select>
+        </div>
+      </div>
+      <div class="row align-items-start justify-content-start my-2">
+        <div class="col-2 fw-bold">
+          Delivery Address:
+        </div>
+        <div class="col-10">
+          <?php
+          for ($i = 0; $i < count($address); $i++) :
+            if ($address[$i][3] == 1) :
+          ?>
+              <input list="datalist" class="form-control" name="delivery" placeholder="<?= $address[$i][2]; ?>">
+          <?php
+            endif;
+          endfor;
+          ?>
+          <datalist id="datalist">
+            <?php
+            for ($i = 0; $i < count($address); $i++) :
+            ?>
+              <option value="<?= $address[$i][2] ?>">
+              <?php
+            endfor;
+              ?>
+          </datalist>
+        </div>
+      </div>
+      <div class="row align-items-start justify-content-start">
+        <div class="col-2 fw-bold">
+          Note:
+        </div>
+        <div class="col-10">
+          <input type="text" name="note" class="form-control">
+        </div>
+      </div>
+    </div>
     <div class="m-2 me-5 pe-3 text-start">
-      <button type="submit" class="btn btn-danger" name="addOrder"><a class="text-decoration-none text-white" href="php/addOrder.php">Submit</a></button>
+      <button type="submit" class="btn btn-danger" name="addOrder" onclick="return confirm('Click OK to confirm your order!')">Submit</button>
     </div>
   </form>
 </section>

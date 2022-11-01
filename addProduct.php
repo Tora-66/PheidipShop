@@ -85,9 +85,7 @@ include 'sidebar.php';
                     <td>Brand: </td>
                     <td><select name="brand" id="brands">
                             <?php while ($field = mysqli_fetch_array($rs1)) : ?>
-
                                 <option value="<?= $field[0] ?>"><?= $field[1] ?></option>
-
                             <?php endwhile; ?>
                         </select></td>
                 </tr>

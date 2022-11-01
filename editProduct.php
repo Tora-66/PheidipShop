@@ -4,24 +4,23 @@
     include_once 'php/DBConnect.php';
 
     #2. take data from database where id
-    $code = $_GET["code"];
-    $query = "SELECT * FROM tbproduct WHERE ProductID = '{$code}'";
+    $code = $_GET["id"];
+    $query = "SELECT * FROM tbproduct WHERE ProductID = '{$code}';";
     $rs = mysqli_query($conn, $query);
     $data= mysqli_fetch_array($rs);
 
-
-    $code = $_GET["code"];
-    $query1 = "SELECT * FROM tbproduct WHERE ProductID = '{$code}'";
+    $code = $_GET["id"];
+    $query1 = "SELECT * FROM tbproduct WHERE ProductID = '{$code}';";
     $rs1 = mysqli_query($conn, $query1);
     $data1= mysqli_fetch_array($rs1);
 
-    $query2 = "SELECT * FROM tbbrand ";
+    $query2 = "SELECT * FROM tbbrand;";
     $rs2 = mysqli_query($conn,$query2);
     $count2=mysqli_num_rows($rs2);
     
-    $query3 = "SELECT * FROM tbtype ";
+    $query3 = "SELECT * FROM tbtype;";
     $rs3 = mysqli_query($conn,$query3);
-    $count3=mysqli_num_rows($rs3);
+    $count3 = mysqli_num_rows($rs3);
 
     //Save
     if(isset($_POST["btnSave"])):
@@ -35,7 +34,7 @@
 
             //thumnail
             if(isset($_FILES['txtThumbnail'])):
-                $folder1 ="images/thumbnail_";
+                $folder1 ="img/thumbnail_";
                 $fileName1= $_FILES["txtThumbnail"]["name"];
                 $fileTmp1= $_FILES["txtThumbnail"]["tmp_name"];
                 $thumbnail=$folder1.$fileName1;
@@ -44,7 +43,7 @@
 
             //image
             if(isset($_FILES['txtImage'])):
-                $folder2 ="images/image_";
+                $folder2 ="img/image_";
                 $fileName2= $_FILES["txtImage"]["name"];
                 $fileTmp2= $_FILES["txtImage"]["tmp_name"];
                 $image=$folder2.$fileName2;
@@ -52,7 +51,7 @@
             endif;
 
             //SQL
-            if ($thumbnail !== "images/thumbnail_") {
+            if ($thumbnail !== "img/thumbnail_") {
                 $query4 = "UPDATE tbproduct SET ProductName ='{$name}',Price ='{$price}',Thumbnail ='{$thumbnail}',`Desc`='{$desc}' WHERE `tbproduct`.`ProductID` = '{$code}' ";
                 $rs4 = mysqli_query($conn, $query4);
             }else{
@@ -60,7 +59,7 @@
                 $rs5 = mysqli_query($conn, $query5);
             }
 
-            if ($image !== "images/image_") {
+            if ($image !== "img/image_") {
                 $query6 = "UPDATE tbproduct SET ProductName ='{$name}',Price ='{$price}',`Image`='{$image}',`Desc`='{$desc}' WHERE `tbproduct`.`ProductID` = '{$code}' ";
                 $rs6 = mysqli_query($conn, $query6);
             }else{
@@ -73,7 +72,7 @@
             if(!$rs3):
                 die("Update Fails");
             endif;
-            header("location:product.php");
+            header("location: product.php");
     endif;
     mysqli_close($conn);
 ?>

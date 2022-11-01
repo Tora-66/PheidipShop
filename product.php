@@ -1,6 +1,6 @@
 <?php
 ##1. Connect to databse
-include_once './DBConnect.php';
+include_once 'php/DBConnect.php';
 $query = "SELECT * FROM tbproduct";
 $rs = mysqli_query($conn, $query);
 $count = mysqli_num_rows($rs);
@@ -24,7 +24,7 @@ for ($i = 0; $i < $count2; $i++) {
 }
 
 include 'php/htmlHead.php';
-include 'sidebar.php';
+include 'php/sidebar.php';
 
 ?>
 
@@ -73,7 +73,7 @@ include 'sidebar.php';
                         }
                         ?>
                     </td>
-                    <td><a href="#?id=<?= $data1[0] ?>">Update</a></td>
+                    <td><a href="editProduct.php?id=<?= $data1[0] ?>">Update</a></td>
                     <td><a href="detailsProduct.php?id=<?= $data1[0] ?>">Details</a></td>
                 </tr>
         <?php

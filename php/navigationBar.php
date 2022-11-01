@@ -66,7 +66,7 @@ if (isset($_SESSION["username"])) {
               <a class="nav-link fw-normal" href="cart.php"><img src="img/source/cart.png" alt="" height="25px"></a>
 						</li>
 						<li class="nav-item my-auto mx-2">
-							<p class="nav-link fw-normal username">'.$_SESSION["username"].'</p>
+							<p class="nav-link fw-normal username"><a href="userprofile.php">'.$_SESSION["username"].'</a></p>
 						</li>
 						<div class="vr fw-normal my-3"></div>
 						<li class="nav-item my-auto mx-2">

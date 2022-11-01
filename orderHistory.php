@@ -53,13 +53,9 @@ for ($i = 0; $i < $countPayment; $i++) {
 }
 
 
-include 'php/htmlHead.php';
-include 'php/navigationBar.php';
-
 ?>
 
-<section class="mx-5" style="margin-top: 8rem;">
-    <h2>Order History</h2>
+<section class="mx-5">
     <table class="table table-hove table-bordered">
         <tr>
             <th>Order ID</th>
@@ -136,5 +132,4 @@ include 'php/navigationBar.php';
 </section>
 <?php
 mysqli_close($conn);
-include 'php/htmlBody.php';
 ?>

@@ -44,6 +44,7 @@ $rsId = mysqli_query($conn, $queryId);
 $rc = mysqli_fetch_array($rsId);
 $userID = $rc[0];
 
+// Get delivery address array
 $queryAddress = "SELECT * FROM `tbdelivery_address` WHERE `UserID` = '{$userID}';";
 $rsAddress = mysqli_query($conn, $queryAddress);
 $countAddress = mysqli_num_rows($rsAddress);
@@ -53,12 +54,20 @@ for ($i = 0; $i < $countAddress; $i++) {
   array_push($address, $rcAddress);
 }
 
-// Add order 
+// Get default address
+$addressDefault = "";
+for ($i = 0; $i < count($address); $i++) {
+  if ($address[$i][3] == 1) {
+    $addressDefault = $address[$i][2];
+  }
+}
+
+// Order Submit
 if (isset($_POST["addOrder"])) {
 
   //Add address
   $delivery = $_POST['delivery'];
-  if ($deliver !== "") {
+  if ($delivery !== $addressDefault) {
     $queryInsertAddress = "INSERT INTO `tbdelivery_address`(`UserID`, `Address`, `Is_default`) VALUES ({$userID}, '{$delivery}', 0)";
     $rsInsertAddress = mysqli_query($conn, $queryInsertAddress);
   }
@@ -91,7 +100,7 @@ if (isset($_POST["addOrder"])) {
     $queryMaster = "INSERT INTO `tbOrder_Master` VALUES ('$masterID', '{$detailsID}', '{$userID}', '{$paymentID}', NOW(), '{$note}');";
     $rsMaster = mysqli_query($conn, $queryMaster);
   endfor;
-  
+
   header("Location: php/clearCart.php");
 }
 
@@ -211,15 +220,7 @@ include 'php/navigationBar.php';
           Delivery Address:
         </div>
         <div class="col-10">
-          <?php
-          for ($i = 0; $i < count($address); $i++) :
-            if ($address[$i][3] == 1) :
-          ?>
-              <input list="datalist" class="form-control" name="delivery" placeholder="<?= $address[$i][2]; ?>">
-          <?php
-            endif;
-          endfor;
-          ?>
+          <input list="datalist" class="form-control" name="delivery" placeholder="<?= $addressDefault; ?>">
           <datalist id="datalist">
             <?php
             for ($i = 0; $i < count($address); $i++) :

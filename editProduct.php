@@ -9,11 +9,6 @@
     $rs = mysqli_query($conn, $query);
     $data= mysqli_fetch_array($rs);
 
-    $code = $_GET["id"];
-    $query1 = "SELECT * FROM tbproduct WHERE ProductID = '{$code}';";
-    $rs1 = mysqli_query($conn, $query1);
-    $data1= mysqli_fetch_array($rs1);
-
     $query2 = "SELECT * FROM tbbrand;";
     $rs2 = mysqli_query($conn,$query2);
     $count2=mysqli_num_rows($rs2);
@@ -132,11 +127,16 @@
                 <tr>
                     <td>Type: </td>
                     <td><select name="type" id="type">
-                    <?php while($field2 = mysqli_fetch_array($rs3)): ?>
+                    <?php while($field2 = mysqli_fetch_array($rs3)):
+                        if($data[6]==$field2[0]):
+                            $selected = 'selected';
+                        ?>
 
-                        <option value="<?= $field2[0]?>"><?= $field2[1]?></option>
+                        <option <?= $selected;?> value="<?= $field2[0]?>"><?= $field2[1]?></option>
 
-                    <?php endwhile; ?>
+                    <?php 
+                        endif;
+                    endwhile; ?>
                     </select></td>
                 </tr>
                 <tr>

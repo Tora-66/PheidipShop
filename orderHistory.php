@@ -1,8 +1,17 @@
 <?php
 ##1. Connect to databse
+session_start();
 include_once 'php/DBConnect.php';
 
-$queryMaster = "SELECT * FROM tbOrder_Master;";
+$pageTitle = "Order History";
+
+// Get User ID
+$queryId = "SELECT `UserID`  FROM tbUser_Account WHERE UserName = '{$_SESSION["username"]}';";
+$rsId = mysqli_query($conn, $queryId);
+$rc = mysqli_fetch_array($rsId);
+$userID = $rc[0];
+
+$queryMaster = "SELECT * FROM tbOrder_Master WHERE `UserID` = {$userID};";
 $rsMaster = mysqli_query($conn, $queryMaster);
 $countMaster = mysqli_num_rows($rsMaster);
 
@@ -15,14 +24,6 @@ for ($i = 0; $i < $countDetails; $i++) {
     array_push($details, $rcDetails);
 }
 
-$queryUser = "SELECT `UserID`, `UserName` FROM tbUser_Account;";
-$rsUser = mysqli_query($conn, $queryUser);
-$countUser = mysqli_num_rows($rsUser);
-$user = array();
-for ($i = 0; $i < $countUser; $i++) {
-    $rcUser = mysqli_fetch_array($rsUser);
-    array_push($user, $rcUser);
-}
 
 $queryInventory = "SELECT `InventoryID`, `ProductID`, `Size` FROM tbInventory;";
 $rsInventory = mysqli_query($conn, $queryInventory);
@@ -53,16 +54,15 @@ for ($i = 0; $i < $countPayment; $i++) {
 
 
 include 'php/htmlHead.php';
-include 'php/sidebar.php';
+include 'php/navigationBar.php';
 
 ?>
 
 <section class="mx-5" style="margin-top: 8rem;">
-    <h2>Order List</h2>
+    <h2>Order History</h2>
     <table class="table table-hove table-bordered">
         <tr>
             <th>Order ID</th>
-            <th>User</th>
             <th>Product</th>
             <th>Size</th>
             <th>Quantity</th>
@@ -76,15 +76,6 @@ include 'php/sidebar.php';
         ?>
             <tr>
                 <td><?= $rcMaster[0] ?></td>
-                <td>
-                    <?php
-                    for ($z = 0; $z < count($user); $z++) {
-                        if ($rcMaster[2] == $user[$z][0]) {
-                            echo $user[$z][1];
-                        }
-                    }
-                    ?>
-                </td>
                 <td>
                     <?php
                     for ($z = 0; $z < count($details); $z++) {
@@ -134,9 +125,9 @@ include 'php/sidebar.php';
                     ?>
                 </td>
                 <td>
-                    <?= $rcMaster[4]?>
+                    <?= $rcMaster[4] ?>
                 </td>
-                
+
             </tr>
         <?php
         endfor;

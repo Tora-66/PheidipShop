@@ -38,6 +38,7 @@ for ($i = 0; $i < $countPayment; $i++) {
   array_push($payment, $rcPayment);
 }
 
+// Get User ID
 $queryId = "SELECT `UserID`  FROM tbUser_Account WHERE UserName = '{$_SESSION["username"]}';";
 $rsId = mysqli_query($conn, $queryId);
 $rc = mysqli_fetch_array($rsId);

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <?php
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
+
+$pageTitle = "Add Product";
+
 $query1 = "SELECT * FROM tbbrand ";
 $rs1 = mysqli_query($conn, $query1);
 $count1 = mysqli_num_rows($rs1);
@@ -47,7 +50,7 @@ if (isset($_POST["btnAdd"])) :
 endif;
 
 include 'php/htmlHead.php';
-include 'sidebar.php';
+include 'php/sidebar.php';
 ?>
 <section class="border mx-5 text-center" style="margin-top: 8rem;">
     <div class="container">

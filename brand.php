@@ -1,5 +1,8 @@
 <?php
 include_once 'php/DBConnect.php';
+
+$pageTitle = "Brand Management";
+
 $query = "select * from tbbrand";
 $rs    = mysqli_query($conn, $query);
 $count = mysqli_num_rows($rs);

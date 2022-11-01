@@ -137,7 +137,7 @@
                     <?php 
                         endif;
                     endwhile; ?>
-                    </select></td>
+                    </select></td>  
                 </tr>
                 <tr>
                     <td>description: </td>

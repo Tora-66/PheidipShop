@@ -1,52 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    <?php
-        //Ket noi du lieu
-        include_once'Connect.php';
+<?php
+//Lay du lieu
+include_once 'php/DBConnect.php';
 
-        $userid = 1;
-        // $_GET["userId"];
-        // if(isset($_GET["userId = 1"])):
-        //     header("location:#.php");
-        // else:
-        //     echo 'Wecomel'.$userid;
-        // endif;
-
-        //Lay du lieu TbUser_Acount
-        $tbuser_accont = "SELECT * FROM tbuser_account WHERE UserID ='{$userid}'";
-        $rs = mysqli_query($conn, $tbuser_accont);
-        $data = mysqli_fetch_array($rs);
-
-        //Lay du lieu tbGuest
-        $tbguest = "SELECT * FROM tbguest";
-        $rs1 = mysqli_query($conn, $tbguest);
-        $data2 = mysqli_fetch_array($rs1);
-
-        //Lay du lieu tbFeedBack
+        //Lay du lieu tu tbFeedBack
         $tbfeedback = "SELECT * FROM tbfeedback";
-        $rs2 = mysqli_query($conn, $tbfeedback);
-        $data3 = mysqli_fetch_array($rs2);
+        $rsfeedback = mysqli_query($conn, $tbfeedback);
+        $datafeedback = mysqli_num_rows($rsfeedback);
 
-        //Sever
-        if (isset($_POST["txtSubmit"])):
-            $name = "txtName";
-            $phone = "txtPhone";
-            $email = "txtEmail";
-            $Content = "txtContent";
-            $userid = "txtUserId";
-            $guestid = "txtGuestId";
+        //Lay du lieu tu tbGuest
+        $tbuser_account = "SELECT * FROM tbuser_account";
+        $rsuser = mysqli_query($conn, $tbuser_account);
+        $datauser = mysqli_num_rows($rsuser);
+        $user = array();
+        for ($i = 0; $i < $datauser; $i++) {
+            $rcUser = mysqli_fetch_array($rsuser);  //mysqli_fetch_array: chuyen thanh array
+            array_push($user, $rcUser);              //array_push: day du lieu vao array
+        }
 
-            $query = "INSERT INTO tbfeedback (UserID,GuestID ,Content, Date) VALUE ('{$userid}','{$guestid}', '{$Content}',now())";
-            $rs3 =mysqli_query($conn,$query);
+        //Lay du lieu tu tbguest
+        $tbguest = "SELECT * FROM tbguest";
+        $rsguest = mysqli_query($conn, $tbguest);
+        $dataguest = mysqli_num_rows($rsguest);
+        $guest = array();
+        for ($i = 0; $i < $dataguest; $i++) {
+            $rcGuest = mysqli_fetch_array($rsguest);
+            array_push($guest, $rcGuest);
+        }
 
-            if(!$rs3):
-                die('nothing to save');
-            endif;
-            header("location:#");
-        endif;
+?>
 
-        //
-    ?>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,44 +38,87 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Document</title>
+    <title>Views FeedBack</title>
 </head>
+
 <body>
-<form method="post" enctype="multipart/form-data">
-    <h2>Input FeedBack</h2>
-    <table class="table table-hove table-bordered">
-        <tr>
-            <td>Name:</td>
-            <td>
-                <input type="text" name = "txtName" value="<?=$data[0]?>" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td>Phone:</td>
-            <td>
-                <input type="text" name = "txtPhone" value="<?=$data[1]?>" readonly>
-            </td>
-        </tr>
-        <tr>
-            <td>Mail:</td>
-            <td>
-                <input type="text" name = "txtEmail" value="<?=$data[3]?>" readonly>
-            </td>
-        </tr>
+    <div class="container">
+        <h2>View FeedBack</h2>
+        <table class="table table-hove table-bordered">
+            <tr>
+                <th>FeedBack Id:</th>
+                <th>UserId</th>
+                <th>GuestId</th>
+                <th>Name:</th>
+                <th>PhoneNumber:</th>
+                <th>Email:</th>
+                <th>Comment:</th>
+                <th>Date</th>
+                <td><a href="responseFeedBack.php">Send FeedBack</a></td>
+            </tr>
+            <?php
+            for ($i = 0; $i < $datafeedback; $i++) :
+                $rcfeedback = mysqli_fetch_array($rsfeedback);
+            ?>
+                <tr>
+                    <td><?= $rcfeedback[0] ?></td>
+                    <td><?= $rcfeedback[1] ?></td>
+                    <td><?= $rcfeedback[2] ?></td>
+                    <td>
+                        <?php
+                        for ($z = 0; $z < count($user); $z++) {
+                            if ($rcfeedback[1] == $user[$z][0]) {
+                                echo $user[$z][3];
+                            }
+                        };
 
-        <tr>
-            <td>FeedBack:</td>
-            <td>
-                <textarea id="subject" name="txtcontent" placeholder="Write something.." style="height:200px"></textarea>
-            </td>
-        </tr>
+                        for ($z = 0; $z < count($guest); $z++) {
+                            if ($rcfeedback[2] == $guest[$z][0]) {
+                                echo $guest[$z][1];
+                            }
+                        };
+                        ?>
+                    </td>
 
-        <tr>
-            <td></td>
-            <td> <input type="submit" name = "txtSubmit" value="Send" ></td>
-        </tr>
+                    <td>
+                        <?php
+                        for ($z = 0; $z < count($user); $z++) {
+                            if ($rcfeedback[1] == $user[$z][0]) {
+                                echo $user[$z][5];
+                            }
+                        };
 
-    </table>
-</form>
+                        for ($z = 0; $z < count($guest); $z++) {
+                            if ($rcfeedback[2] == $guest[$z][0]) {
+                                echo $guest[$z][3];
+                            }
+                        };
+                        ?>
+                    </td>
+                    
+                    <td>
+                    <?php
+                    for($z = 0; $z < count($user); $z++){
+                        if($rcfeedback[1] == $user[$z][0]){
+                            echo $user[$z][4];
+                        }
+                    };
+
+                    for($z = 0; $z < count($guest); $z++){
+                        if($rcfeedback[2] == $guest[$z][0]){
+                            echo $guest[$z][2];
+                        }
+                    };
+                    ?>
+                    </td>
+                    <td><?= $rcfeedback[3]?></td>
+                    <td><?= $rcfeedback[4]?></td>
+                </tr>
+            <?php
+            endfor;
+            ?>
+        </table>
+    </div>
 </body>
+
 </html>

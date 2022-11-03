@@ -1,6 +1,7 @@
 <?php
 
 include_once 'php/DBConnect.php';
+session_start();
 
 $pageTitle = "Inventory Management";
 

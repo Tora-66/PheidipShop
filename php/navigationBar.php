@@ -57,7 +57,7 @@ if (isset($_SESSION["username"])) {
 							<a class="nav-link" href="#">Collection</a>
 						</li>
 						<li class="nav-item mx-2">
-							<a class="nav-link" href="#">Contact</a>
+							<a class="nav-link" href="feedbackUser.php">Contact</a>
 						</li>
 					</ul>
 
@@ -174,7 +174,7 @@ if (isset($_SESSION["username"])) {
                 <a class="nav-link" href="#">Collection</a>
               </li>
               <li class="nav-item mx-2">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="feedbackGuest.php">Contact</a>
               </li>
             </ul>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once 'php/DBConnect.php';
+session_start();
 
 $pageTitle = "Add Product";
 

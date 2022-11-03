@@ -1,6 +1,7 @@
 <?php
 ##1. Connect to databse
 include_once 'php/DBConnect.php';
+session_start();
 
 $queryMaster = "SELECT * FROM tbOrder_Master;";
 $rsMaster = mysqli_query($conn, $queryMaster);
@@ -134,9 +135,9 @@ include 'php/sidebar.php';
                     ?>
                 </td>
                 <td>
-                    <?= $rcMaster[4]?>
+                    <?= $rcMaster[4] ?>
                 </td>
-                
+
             </tr>
         <?php
         endfor;

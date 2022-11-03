@@ -1,5 +1,6 @@
 <?php
 include_once 'php/DBConnect.php';
+session_start();
 
 $code = $_GET["code"];
 $query1 = "SELECT * FROM tbbrand WHERE BrandID = '{$code}'";

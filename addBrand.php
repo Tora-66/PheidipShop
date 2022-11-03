@@ -1,5 +1,7 @@
 <?php
+session_start();
 include_once 'php/DBConnect.php';
+
 if (isset($_POST["btnAdd"])) :
     $code = $_POST["txtBrandId"];
     $name = $_POST["txtName"];

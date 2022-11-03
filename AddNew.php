@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <?php
 include_once 'php/DBConnect.php';
+session_start();
 
 if (isset($_POST["btnAdd"])) :
     $desc = $_POST["txtDesc"];

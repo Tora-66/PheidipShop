@@ -20,6 +20,7 @@ $query1 = "SELECT * FROM tbDelivery_Address WHERE userid = '$field[0]'";
 $rs1 = mysqli_query($conn, $query1);
 
 include 'php/htmlHead.php';
+include 'php/navigationBar.php';
 
 ?>
 

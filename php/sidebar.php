@@ -35,7 +35,7 @@ echo '
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
               <li class="nav-item">
-                <a class="nav-link text-light" href="#"><i class="bi bi-box mx-2"></i>Dashboard</a>
+                <a class="nav-link text-light" href="admin.php"><i class="bi bi-box mx-2"></i>Dashboard</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light" href="user.php"><i class="bi bi-box mx-2"></i>User Management</a>

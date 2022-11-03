@@ -1,5 +1,5 @@
 <?php
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
 if (isset($_POST["btnAdd"])) :
     $code = $_POST["txtBrandId"];
     $name = $_POST["txtName"];
@@ -16,11 +16,11 @@ if (isset($_POST["btnAdd"])) :
     if (!$rs) :
         die('nothing to save');
     endif;
-    header("location:brand.php");
+    header("location: brand.php");
 endif;
 
 include 'php/htmlHead.php';
-include 'sidebar.php';
+include 'php/sidebar.php';
 ?>
 
 <section class="mx-5" style="margin-top: 8rem;">

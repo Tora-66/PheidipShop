@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 #1.Connect DB
-include_once'php/DBConnect.php';
+include_once 'php/DBConnect.php';
 
 #2. take data from database where id
 $code = $_GET["id"];

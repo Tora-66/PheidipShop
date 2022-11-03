@@ -35,5 +35,5 @@ echo '
     }
   </style>
 </head>
-
+<body>
 ';

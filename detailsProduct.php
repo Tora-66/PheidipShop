@@ -6,7 +6,7 @@ session_start();
 
 #2. take data from database where id
 $code = $_GET["id"];
-$query = "SELECT * FROM tbproduct WHERE ProductID = '{$code}'";
+$query = "SELECT * FROM tbproduct WHERE ProductID = {$code};";
 $rs = mysqli_query($conn, $query);
 $data = mysqli_fetch_array($rs);
 

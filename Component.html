@@ -25,36 +25,9 @@
     />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/component.css" />
-    <style>
-      
-    </style>
+    <style></style>
   </head>
   <body>
-    <!-- Table Form -->
-    <div class="container">
-      <table class="table text-nowrap table-responsive">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">Text</th>
-            <th scope="col">Image</th>
-            <th scope="col" class="text-center">Function</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Lorem ipsum dolor sit am</td>
-            <td class="w-auto">
-              <img src="img/2.jpg" alt="" width="100rem" height="100rem" />
-            </td>
-            <td class="text-center">
-              <a href="" class="btn btn-outline-info rounded-pill m-0">View</a>
-              <a href="" class="btn btn-warning rounded-pill m-0">Update</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     <!-- Buttons -->
     <div>
       <div class="container m-5 border">
@@ -88,7 +61,11 @@
       </div>
 
       <div class="container m-5 border">
-        <a href="" class="btn btn-outline-info rounded-pill px-2 py-0 cart-button"><i class="bi bi-cart-dash"></i></a>
+        <a
+          href=""
+          class="btn btn-outline-info rounded-pill px-2 py-0 cart-button"
+          ><i class="bi bi-cart-dash"></i
+        ></a>
       </div>
 
       <div class="container m-5 border">
@@ -106,119 +83,241 @@
         </div>
         <div>
           <!-- Text -->
-        <div class="row justify-content-center mb-4">
-          <div class="col-2 text-end input-label my-auto">
-            <label for="text">Something</label>
+          <div class="row justify-content-center mb-4">
+            <div class="col-2 text-end input-label my-auto">
+              <label for="text">Something</label>
+            </div>
+            <div class="col-4">
+              <input id="text" class="rounded-pill form-input" type="text" />
+            </div>
           </div>
-          <div class="col-4">
-            <input id="text" class="rounded-pill form-input" type="text" />
-          </div>
-        </div>
 
-        <!-- File -->
-        <div class="row justify-content-center mb-4">
-          <div class="col-2 text-end input-label my-auto">
-            <label for="">Image</label>
+          <!-- File -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-2 text-end input-label my-auto">
+              <label for="">Image</label>
+            </div>
+            <div class="col-4">
+              <input
+                id="file-upload"
+                class="rounded-pill form-input input-file ps-0"
+                type="file"
+              />
+            </div>
           </div>
-          <div class="col-4">
-            <input
-              id="file-upload"
-              class="rounded-pill form-input input-file ps-0"
-              type="file"
-            />
-          </div>
-        </div>
 
-        <!-- Select -->
-        <div class="row justify-content-center mb-4">
-          <div class="col-2 text-end input-label my-auto">
-            <label for="">Image</label>
+          <!-- Select -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-2 text-end input-label my-auto">
+              <label for="">Image</label>
+            </div>
+            <div class="col-4">
+              <select
+                class="form-input form-select rounded-pill"
+                aria-label="Default select example"
+              >
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
           </div>
-          <div class="col-4">
-            <select
-              class="form-input form-select rounded-pill"
-              aria-label="Default select example"
-            >
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-          </div>
-        </div>
 
-        <!-- Checkbox -->
-        <div class="row justify-content-center mb-4">
-          <div class="col-2 text-end input-label my-auto">
-            <label for="text">Something</label>
-          </div>
-          <div class="col-4 d-flex">
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="men"
-              autocomplete="off"
-            />
-            <label
-              class="btn btn-outline-dark rounded-pill fw-bold me-2"
-              for="men"
-              >Men</label
-            >
+          <!-- Checkbox -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-2 text-end input-label my-auto">
+              <label for="text">Something</label>
+            </div>
+            <div class="col-4 d-flex">
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="men"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="men"
+                >Men</label
+              >
 
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="women"
-              autocomplete="off"
-            />
-            <label
-              class="btn btn-outline-dark rounded-pill fw-bold me-2"
-              for="women"
-              >Women</label
-            >
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="women"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="women"
+                >Women</label
+              >
 
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="collection"
-              autocomplete="off"
-            />
-            <label
-              class="btn btn-outline-dark rounded-pill fw-bold me-2"
-              for="collection"
-              >Collection</label
-            >
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="collection"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="collection"
+                >Collection</label
+              >
 
-            <input
-              type="checkbox"
-              class="btn-check"
-              id="new"
-              autocomplete="off"
-            />
-            <label
-              class="btn btn-outline-dark rounded-pill fw-bold me-2"
-              for="new"
-              >New</label
-            >
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="new"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="new"
+                >New</label
+              >
+            </div>
           </div>
-        </div>
 
-        <!-- Submit button -->
-        <div class="row justify-content-center mb-4">
-          <div class="col-2 text-end input-label my-auto">
-            <a href="" class="btn btn-warning rounded-pill">Back</a>
+          <!-- Submit button -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-2 text-end input-label my-auto">
+              <a href="" class="btn btn-warning rounded-pill">Back</a>
+            </div>
+            <div class="col-4">
+              <a
+                href=""
+                class="btn btn-success rounded-pill d-flex justify-content-center"
+                ><i class="bi bi-plus-circle me-2"></i>Add</a
+              >
+            </div>
           </div>
-          <div class="col-4">
-            <a
-              href=""
-              class="btn btn-success rounded-pill d-flex justify-content-center"
-              ><i class="bi bi-plus-circle me-2"></i>Add</a
-            >
-          </div>
-        </div>
         </div>
       </form>
     </div>
+
+    <!-- Table Form -->
+    <div class="container">
+      <table class="table text-nowrap table-responsive">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Text</th>
+            <th scope="col">Image</th>
+            <th scope="col" class="text-center">Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Lorem ipsum dolor sit am</td>
+            <td class="w-auto">
+              <img src="img/2.jpg" alt="" width="100rem" height="100rem" />
+            </td>
+            <td class="text-center">
+              <a href="" class="btn btn-outline-info rounded-pill m-0">View</a>
+              <a href="" class="btn btn-warning rounded-pill m-0">Update</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Modal Button-->
+    <!-- Button trigger modal -->
+    <button
+      type="button"
+      class="btn btn-success rounded-pill"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop"
+    >
+    <i class="bi bi-plus-circle me-2"></i>Add</a
+    >
+    </button>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Product Name</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input
+                type="checkbox"
+                class="btn-check"
+                id="men"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="men"
+                >Men</label
+              >
+
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="women"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="women"
+                >Women</label
+              >
+
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="collection"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="collection"
+                >Collection</label
+              >
+
+              <input
+                type="checkbox"
+                class="btn-check"
+                id="new"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-dark rounded-pill fw-bold me-2"
+                for="new"
+                >New</label
+              >
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-warning rounded-pill"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <a href="addTag.php" class="btn btn-danger rounded-pill">Submit</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   </body>

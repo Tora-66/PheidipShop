@@ -64,6 +64,9 @@ echo '
                 <a class="nav-link text-light" href="news.php"><i class="bi bi-box mx-2"></i>News Management</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link text-light" href="tag.php"><i class="bi bi-box mx-2"></i>Tag Management</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link text-light" href="logoutAdmin.php"><i class="bi bi-box-arrow-left mx-2"></i>Log out</a>
               </li>
             </ul>
@@ -71,4 +74,5 @@ echo '
         </div>
       </div>
     </nav>
+    <div class="nav-space"></div>
 ';

@@ -52,6 +52,18 @@ for ($i = 0; $i < $countPayment; $i++) {
     array_push($payment, $rcPayment);
 }
 
+// Search function
+if (isset($_POST['search'])) {
+    $valueToSearch = $_POST['valueToSearch'];
+    $query = "SELECT * FROM tbOrder_Master WHERE CONCAT(userid, username, fullname, email, phonenumber) LIKE '%" . $valueToSearch . "%'";
+    $search_result = filterTable($query);
+    $count = mysqli_num_rows($search_result);
+} else {
+    $query = "SELECT * FROM tbUser_Account";
+    $search_result = filterTable($query);
+    $count = mysqli_num_rows($search_result);
+}
+
 
 include 'php/htmlHead.php';
 include 'php/sidebar.php';
@@ -60,6 +72,7 @@ include 'php/sidebar.php';
 
 <section class="mx-5" style="margin-top: 8rem;">
     <h2>Order List</h2>
+    <input type="text" name="valueToSearch" placeholder="Value To Search">
     <table class="table table-hove table-bordered">
         <tr>
             <th>Order ID</th>

@@ -1,57 +1,15 @@
-
-/* external css: flickity.css */
-
-* { box-sizing: border-box; }
-
-body { font-family: 'Montserrat', sans-serif; }
-
-html { overflow-y: scroll; }
-
-.section-margin{
-  margin-top: 8rem;
+/* Carousel */
+.carousel{
+  /* background-color: #191919 !important; */
+  background-image: linear-gradient(to bottom left, #2C3639, #191919);
 }
 
-.carousel {
-  background: rgb(255, 255, 255);
-  height: 35rem;
-}
-
-
-
-.carousel-cell {
-  height: 100%;
-  margin-right: 20px;
-}
-
-.carousel-cell img {
-  display: block;
-  height: 100%;
-}
-
-
-
-.carousel-section {
-  margin-top: 4rem;
-}
-
-.carousel-item {
-  background-color: rgb(20, 20, 20);
-}
-
-/* .carousel-item img {
-  height: 35rem;
-  margin: 0 auto;
-  width: 75%;
-} */
-
-.carousel-cell .carousel-caption {
-  background-color: rgba(0, 0, 0, 0.3);
-  height: 10rem;
-  max-width: 100%;
+.carousel-inner img{
   width: 100%;
-  left: 0;
-
+  height: 35rem;
+  object-fit: contain;
 }
+
 
 
 /* Navigation bar */
@@ -69,7 +27,7 @@ html { overflow-y: scroll; }
 
 .navbar .nav-link{
   color: #2C3639;
-  font-weight: bold;
+  font-weight: normal;
   font-size: large;
   margin: auto;
 }
@@ -90,34 +48,6 @@ html { overflow-y: scroll; }
 .nav-space{
   margin-top: 0;
   margin-bottom: 6rem;
-}
-
-
-
-
-/* Card */
-.card {
-  border-radius: 0;
-  border: none;
-}
-
-.card:hover{
-  /* border: solid #343434 thin; */
-  border: solid #727272 thin;
-  box-shadow: 0.5rem 1rem;
-}
-
-.card img {
-  border-radius: 0;
-  height: 15rem;
-}
-
-.card .card-body{
-  text-align: center;;
-}
-
-.card .card-title {
-  font-weight:700;
 }
 
 
@@ -144,4 +74,38 @@ html { overflow-y: scroll; }
 
 #cartView{
   margin-top: 10rem;
+}
+
+/* Footer */
+.footer{
+  background-image: linear-gradient(to bottom left, #2C3639, #191919);
+}
+
+.footer .text-footer{
+  color: #b7b3a8;
+  font-size: 1rem;
+}
+
+.footer .text-header{
+  font-size: 1.2rem;
+}
+
+.footer .row-border{
+  border-bottom: #b7b3a8 thin solid;
+}
+
+.footer .btn-outline-info{
+  padding: 0.3rem 2rem;
+  font-size: normal;
+  font-weight: bold;
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: #fff;
+}
+
+.footer .btn-outline-secondary {
+  padding: 0.3rem 1.4rem;
+  font-size: normal;
+  font-weight: bold;
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: #fff;
 }

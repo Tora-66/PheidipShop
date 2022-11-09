@@ -110,7 +110,7 @@ if (isset($_SESSION["username"])) {
               <li class="nav-item mx-0">
                 <a
                   href="cart.php"
-                  class="btn btn-outline-primary rounded-pill cart-button px-3 py-0"
+                  class="btn btn-outline-primary rounded-pill cart-button px-2 py-0"
                   ><i class="bi bi-cart-dash fs-3"></i
                 ></a>
               </li>

@@ -202,3 +202,58 @@
   --bs-table-striped-bg: #2c3034;
   --bs-table-striped-color: #fff;
 }
+
+/* Card */
+.card{
+  width: 16rem;
+  border: none;
+  transition: linear 0.1s;
+}
+
+.card:hover{
+  box-shadow: 3px 4px 3px #888888;
+}
+
+.card .card-title{
+  font-weight: bold;
+}
+
+.card .card-text{
+  font-weight: lighter;
+}
+
+.card .card-body a{
+  font-size: 1.3rem;
+}
+
+/* Type Card */
+.type-card .card-img{
+  height: 100%;
+}
+
+.type-button{
+  color: #fff;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.type-button:hover{
+  text-shadow: #2c3034 2px 2px 2px;
+  transition: linear 0.1s;
+  font-weight: 500;
+  font-size: 2.3rem;
+  transition: linear 0.1s;
+}
+
+.type-card:hover{
+  opacity: 0.8;
+  box-shadow: none;
+  transition: linear 0.2s;
+}
+
+.type-button:active{
+  border: none;
+}
+.type-button:focus{
+  border: none;
+}

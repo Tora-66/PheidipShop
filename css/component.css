@@ -214,8 +214,22 @@
   box-shadow: 3px 4px 3px #888888;
 }
 
+.card .card-img-top{
+  height: 13rem;
+}
+
+.card .card-body{
+  height: 11rem;
+}
+
 .card .card-title{
   font-weight: bold;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
 }
 
 .card .card-text{

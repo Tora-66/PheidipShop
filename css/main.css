@@ -10,6 +10,16 @@
   object-fit: contain;
 }
 
+.carousel-dark .carousel-control-next-icon, .carousel-dark .carousel-control-prev-icon {
+  filter: invert(0) grayscale(0);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
 
 
 /* Navigation bar */
@@ -108,4 +118,32 @@
   font-weight: bold;
   --bs-btn-color: #fff;
   --bs-btn-border-color: #fff;
+}
+
+/* Slider */
+.slider .carousel{
+  background-color: none;
+  background-image: none;
+}
+
+/* Brand */
+.brand-logo{
+  height: 7rem;
+}
+
+/* About Us */
+.about-us{
+  height: 20rem;
+  background-image: url("../img/maksim-larin-NOpsC3nWTzY-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.about-us .about-caption{
+  background-color: rgba(0, 0, 0, 0.364);
+}
+
+.about-us .about-text{
+  color: #fff;
 }

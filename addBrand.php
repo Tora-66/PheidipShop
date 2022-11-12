@@ -3,8 +3,8 @@ session_start();
 include_once 'php/DBConnect.php';
 
 if (isset($_POST["btnAdd"])) :
-    $code = $_POST["txtBrandId"];
-    $name = $_POST["txtName"];
+    $code = substr(strtoupper($_POST["txtName"]),0,3).date('YmdHis');
+    $name = ucwords($_POST["txtName"]);
     $desc = $_POST["txtDesc"];
     if (isset($_FILES['txtPath'])) :
         $folder = "img/brand_";
@@ -26,42 +26,122 @@ include 'php/sidebar.php';
 ?>
 
 <section class="mx-5" style="margin-top: 8rem;">
-    <form method="post" enctype="multipart/form-data">
-        <caption>
-            <h3>Add Brand</h3>
-        </caption>
-        <table width="50%">
-            <tr>
-                <td>Brand ID: </td>
-                <td><input name="txtBrandId" placeholder="Enter Brand Code"></td>
-            </tr>
-            <tr>
-                <td>Brand Name</td>
-                <td><input name="txtName" placeholder="Enter Brand Name"></td>
-            </tr>
-            <tr>
-                <td>Logo: </td>
-                <td>
-                    <input type="file" name="txtPath">
-                </td>
-            </tr>
-            <tr>
-                <td>Brand description: </td>
-                <td><textarea name="txtDesc" id="description" cols="30" rows="5"></textarea></td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="container m-0 my-3 p-0">
-                        <button class="btn btn-dark"><a href="brand.php" class="text-decoration-none text-white">Back</a></button>
-                    </div>
-                </td>
-                <td>
-                    <input type="submit" value="Add New" name="btnAdd">
-                </td>
-            </tr>
-        </table>
-    </form>
+<div class="container m-5">
+        <form method="post" class="p-2 needs-validation" enctype="multipart/form-data" novalidate >
+            <div class="row justify-content-center mb-4">
+                <div class="col-8 text-end input-label my-auto">
+                    <h2>New brand information Form</h2> 
+                </div>
+            </div>
+            <table class="table table-borderless" >
+                 <hr>
+                <!-- <tr>
+                    <td>Brand ID: </td>
+                    <td>
+                        <input name="txtBrandId" placeholder="Enter Brand Code" 
+                        class="form-control"
+                        required>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-2 text-end input-label my-auto">
+                                Name*                            
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-4">
+                            <input name="txtName" placeholder="Enter Brand Name" 
+                            class="rounded-pill form-input form-control"
+                            required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row justify-content-center mb-4">
+                            <div  class="col-2 text-end input-label my-auto">
+                                Logo*                            
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-4">
+                        <input type="file" name="txtPath" 
+                            class="rounded-pill form-input input-file ps-0 form-control"
+                            required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <div class="row justify-content-center mb-4">
+                            <div  class="col-2 text-end input-label my-auto">
+                                description                            
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-4">
+                            <textarea name="txtDesc" class="form-control" id="description" cols="30" rows="10"></textarea>
+                        </div>
+                    </td>
+                </tr>
+                <!-- <tr class=" was-validated">
+                    <td></td>
+                    <td>
+                        <input class="form-check-input" type="checkbox" id="myCheck"  name="remember" required>
+                        <label class="form-check-label" for="myCheck">I agree that information is correct.</label>
+                        <div class="valid-feedback">The information is correct.</div>
+                        <div class="invalid-feedback">Please check to add new brand.</div>
+                    </td>
+                </tr> -->
+                <tr>
+                    <td>
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-2 text-end input-label my-auto">
+                                <a href="brand.php" class="btn btn-warning rounded-pill">Back</a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-4">
+                            <input type="submit"  class="btn btn-success rounded-pill d-flex justify-content-center" 
+                                value="Add New" name="btnAdd">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
 </section>
+<script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+    </script>
 <?php
 include 'php/htmlBody.php';
 ?>

@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <?php
-include_once 'DBConnect.php';
+include_once 'php/DBConnect.php';
 session_start();
-if(isset($_POST["btnAdd"])):
-    $desc = $_POST["txtDesc"];
-    if(isset($_FILES['txtPath'])):
-        $folder="img/brand_";
+
+if (isset($_POST["btnAdd"])) :
+    $desc = $_POST["txtDesc"];  //Hình ảnh
+    $title = $_POST["txttitle"]; //Tên hình ảnh
+    if (isset($_FILES['txtPath'])) :
+        $folder = "img/news_";
         //Kiem tra du lieu xem co hop le hay khong
-        $fileName= $_FILES["txtPath"]["name"];
-        $fileTmp= $_FILES["txtPath"]["tmp_name"];  //tmp_name: Đường đr0     ẫn của hình
-        $path=$folder.$fileName;
-        move_uploaded_file($fileTmp, $path);
+        $fileName = $_FILES["txtPath"]["name"];
+        $fileTmp = $_FILES["txtPath"]["tmp_name"];  //tmp_name: Đường đẫn của hình
+        $path = $folder . $fileName; //Tên Hình ảnh khi chạy vào bên trong database
+        move_uploaded_file($fileTmp, $path); // Uploađe hình ảnh lên code
     endif;
-    $query = "insert into tbnews (News, Image, NewsDate) values('{$desc}','{$path}', now())";
-            $rs =mysqli_query($conn,$query);
-            if(!$rs):
-                die('nothing to save');
-            endif;
-            header("location:viewNews.php");
+    $query = "INSERT INTO `tbNews` (`Title`, `Content`, `Image`, `NewsDate`) VALUES ('{$title}', '{$desc}' ,'{$path}', now())";
+    $rs = mysqli_query($conn, $query);
+    if (!$rs) :
+        die('nothing to save');
+    endif;
+    header("location:ViewsNews.php");
 endif;
 ?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,10 +34,24 @@ endif;
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Add brands</title>
 </head>
+
 <body>
-<form method="post" enctype="multipart/form-data">
-<caption><h3>New brand ìnormation Form</h3></caption>
-        <table width="50%">
+
+    <form method="post" enctype="multipart/form-data">
+        <caption>
+            <h4>News Management/Add News </h4>
+        </caption>
+
+        <table class="table table-hove table-bordered">
+            <tr>
+                <td>Title:</td>
+                <td>
+                    <form class="form-floating">
+                        <input type="text" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Image" name="txttitle">
+                        <label for="floatingInputInvalid">Name Image</label>
+                    </form>
+                </td>
+            </tr>
             <tr>
                 <td>Image: </td>
                 <td>
@@ -42,11 +59,17 @@ endif;
                 </td>
             </tr>
             <tr>
-                <td>News: </td>
-                <td><textarea name="txtDesc" id="description" cols="30" rows="10"></textarea></td>
+                <td>Notification:</td>
+                <td>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtDesc" rows="10" cols="30"></textarea>
+                        <label for="floatingInputInvalid">Notification</label>
+                    </div>
+                </td>
             </tr>
+
             <tr>
-                <td><a href="brand.php">Back to Brand list</a></td>
+                <td></td>
                 <td>
                     <input type="submit" value="Add New" name="btnAdd">
                 </td>
@@ -54,4 +77,8 @@ endif;
         </table>
     </form>
 </body>
+
 </html>
+
+
+

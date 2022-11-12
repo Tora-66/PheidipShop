@@ -138,7 +138,7 @@ CREATE TABLE `tbFeedback`(
 
 DROP TABLE IF EXISTS `tbGuest`;
 CREATE TABLE `tbGuest`(
-    `GuestID` int NOT NULL,
+    `GuestID` int NOT NULL AUTO_INCREMENT,
     `GuestName` varchar(100) NOT NULL,
     `email` varchar(50) NOT NULL,
     `Phone` varchar(14) NOT NULL,
@@ -175,6 +175,13 @@ INSERT INTO `tbAdmin`(`AdminName`, `Password`) VALUES ('admin', '123');
 INSERT INTO `tbUser_Account`(`UserName`, `Password`, `FullName`, `Email`, `PhoneNumber`) VALUES ('user01', 'User01', 'Tester San', 'tester01@user.com', '0989796961');
 
 INSERT INTO `tbDelivery_Address`(`UserID`, `Address`, `Is_default`) VALUES (1, '001 Tester, Tired, Nowhere', '1');
+
+INSERT INTO `tbGuest` VALUES
+(1, 'The Guest', 'Themailwhichisntexist@mail.com', '0978767670');
+
+INSERT INTO `tbFeedBack` VALUES 
+(1, null, 1, 'Feedback is the bridge to effectively connect lesson-learned from the past to the future performance and potential', '2022-11-12 13:19:20'),
+(2, 1, null, 'I saw that you learned how to use pivot tables for your Excel project and it really helped display the data', '2022-11-13 13:19:20');
 
 INSERT INTO `tbBrand` VALUES
 ('001NIK', 'Nike', 'img/brand_nike.png', ''),

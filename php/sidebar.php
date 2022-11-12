@@ -58,10 +58,10 @@ echo '
                 <a class="nav-link text-light" href="brand.php"><i class="bi bi-box mx-2"></i>Brand Management</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="feedback.php"><i class="bi bi-box mx-2"></i>Feedback Management</a>
+                <a class="nav-link text-light" href="ViewFeedBack.php"><i class="bi bi-box mx-2"></i>Feedback Management</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-light" href="news.php"><i class="bi bi-box mx-2"></i>News Management</a>
+                <a class="nav-link text-light" href="ViewsNews.php"><i class="bi bi-box mx-2"></i>News Management</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-light" href="tag.php"><i class="bi bi-box mx-2"></i>Tag Management</a>

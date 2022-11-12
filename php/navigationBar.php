@@ -100,7 +100,7 @@ if (isset($_SESSION["username"])) {
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link hover-underline-animation" href="#"
+                <a class="nav-link hover-underline-animation" href="feedbackUser.php?"
                   >Contact</a
                 >
               </li>
@@ -235,7 +235,7 @@ if (isset($_SESSION["username"])) {
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link hover-underline-animation" href="#"
+            <a class="nav-link hover-underline-animation" href="feedbackGuest.php"
               >Contact</a
             >
           </li>

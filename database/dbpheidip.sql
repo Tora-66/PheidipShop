@@ -66,7 +66,7 @@ CREATE TABLE `tbType`(
 
 DROP TABLE IF EXISTS `tbProduct`;
 CREATE TABLE `tbProduct`(
-    `ProductID` varchar(10) NOT NULL,
+    `ProductID` varchar(50) NOT NULL,
     `ProductName` varchar(50) NOT NULL,
     `Price` decimal NOT NULL,
     `Thumbnail` varchar(100) NOT NULL,
@@ -81,7 +81,7 @@ DROP TABLE IF EXISTS `tbTag`;
 CREATE TABLE `tbTag`(
     `TagID` varchar(10) NOT NULL,
     `TagName` varchar(40) NOT NULL,
-    `ProductID` varchar(10) NOT NULL,
+    `ProductID` varchar(50) NOT NULL,
     `Desc` text NOT NULL,
     PRIMARY KEY (TagID)
 );
@@ -89,7 +89,7 @@ CREATE TABLE `tbTag`(
 DROP TABLE IF EXISTS `tbInventory`;
 CREATE TABLE `tbInventory`(
     `InventoryID` varchar(10) NOT NULL,
-    `ProductID` varchar(10) NOT NULL,
+    `ProductID` varchar(50) NOT NULL,
     `Size` varchar(3) NOT NULL,
     `Quantity` int NOT NULL,
     PRIMARY KEY (InventoryID)

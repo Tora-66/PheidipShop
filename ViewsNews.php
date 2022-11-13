@@ -14,7 +14,7 @@ include 'php/sidebar.php';
 <div class="container">
     <table class="table">
 
-        <h2>News Manguage</h2>
+        <h2>News Management</h2>
 
         <a href="AddNews.php">Add New</a>
 
@@ -40,8 +40,8 @@ include 'php/sidebar.php';
                         <td><?= $data[2] ?></td>
                         <td style="text-align:center"><img src="<?= $data[3] ?>" alt="Image" width="40" height="30"></td>
                         <td><?= $data[4] ?></td>
-                        <td><a href="UpdateNews.php?code=<?= $data[0] ?>">Update</a></td>
-                        <td><a href="DetailsNews.php?code=<?= $data[0] ?>">Details</a></td>
+                        <td><a href="UpdateNews.php?id=<?= $data[0] ?>">Update</a></td>
+                        <td><a href="DetailsNews.php?id=<?= $data[0] ?>">Details</a></td>
                     </tr>
             <?php
                 endwhile;

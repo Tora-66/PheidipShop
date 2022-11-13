@@ -48,7 +48,7 @@ include 'php/sidebar.php';
             </td>
         </tr>
         <tr>
-            <td>Notification:</td>
+            <td>Content:</td>
             <td>
                 <div class="form-floating">
                     <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtDesc" rows="10" cols="30"></textarea>
@@ -69,3 +69,4 @@ include 'php/sidebar.php';
 <?php
 include 'php/htmlBody.php';
 ?>
+

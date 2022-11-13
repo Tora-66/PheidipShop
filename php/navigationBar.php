@@ -77,7 +77,7 @@ if (isset($_SESSION["username"])) {
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle hover-underline-animation"
-                  href="#"
+                  href="menuBrand.php"
                   id="navbarDropdown"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -86,8 +86,8 @@ if (isset($_SESSION["username"])) {
                   Brand
                 </a>
                 <ul class="dropdown-menu" aria-la elledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Nike</a></li>
-                  <li><a class="dropdown-item" href="#">Adidas</a></li>
+                  <li><a class="dropdown-item" href="menuBrand.php?id=\'001NIK\'">Nike</a></li>
+                  <li><a class="dropdown-item" href="menuBrand.php?id=\'002ADI\'">Adidas</a></li>
                   <li><a class="dropdown-item" href="#">Timberland</a></li>
                   <li><a class="dropdown-item" href="#">Dr Martens</a></li>
                   <li><a class="dropdown-item" href="#">Others</a></li>

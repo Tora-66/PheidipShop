@@ -40,8 +40,8 @@ include 'php/sidebar.php';
                         <td><?= $data[2] ?></td>
                         <td style="text-align:center"><img src="<?= $data[3] ?>" alt="Image" width="40" height="30"></td>
                         <td><?= $data[4] ?></td>
-                        <td><a href="#?code=<?= $data[0] ?>">Update</a></td>
-                        <td><a href="DetailsFeedBack.php?code=<?= $field[0] ?>">Details</a></td>
+                        <td><a href="UpdateNews.php?code=<?= $data[0] ?>">Update</a></td>
+                        <td><a href="DetailsNews.php?code=<?= $data[0] ?>">Details</a></td>
                     </tr>
             <?php
                 endwhile;

@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 session_start();
 include_once 'php/DBConnect.php';
@@ -36,7 +35,6 @@ $countProduct = mysqli_num_rows($rsProduct);
 include 'php/htmlHead.php';
 include 'php/navigationBar.php';
 include 'php/slider.php';
-?>
-<?php mysqli_close($conn);
+
+mysqli_close($conn);
 include 'php/htmlBody.php';
-?>

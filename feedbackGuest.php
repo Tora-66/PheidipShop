@@ -1,5 +1,8 @@
 <?php
 include_once 'php/DBConnect.php';
+session_start();
+
+$pageTitle = "Contact Us";
 
 if (isset($_POST["txtSubmit"])) :
     $name = $_POST["txtName"];
@@ -78,5 +81,6 @@ include 'php/navigationBar.php';
 </form>
 <?php
 mysqli_close($conn);
+include 'php/footer.php';
 include 'php/htmlBody.php';
 ?>

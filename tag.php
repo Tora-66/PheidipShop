@@ -59,7 +59,7 @@ include 'php/sidebar.php';
                 <tr>
                     <td>
                         <img src="<?= $rcProduct[2]; ?>" alt="" width="100rem" height="100rem" />
-                        <a class="link-dark profile-link" href="detailsProduct.php?id='<?= $rcProduct[0]; ?>'"><?= $rcProduct[1]; ?></a>
+                        <a class="link-dark profile-link" href="detailsProduct.php?id=<?= $rcProduct[0]; ?>"><?= $rcProduct[1]; ?></a>
                     </td>
                     <td class="w-auto">
                         <?php

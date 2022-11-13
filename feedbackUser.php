@@ -1,7 +1,8 @@
 <?php
-//Ket noi du lieu
-session_start();
 include_once 'php/DBConnect.php';
+session_start();
+
+$pageTitle = "Contact Us";
 
 $queryId = "SELECT `UserID`  FROM tbUser_Account WHERE UserName = '{$_SESSION["username"]}'";
 $rsId = mysqli_query($conn, $queryId);
@@ -84,6 +85,6 @@ include 'php/navigationBar.php';
 </form>
 
 <?php
+include 'php/footer.php';
 include 'php/htmlBody.php';
-
 ?>

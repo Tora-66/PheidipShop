@@ -4,7 +4,7 @@ if(!isset($_SESSION['sessionAdmin'])){
   header("location: loginAdmin.php");
 }
 
-echo '
+?>
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid justify-content-start">
         <button
@@ -75,4 +75,3 @@ echo '
       </div>
     </nav>
     <div class="nav-space"></div>
-';

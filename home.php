@@ -27,14 +27,12 @@ if (isset($_SESSION["username"])) {
 	// header("Location: $url");
 }
 
-$queryProduct = "SELECT * FROM `tbProduct`";
-$rsProduct = mysqli_query($conn, $queryProduct);
-$countProduct = mysqli_num_rows($rsProduct);
-
-
 include 'php/htmlHead.php';
 include 'php/navigationBar.php';
+include 'php/carousel.php';
+include 'php/type.php';
 include 'php/slider.php';
-
-mysqli_close($conn);
+include 'php/brandSection.php';
+include 'php/footer.php';
 include 'php/htmlBody.php';
+mysqli_close($conn);

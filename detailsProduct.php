@@ -1,12 +1,13 @@
-<!DOCTYPE html>
 <?php
 #1.Connect DB
 include_once 'php/DBConnect.php';
 session_start();
 
+$pageTitle = "Details Product";
+
 #2. take data from database where id
 $code = $_GET["id"];
-$query = "SELECT * FROM tbproduct WHERE ProductID = {$code};";
+$query = "SELECT * FROM tbproduct WHERE ProductID = '{$code}';";
 $rs = mysqli_query($conn, $query);
 $data = mysqli_fetch_array($rs);
 
@@ -27,20 +28,11 @@ for ($i = 0; $i < $countType; $i++) {
     $rcType = mysqli_fetch_array($rsType);
     array_push($type, $rcType);
 }
+
+include 'php/htmlHead.php';
+include 'php/sidebar.php';
 ?>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Document</title>
-</head>
-
-<body>
     <caption>
         <h2><?= $data[1] ?> Detials</h2>
     </caption>
@@ -95,8 +87,6 @@ for ($i = 0; $i < $countType; $i++) {
             </td>
         </tr>
     </Table>
-
-
-</body>
-
-</html>
+<?php
+include 'php/htmlBody.php';
+?>

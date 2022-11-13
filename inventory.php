@@ -24,7 +24,7 @@ array_unique($proInven);
 for ($x = 0; $x < $countProduct; $x++) :
   $rcProduct = mysqli_fetch_array(($rsProduct));
   if (!in_array($rcProduct[0], $proInven)) {
-    $InvenID = $rcProduct[0] . "38";
+    $InvenID = substr($rcProduct[0], 0, 7) . "38";
     $queryInsert = "INSERT INTO `tbInventory`(InventoryID, ProductID, `Size`, Quantity) VALUES
           ('{$InvenID}', '{$rcProduct[0]}', '38', 0);";
     $executeInsert = mysqli_query($conn, $queryInsert);

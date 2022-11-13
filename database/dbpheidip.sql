@@ -79,10 +79,10 @@ CREATE TABLE `tbProduct`(
 
 DROP TABLE IF EXISTS `tbTag`;
 CREATE TABLE `tbTag`(
-    `TagID` varchar(10) NOT NULL,
+    `TagID` varchar(50) NOT NULL,
     `TagName` varchar(40) NOT NULL,
     `ProductID` varchar(50) NOT NULL,
-    `Desc` text NOT NULL,
+    `Desc` text,
     PRIMARY KEY (TagID)
 );
 
@@ -184,11 +184,9 @@ INSERT INTO `tbFeedBack` VALUES
 (2, 1, null, 'I saw that you learned how to use pivot tables for your Excel project and it really helped display the data', '2022-11-13 13:19:20');
 
 INSERT INTO `tbBrand` VALUES
-('001NIK', 'Nike', 'img/brand_nike.png', ''),
-('002ADI', 'Adidas', 'img/brand_adidas.png', ''),
-('003TIM', 'Timberland', 'img/brand_Timberland.png', '');
-
-
+('NIK001', 'Nike', 'img/brand_nike.png', ''),
+('ADI002', 'Adidas', 'img/brand_adidas.png', ''),
+('TIM003', 'Timberland', 'img/brand_Timberland.png', '');
 
 INSERT INTO `tbType`VALUES 
 ('001SNE', 'Sneaker', 'Sneaker shoes'),
@@ -197,43 +195,107 @@ INSERT INTO `tbType`VALUES
 ('004SLI', 'Slippers', 'Slippers');
 
 INSERT INTO `tbProduct` VALUES 	
-('NIK01', 'Nike K50 Ultra', '555', 'img/thumbnail_1.jpg', 'img/image_1.jpg', '001NIK', '001SNE', ''),
-('NIK02', 'Nike JS Ultra', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', '001NIK', '001SNE', ''),
-('NIK03', 'Nike 12S Premium', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', '001NIK', '001SNE', ''),
-('NIK04', 'Nike F4 Gt ', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', '001NIK', '001SNE', ''),
-('ADI01', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
-('ADI02', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
-('ADI03', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
-('ADI04', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
-('TIM01', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
-('TIM02', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
-('TIM03', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
-('TIM04', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
-
+('NIK01', 'Nike K50 Ultra', '555', 'img/thumbnail_1.jpg', 'img/image_1.jpg', 'NIK001', '001SNE', ''),
+('NIK02', 'Nike JS Ultra', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', 'NIK001', '001SNE', ''),
+('NIK03', 'Nike 12S Premium', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', 'NIK001', '001SNE', ''),
+('NIK04', 'Nike F4 Gt ', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', 'NIK001', '001SNE', ''),
+('ADI01', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
+('ADI02', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
+('ADI03', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
+('ADI04', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
+('TIM01', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
+('TIM02', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
+('TIM03', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
+('TIM04', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', '');
 
 INSERT INTO `tbInventory` VALUES
-('PP0138', 'PP01', '38', 10),
-('PP0139', 'PP01', '39', 10),
-('PP0140', 'PP01', '40', 10),
-('PP0141', 'PP01', '41', 10),
-('PP0142', 'PP01', '42', 10),
-('PP0238', 'PP02', '38', 10),
-('PP0239', 'PP02', '39', 10),
-('PP0240', 'PP02', '40', 10),
-('PP0241', 'PP02', '41', 10),
-('PP0242', 'PP02', '42', 10),
-('PP0338', 'PP03', '38', 10),
-('PP0339', 'PP03', '39', 10),
-('PP0340', 'PP03', '40', 10),
-('PP0341', 'PP03', '41', 10),
-('PP0342', 'PP03', '42', 10),
-('PP0438', 'PP04', '38', 10),
-('PP0439', 'PP04', '39', 10),
-('PP0440', 'PP04', '40', 10),
-('PP0441', 'PP04', '41', 10),
-('PP0442', 'PP04', '42', 10);
+('NIK0138', 'NIK01', '38', 10),
+('NIK0139', 'NIK01', '39', 10),
+('NIK0140', 'NIK01', '40', 10),
+('NIK0141', 'NIK01', '41', 10),
+('NIK0142', 'NIK01', '42', 10),
+('NIK0238', 'NIK02', '38', 10),
+('NIK0239', 'NIK02', '39', 10),
+('NIK0240', 'NIK02', '40', 10),
+('NIK0241', 'NIK02', '41', 10),
+('NIK0242', 'NIK02', '42', 10),
+('NIK0338', 'NIK03', '38', 10),
+('NIK0339', 'NIK03', '39', 10),
+('NIK0340', 'NIK03', '40', 10),
+('NIK0341', 'NIK03', '41', 10),
+('NIK0342', 'NIK03', '42', 10),
+('NIK0438', 'NIK04', '38', 10),
+('NIK0439', 'NIK04', '39', 10),
+('NIK0440', 'NIK04', '40', 10),
+('NIK0441', 'NIK04', '41', 10),
+('NIK0442', 'NIK04', '42', 10),
+('ADI0138', 'ADI01', '38', 10),
+('ADI0139', 'ADI01', '39', 10),
+('ADI0140', 'ADI01', '40', 10),
+('ADI0141', 'ADI01', '41', 10),
+('ADI0142', 'ADI01', '42', 10),
+('ADI0238', 'ADI02', '38', 10),
+('ADI0239', 'ADI02', '39', 10),
+('ADI0240', 'ADI02', '40', 10),
+('ADI0241', 'ADI02', '41', 10),
+('ADI0242', 'ADI02', '42', 10),
+('ADI0338', 'ADI03', '38', 10),
+('ADI0339', 'ADI03', '39', 10),
+('ADI0340', 'ADI03', '40', 10),
+('ADI0341', 'ADI03', '41', 10),
+('ADI0342', 'ADI03', '42', 10),
+('ADI0438', 'ADI04', '38', 10),
+('ADI0439', 'ADI04', '39', 10),
+('ADI0440', 'ADI04', '40', 10),
+('ADI0441', 'ADI04', '41', 10),
+('ADI0442', 'ADI04', '42', 10),
+('TIM0138', 'TIM01', '38', 10),
+('TIM0139', 'TIM01', '39', 10),
+('TIM0140', 'TIM01', '40', 10),
+('TIM0141', 'TIM01', '41', 10),
+('TIM0142', 'TIM01', '42', 10),
+('TIM0238', 'TIM02', '38', 10),
+('TIM0239', 'TIM02', '39', 10),
+('TIM0240', 'TIM02', '40', 10),
+('TIM0241', 'TIM02', '41', 10),
+('TIM0242', 'TIM02', '42', 10),
+('TIM0338', 'TIM03', '38', 10),
+('TIM0339', 'TIM03', '39', 10),
+('TIM0340', 'TIM03', '40', 10),
+('TIM0341', 'TIM03', '41', 10),
+('TIM0342', 'TIM03', '42', 10),
+('TIM0438', 'TIM04', '38', 10),
+('TIM0439', 'TIM04', '39', 10),
+('TIM0440', 'TIM04', '40', 10),
+('TIM0441', 'TIM04', '41', 10),
+('TIM0442', 'TIM04', '42', 10)
+;
 
 INSERT INTO `tbPayment`(`Method`, `Desc`) VALUES 
 ('Cash', 'Cash payment method'),
 ('VISA', 'VISA payment method'),
 ('MOMO', 'MOMO wallet');
+
+INSERT INTO `tbTag` VALUES
+('MenADI01', 'Men', 'ADI01', 'Men'),
+('MenADI03', 'Men', 'ADI03', 'Men'),
+('MenNIK01', 'Men', 'NIK01', 'Men'),
+('MenTIM01', 'Men', 'TIM01', 'Men'),
+('MenTIM02', 'Men', 'TIM02', 'Men'),
+('MenTIM03', 'Men', 'TIM03', 'Men'),
+('MenTIM04', 'Men', 'TIM04', 'Men'),
+('NewADI02', 'New', 'ADI02', 'New'),
+('NewADI03', 'New', 'ADI03', 'New'),
+('NewNIK01', 'New', 'NIK01', 'New'),
+('NewNIK02', 'New', 'NIK02', 'New'),
+('NewTIM01', 'New', 'TIM01', 'New'),
+('NewTIM04', 'New', 'TIM04', 'New'),
+('WomADI02', 'Women', 'ADI02', 'Women'),
+('WomADI04', 'Women', 'ADI04', 'Women'),
+('WomNIK02', 'Women', 'NIK02', 'Women'),
+('WomNIK03', 'Women', 'NIK03', 'Women'),
+('WomenNIK04', 'Women', 'NIK04', 'Women'),
+('WomTIM01', 'Women', 'TIM01', 'Women'),
+('WomTIM02', 'Women', 'TIM02', 'Women'),
+('WomTIM03', 'Women', 'TIM03', 'Women'),
+('WomTIM04', 'Women', 'TIM04', 'Women');

@@ -54,4 +54,6 @@ include 'php/navigationBar.php';
 
 <?php
 
+include 'php/footer.php';
+include 'php/htmlBody.php';
 ?>

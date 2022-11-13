@@ -56,11 +56,15 @@ if (isset($_SESSION["username"])) {
               Brand
             </a>
             <ul class="dropdown-menu" aria-la elledby="navbarDropdown">
-              <li><a class="dropdown-item" href="menuBrand.php?id='001NIK'">Nike</a></li>
-              <li><a class="dropdown-item" href="menuBrand.php?id='002ADI'">Adidas</a></li>
-              <li><a class="dropdown-item" href="#">Timberland</a></li>
-              <li><a class="dropdown-item" href="#">Dr Martens</a></li>
-              <li><a class="dropdown-item" href="#">Others</a></li>
+              <?php
+              $queryBrand = "SELECT BrandID, BrandName FROM `tbBrand`;";
+              $rsBrand = mysqli_query($conn, $queryBrand);
+              while($rcBrand = mysqli_fetch_array($rsBrand)):
+              ?>
+              <li><a class="dropdown-item" href="menuBrand.php?id='<?= $rcBrand[0];?>'"><?= $rcBrand[1];?></a></li>
+              <?php
+              endwhile;
+              ?>
             </ul>
           </li>
 

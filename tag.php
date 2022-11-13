@@ -98,9 +98,6 @@ include 'php/sidebar.php';
                                             <input type="checkbox" class="btn-check" id="women<?= $rcProduct[0]; ?>" autocomplete="off" name="tag[]" value="Women" />
                                             <label class="btn btn-outline-dark rounded-pill fw-bold me-2" for="women<?= $rcProduct[0]; ?>">Women</label>
 
-                                            <input type="checkbox" class="btn-check" id="collection<?= $rcProduct[0]; ?>" autocomplete="off" name="tag[]" value="Collection" />
-                                            <label class="btn btn-outline-dark rounded-pill fw-bold me-2" for="collection<?= $rcProduct[0]; ?>">Collection</label>
-
                                             <input type="checkbox" class="btn-check" id="new<?= $rcProduct[0]; ?>" autocomplete="off" name="tag[]" value="New" />
                                             <label class="btn btn-outline-dark rounded-pill fw-bold me-2" for="new<?= $rcProduct[0]; ?>">New</label>
                                         </div>

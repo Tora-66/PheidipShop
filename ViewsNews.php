@@ -34,7 +34,7 @@ include 'php/sidebar.php';
             else :
                 while ($data = mysqli_fetch_array($rs)) :
             ?>
-                    <tr>
+                    <tr class="news-row">
                         <td><?= $data[0] ?></td>
                         <td><?= $data[1] ?></td>
                         <td><?= $data[2] ?></td>

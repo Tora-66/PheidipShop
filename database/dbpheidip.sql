@@ -49,7 +49,7 @@ CREATE TABLE `tbPayment`(
 
 DROP TABLE IF EXISTS `tbBrand`;
 CREATE TABLE `tbBrand`(
-    `BrandID` varchar(10) NOT NULL,
+    `BrandID` varchar(50) NOT NULL,
     `BrandName` varchar(40) NOT NULL,
     `Logo` varchar(100) NOT NULL,
     `Desc` text,
@@ -68,10 +68,10 @@ DROP TABLE IF EXISTS `tbProduct`;
 CREATE TABLE `tbProduct`(
     `ProductID` varchar(50) NOT NULL,
     `ProductName` varchar(50) NOT NULL,
-    `Price` decimal NOT NULL,
+    `Price` decimal(10,2) NOT NULL,
     `Thumbnail` varchar(100) NOT NULL,
     `Image` varchar(100) NOT NULL,
-    `BrandID` varchar(10) NOT NULL,
+    `BrandID` varchar(50) NOT NULL,
     `TypeID` varchar(10) NOT NULL,
     `Desc` text,
     PRIMARY KEY (ProductID)
@@ -188,6 +188,8 @@ INSERT INTO `tbBrand` VALUES
 ('002ADI', 'Adidas', 'img/brand_adidas.png', ''),
 ('003TIM', 'Timberland', 'img/brand_Timberland.png', '');
 
+
+
 INSERT INTO `tbType`VALUES 
 ('001SNE', 'Sneaker', 'Sneaker shoes'),
 ('002BOO', 'Boots', 'Boots shoes'),
@@ -195,10 +197,19 @@ INSERT INTO `tbType`VALUES
 ('004SLI', 'Slippers', 'Slippers');
 
 INSERT INTO `tbProduct` VALUES 	
-('PP01', 'Xiaomi', '555', 'img/thumbnail_1.jpg', 'img/image_1.jpg', '001NIK', '001SNE', ''),
-('PP02', 'Nike Javascript Ultra', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', '001NIK', '001SNE', ''),
-('PP03', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
-('PP04', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
+('NIK01', 'Nike K50 Ultra', '555', 'img/thumbnail_1.jpg', 'img/image_1.jpg', '001NIK', '001SNE', ''),
+('NIK02', 'Nike JS Ultra', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', '001NIK', '001SNE', ''),
+('NIK03', 'Nike 12S Premium', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', '001NIK', '001SNE', ''),
+('NIK04', 'Nike F4 Gt ', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', '001NIK', '001SNE', ''),
+('ADI01', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
+('ADI02', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
+('ADI03', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
+('ADI04', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', '002ADI', '001SNE', ''),
+('TIM01', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
+('TIM02', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
+('TIM03', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
+('TIM04', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', '003TIM', '002BOO', '');
+
 
 INSERT INTO `tbInventory` VALUES
 ('PP0138', 'PP01', '38', 10),

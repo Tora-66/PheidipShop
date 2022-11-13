@@ -30,55 +30,57 @@ include 'php/htmlHead.php';
 include 'php/navigationBar.php';
 ?>
 
-<form method="post" enctype="multipart/form-data">
-    <h2>Input FeedBack</h2>
-    <table class="table table-hove table-bordered">
-        <tr>
-            <td>Name:</td>
-            <td>
-                <div class="form-floating">
-                    <input type="text" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Name" name="txtName">
-                    <label for="floatingInputInvalid">User Name</label>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>Mail:</td>
-            <td>
-                <div class="form-floating">
-                    <input type="email" class="form-control is-invalid" id="floatingInputInvalid" placeholder="name@example.com" name="txtEmail">
-                    <label for="floatingInputInvalid">Email</label>
-                </div>
-            </td>
-        </tr>
+<section class="container section-margin">
+    <form method="post" enctype="multipart/form-data">
+        <h2>Input FeedBack</h2>
+        <table class="table table-hove table-bordered">
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <div class="form-floating">
+                        <input type="text" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Name" name="txtName">
+                        <label for="floatingInputInvalid">User Name</label>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Mail:</td>
+                <td>
+                    <div class="form-floating">
+                        <input type="email" class="form-control is-invalid" id="floatingInputInvalid" placeholder="name@example.com" name="txtEmail">
+                        <label for="floatingInputInvalid">Email</label>
+                    </div>
+                </td>
+            </tr>
 
-        <tr>
-            <td>Phone:</td>
-            <td>
-                <div class="form-floating">
-                    <input type="tel" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Phone" name="txtPhone">
-                    <label for="floatingInputInvalid">Phone Number</label>
-                </div>
-            </td>
-        </tr>
+            <tr>
+                <td>Phone:</td>
+                <td>
+                    <div class="form-floating">
+                        <input type="tel" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Phone" name="txtPhone">
+                        <label for="floatingInputInvalid">Phone Number</label>
+                    </div>
+                </td>
+            </tr>
 
-        <tr>
-            <td>FeedBack:</td>
-            <td>
-                <div class="form-floating">
-                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtContent" rows="10" cols="30"></textarea>
-                    <label for="floatingTextarea">Comments</label>
-                </div>
-            </td>
-        </tr>
+            <tr>
+                <td>FeedBack:</td>
+                <td>
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtContent" rows="10" cols="30"></textarea>
+                        <label for="floatingTextarea">Comments</label>
+                    </div>
+                </td>
+            </tr>
 
-        <tr>
-            <td></td>
-            <td> <input type="submit" name="txtSubmit" value="Send"></td>
-        </tr>
+            <tr>
+                <td></td>
+                <td> <input type="submit" name="txtSubmit" value="Send"></td>
+            </tr>
 
-    </table>
-</form>
+        </table>
+    </form>
+</section>
 <?php
 mysqli_close($conn);
 include 'php/footer.php';

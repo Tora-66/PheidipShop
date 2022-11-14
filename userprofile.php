@@ -19,6 +19,10 @@ $field = mysqli_fetch_array($rs);
 $query1 = "SELECT * FROM tbDelivery_Address WHERE userid = '$field[0]'";
 $rs1 = mysqli_query($conn, $query1);
 
+$feedback = mysqli_fetch_array($rs);
+$rsfeeedback = "SELECT * FROM tbfeedback WHERE FeedBackID = '$field[0]'";
+$rs2 = mysqli_query($conn, $rsfeeedback);
+
 include 'php/htmlHead.php';
 include 'php/navigationBar.php';
 include 'php/htmlBody.php';
@@ -80,8 +84,35 @@ include 'php/htmlBody.php';
         <?php include 'orderHistory.php'; ?>
     </div>
 
-    <div id="feedbackhis" class="tabcontent">
-        <h3>Feedback History</h3>
+    <div id="accountinfo" class="tabcontent">
+        <h3>Account Information</h3>
+        <table class="table-sm">
+            <tr>
+                <th>Email</th>
+                <td><?= $field[4] ?></td>
+            </tr>
+            <tr>
+                <th>Phone Number&emsp;&emsp;</th>
+                <td><?= $field[5] ?></td>
+            </tr>
+            <tr>
+                <th style="vertical-align: top">Address</th>
+                <td>
+                    <?php
+                    while ($field1 = mysqli_fetch_array($rs1)) :
+                    ?>
+                        <?= $field1[2] ?> <br>
+                    <?php
+                    endwhile;
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a  class="edit" href="editprofile.php?code=<?= $field[0] ?>">Edit profile</a>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 <script>

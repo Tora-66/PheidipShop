@@ -44,11 +44,46 @@ include 'php/sidebar.php';
                         required>
                     </td>
                 </tr> -->
+<<<<<<< Updated upstream
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">
                         <div class="col-2 text-end input-label my-auto">
                             Name*
+=======
+                <tr>
+                    <td>
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-2 text-end input-label my-auto">
+                                Name*                            
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-4">
+                            <input name="txtName" placeholder="Enter Brand Name" 
+                            class="rounded-pill form-input form-control"
+                            required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="row justify-content-center mb-4">
+                            <div  class="col-2 text-end input-label my-auto">
+                                Logo*                            
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="col-4">
+                        <input type="file" name="txtPath" 
+                            class="rounded-pill form-input input-file ps-0 form-control"
+                            accept=".jpg, .jpeg, .png,. gif"
+                            required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </td>

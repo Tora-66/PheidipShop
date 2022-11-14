@@ -38,7 +38,7 @@ include 'php/navigationBar.php';
                 <td>Name:</td>
                 <td>
                     <div class="form-floating">
-                        <input type="text" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Name" name="txtName">
+                        <input type="text" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Name" name="txtName" maxlength="25" required>
                         <label for="floatingInputInvalid">User Name</label>
                     </div>
                 </td>
@@ -47,7 +47,7 @@ include 'php/navigationBar.php';
                 <td>Mail:</td>
                 <td>
                     <div class="form-floating">
-                        <input type="email" class="form-control is-invalid" id="floatingInputInvalid" placeholder="name@example.com" name="txtEmail">
+                        <input type="email" class="form-control is-invalid" id="floatingInputInvalid" placeholder="name@example.com" name="txtEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
                         <label for="floatingInputInvalid">Email</label>
                     </div>
                 </td>
@@ -57,7 +57,7 @@ include 'php/navigationBar.php';
                 <td>Phone:</td>
                 <td>
                     <div class="form-floating">
-                        <input type="tel" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Phone" name="txtPhone">
+                        <input type="tel" class="form-control is-invalid" id="floatingInputInvalid" placeholder="Input Phone" name="txtPhone" pattern="([\+84|84|0]+(3|5|7|8|9|1[2|6|8|9]))+([0-9]{8})\b" required>
                         <label for="floatingInputInvalid">Phone Number</label>
                     </div>
                 </td>
@@ -67,7 +67,7 @@ include 'php/navigationBar.php';
                 <td>FeedBack:</td>
                 <td>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtContent" rows="10" cols="30"></textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtContent" rows="10" cols="30" maxlength="1000" required ></textarea>
                         <label for="floatingTextarea">Comments</label>
                     </div>
                 </td>

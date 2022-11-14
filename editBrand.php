@@ -52,12 +52,13 @@ include 'php/sidebar.php';
         </tr>
         <tr>
             <td>Brand Name</td>
-            <td><input name="txtName" value="<?= $data[1] ?>"></td>
+            <td><input name="txtName" value="<?= $data[1] ?>" required></td>
         </tr>
         <tr>
             <td>Logo: </td>
             <td>
-                <input type="file" name="txtPath" value="<?= $data[2] ?>">
+                <input type="file" name="txtPath" value="<?= $data[2] ?>"
+                accept=".jpg, .jpeg, .png,. gif"  required>
             </td>
         </tr>
         <tr>

@@ -93,11 +93,13 @@ include 'php/sidebar.php';
             </tr>
             <tr>
                 <td>Price : </td>
-                <td>$ <input name="txtPrice" value="<?= $data[2] ?>"></td>
+                <td>$ <input name="txtPrice" value="<?= $data[2] ?>"
+                pattern="^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$" required ></td>
             </tr>
             <tr>
                 <td>thumbnail: </td>
-                <td><input type="file" name="txtThumbnail" value="<?= $data[3] ?>"></td>
+                <td><input type="file" name="txtThumbnail" value="<?= $data[3] ?>"
+                accept=".jpg, .jpeg, .png,. gif"  required></td>
             </tr>
             <tr>
                 <td>Image: </td>

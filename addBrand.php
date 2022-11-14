@@ -69,7 +69,8 @@ include 'php/sidebar.php';
                 </td>
                 <td>
                     <div class="col-10">
-                        <input type="file" name="txtPath" class="rounded-pill form-input input-file ps-0 form-control" required>
+                        <input type="file" name="txtPath" class="rounded-pill form-input input-file ps-0 form-control" 
+                        pattern="^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$" required>
                         <div class="invalid-feedback">*Required.</div>
                     </div>
                 </td>

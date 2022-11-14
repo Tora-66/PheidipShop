@@ -104,10 +104,22 @@ include 'php/sidebar.php';
                 <td>
                     <div class="row justify-content-center mb-4">
                         <div class="col-10">
-                            $ <input name="txtPrice" class="rounded-pill form-input form-control" 
-                            pattern="^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$" required 
-                            placeholder="Enter price, much greater than 0">
-                            <div class="invalid-feedback">much greater than 0.</div>
+                        <input name="txtPrice" type="number" step="any" min="0" max="10000000000"
+                                class="rounded-pill form-input form-control" 
+                                placeholder="Enter price, much greater than 0" 
+                                oninput="check(this)"
+                                required>
+                                <div class="invalid-feedback">*Price much be greater than 0.</div>
+                                <script>
+                                    function check(input) {
+                                    if (input.value == 0) {
+                                        input.setCustomValidity('The number must not be zero.');
+                                    } else {
+                                        // input is fine -- reset the error message
+                                        input.setCustomValidity('');
+                                    }
+                                    }
+                                </script>
                         </div>
                     </div>
                 </td>
@@ -152,7 +164,7 @@ include 'php/sidebar.php';
                 <td>
                     <div class="row justify-content-center mb-4">
                         <div class="col-2 text-end input-label my-auto">
-                            Brand*
+                            Brand
                         </div>
                     </div>
                 </td>
@@ -174,7 +186,7 @@ include 'php/sidebar.php';
                 <td>
                     <div class="row justify-content-center mb-4">
                         <div class="col-2 text-end input-label my-auto">
-                            Type*
+                            Type
                         </div>
                     </div>
                 </td>
@@ -210,9 +222,20 @@ include 'php/sidebar.php';
                 <td colspan="4"><textarea name="txtDesc" id="desc" cols="30" rows="5" class="form-control"></textarea></td>
             </tr>
             <tr>
-                <td> <a href="product.php" class="btn btn-secondary" class="form-control">Back</a></td>
-                <td colspan="4">
-                    <input type="submit" class="btn btn-success" class="form-control" name="btnAdd" value="Add New" onclick="return confirm('Ready to add new product ')">
+                <td><div class="row justify-content-center mb-4">
+                            <div class="col-2 text-end input-label my-auto">
+                        <a href="product.php" class="btn btn-warning rounded-pill">Back</a>
+                            </div>
+                        </div>
+                    </td>
+                <td>
+                <div class="row justify-content-center mb-4">
+                            <div class="col-8">
+                                <input type="submit"  class="btn btn-success rounded-pill d-flex justify-content-center"
+                                    name="btnAdd" value="+ Add New" 
+                                    onclick="return confirm('Ready to add new product ')">
+                            </div>
+                        </div>
                 </td>
             </tr>
         </table>

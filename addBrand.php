@@ -70,7 +70,7 @@ include 'php/sidebar.php';
                 <td>
                     <div class="col-10">
                         <input type="file" name="txtPath" class="rounded-pill form-input input-file ps-0 form-control" 
-                        pattern="^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$" required>
+                        accept=".jpg, .jpeg, .png,. gif" required>
                         <div class="invalid-feedback">*Required.</div>
                     </div>
                 </td>

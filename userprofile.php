@@ -84,32 +84,19 @@ include 'php/htmlBody.php';
         <?php include 'orderHistory.php'; ?>
     </div>
 
-    <div id="accountinfo" class="tabcontent">
-        <h3>Account Information</h3>
+    <div id="feedbackhis" class="tabcontent">
+        <h3>Feedback History</h3>
         <table class="table-sm">
             <tr>
-                <th>Email</th>
-                <td><?= $field[4] ?></td>
-            </tr>
-            <tr>
-                <th>Phone Number&emsp;&emsp;</th>
-                <td><?= $field[5] ?></td>
-            </tr>
-            <tr>
-                <th style="vertical-align: top">Address</th>
+                <th style="vertical-align: top">Commnets</th>
                 <td>
                     <?php
-                    while ($field1 = mysqli_fetch_array($rs1)) :
+                    while ($field2 = mysqli_fetch_array($rs2)) :
                     ?>
-                        <?= $field1[2] ?> <br>
+                        <?= $field2[3] ?> <br>
                     <?php
                     endwhile;
                     ?>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a  class="edit" href="editprofile.php?code=<?= $field[0] ?>">Edit profile</a>
                 </td>
             </tr>
         </table>

@@ -46,14 +46,9 @@ if (isset($_POST["btnAdd"])) :
 
     //SQL
 
-  
-    $query = "  INSERT INTO tbproduct VALUES('{$proId}','{$name}','{$price}','{$thumbnail}','{$image}','{$brandId}','{$typeId}','{$desc}');";
+
+    $query = "  INSERT INTO tbproduct VALUES('{$proId}','{$name}','{$price}','{$thumbnail}','{$image}','{$brandId}','{$typeId}','{$desc}')";
     $rs = mysqli_query($conn, $query);
-
-    $tagID = "New".$proId;
-    $queryTag = "INSERT INTO `tbTag` VALUES('{$tagID}', 'New', '{$proId}', 'new');";
-    $rsTag = mysqli_query($conn, $queryTag);
-
     if (!$rs) :
         die('nothing to save');
     endif;

@@ -88,7 +88,7 @@ CREATE TABLE `tbTag`(
 
 DROP TABLE IF EXISTS `tbInventory`;
 CREATE TABLE `tbInventory`(
-    `InventoryID` varchar(10) NOT NULL,
+    `InventoryID` varchar(53) NOT NULL,
     `ProductID` varchar(50) NOT NULL,
     `Size` varchar(3) NOT NULL,
     `Quantity` int NOT NULL,

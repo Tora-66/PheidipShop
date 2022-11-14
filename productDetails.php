@@ -12,10 +12,15 @@ $rsProduct = mysqli_query($conn, $queryProduct);
 $countProduct = mysqli_num_rows($rsProduct);
 $rcProduct = mysqli_fetch_array($rsProduct);
 
-$queryInventory = "SELECT `Quantity` FROM `tbInventory` WHERE ProductID = '{$proID}';";
+$queryInventory = "SELECT `Quantity`, `Size` FROM `tbInventory` WHERE ProductID = '{$proID}';";
 $rsInventory = mysqli_query($conn, $queryInventory);
 $rcInventory = mysqli_fetch_array($rsInventory);
 $InQuantity = $rcInventory[0];
+
+$disabledAdd = "";
+if($InQuantity == 0) {
+  $disabledAdd = "disabled";
+}
 
 
 if (isset($_POST['btnAdd'])) {
@@ -45,7 +50,7 @@ include 'php/navigationBar.php';
 ?>
 
 <section id="productDetails" class="section-margin d-flex container-fluid">
-  <div class="container">
+  <div class="container ms-5">
     <img src="<?= $rcProduct[4] ?>" alt="" width="100%" height="500px">
   </div>
   <div class="container m-auto">
@@ -87,7 +92,7 @@ include 'php/navigationBar.php';
         <input class="m-0" type="number" name="quantity" min="1" step="1" max="<?= $InQuantity; ?>" pattern="[0-9]{1,}" required>
         <label for="quantity"><p class="fw-light fst-italic">(<span class="fw-bold"><?= $InQuantity;?></span> products remaining)</p></label>
       </div>
-      <button type="submit" class="btn btn-dark btn-lg rounded-0 card-button" name="btnAdd">
+      <button type="submit" class="btn btn-dark btn-lg rounded-0 card-button" name="btnAdd" <?= $disabledAdd;?>>
         <i class="bi bi-cart2 me-2"></i> Add to cart
       </button>
       <div class="my-3">
@@ -102,5 +107,6 @@ include 'php/navigationBar.php';
 
 <?php
 mysqli_close($conn);
+include 'php/footer.php';
 include 'php/htmlBody.php';
 ?>

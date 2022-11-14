@@ -59,6 +59,7 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
+            
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">
@@ -75,6 +76,7 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">

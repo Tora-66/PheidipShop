@@ -93,6 +93,7 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
+            
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">
@@ -124,6 +125,7 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">
@@ -142,6 +144,7 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">
@@ -160,6 +163,7 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">
@@ -182,6 +186,7 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
+
             <tr>
                 <td>
                     <div class="row justify-content-center mb-4">
@@ -219,8 +224,13 @@ include 'php/sidebar.php';
                         </div>
                     </div>
                 </td>
-                <td colspan="4"><textarea name="txtDesc" id="desc" cols="30" rows="5" class="form-control"></textarea></td>
+                <td>
+                <div class="col-8">
+                    <textarea name="txtDesc" id="desc" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                </td>
             </tr>
+
             <tr>
                 <td><div class="row justify-content-center mb-4">
                             <div class="col-2 text-end input-label my-auto">

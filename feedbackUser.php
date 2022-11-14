@@ -71,7 +71,7 @@ include 'php/navigationBar.php';
                 <td>FeedBack:</td>
                 <td>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtContent" rows="10" cols="30"></textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtContent" rows="10" cols="30" maxlength="1000" required ></textarea>
                         <label for="floatingTextarea">Comments</label>
                     </div>
                 </td>

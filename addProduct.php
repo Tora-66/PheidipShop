@@ -69,7 +69,6 @@ include 'php/sidebar.php';
             <div class="col-8 text-end input-label my-auto">
                 <h2>New Product information form</h2>
             </div>
-<<<<<<< Updated upstream
         </div>
         <table class="table table-borderless">
             <hr>
@@ -126,61 +125,6 @@ include 'php/sidebar.php';
                     </div>
                 </td>
             </tr>
-=======
-            <table width="100%" class="table table-borderless text-start border px-0">
-                <tr>
-                    <td>Product ID: </td>
-                    <td><input name="txtProId" placeholder="Enter ID: PPxx"></td>
-                </tr>
-                <tr>
-                    <td>Name: </td>
-                    <td><input name="txtName" placeholder="Enter Name"></td>
-                </tr>
-                <tr>
-                    <td>Price : </td>
-                    <td><input name="txtPrice" placeholder="Enter price"></td>
-                </tr>
-                <tr>
-                    <td>thumbnail: </td>
-                    <td><input type="file" name="txtThumbnail"
-                    accept=".jpg, .jpeg, .png,. gif"></td>
-                </tr>
-                <tr>
-                    <td>Image: </td>
-                    <td><input type="file" name="txtImage"
-                    accept=".jpg, .jpeg, .png,. gif"></td>
-                </tr>
-                <tr>
-                    <td>Brand: </td>
-                    <td><select name="brand" id="brands">
-                            <?php while ($field = mysqli_fetch_array($rs1)) : ?>
-                                <option value="<?= $field[0] ?>"><?= $field[1] ?></option>
-                            <?php endwhile; ?>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>Type: </td>
-                    <td><select name="type" id="type">
-                            <?php while ($field = mysqli_fetch_array($rs2)) : ?>
-
-                                <option value="<?= $field[0] ?>"><?= $field[1] ?></option>
-
-                            <?php endwhile; ?>
-                        </select></td>
-                </tr>
-                <tr>
-                    <td>description: </td>
-                    <td><textarea name="txtDesc" id="desc" cols="30" rows="10"></textarea></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td><input type="submit" name="btnAdd" value="Add New" onclick="return confirm('Ready to add new product ')"></td>
-                </tr>
-            </table>
-        </form>
-    </div>
-</section>
->>>>>>> Stashed changes
 
             <tr>
                 <td>

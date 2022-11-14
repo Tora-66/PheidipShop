@@ -88,12 +88,25 @@ include 'php/htmlBody.php';
         <h3>Feedback History</h3>
         <table class="table-sm">
             <tr>
-                <th style="vertical-align: top">Commnets</th>
+                <th style="vertical-align: top"> Contents </th>
                 <td>
                     <?php
                     while ($field2 = mysqli_fetch_array($rs2)) :
                     ?>
-                        <?= $field2[3] ?> <br>
+                        <?= $field2[3]?> <br>
+                    <?php
+                    endwhile;
+                    ?>
+                </td>
+            </tr>
+
+            <tr>
+                <th style="vertical-align: top"> Date Time </th>
+                <td>
+                    <?php
+                    while ($field2 = mysqli_fetch_array($rs2)) :
+                    ?>
+                        <?= $field2[4]?> <br>
                     <?php
                     endwhile;
                     ?>

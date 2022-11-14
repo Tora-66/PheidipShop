@@ -120,7 +120,7 @@
 /* Slider */
 .slider .carousel {
   background-color: none;
-  background-image: none;
+  background-image: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255));
 }
 
 /* Brand */

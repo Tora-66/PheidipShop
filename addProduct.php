@@ -104,7 +104,7 @@ include 'php/sidebar.php';
                 <td>
                     <div class="row justify-content-center mb-4">
                         <div class="col-10">
-                            $ <input name="txtPrice" class="rounded-pill form-input form-control" 
+                            <input name="txtPrice" class="rounded-pill form-input form-control" 
                             pattern="^(0*[1-9][0-9]*(\.[0-9]+)?|0+\.[0-9]*[1-9][0-9]*)$" required 
                             placeholder="Enter price, much greater than 0">
                             <div class="invalid-feedback">much greater than 0.</div>

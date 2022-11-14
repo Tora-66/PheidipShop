@@ -3,6 +3,8 @@
 include_once 'php/DBConnect.php';
 session_start();
 
+$pageTitle = "Feedback Management";
+
 //Lay du lieu tu tbFeedBack
 $tbfeedback = "SELECT * FROM tbfeedback";
 $rsfeedback = mysqli_query($conn, $tbfeedback);

@@ -99,7 +99,7 @@ include 'php/sidebar.php';
             <tr>
                 <td>thumbnail: </td>
                 <td><input type="file" name="txtThumbnail" value="<?= $data[3] ?>"
-                accept=".jpg, .jpeg, .png,. gif"  required></td>
+                accept=".jpg, .jpeg, .png,. gif"></td>
             </tr>
             <tr>
                 <td>Image: </td>

@@ -26,7 +26,7 @@ for ($i = 0; $i < $count; $i++) {
 
 $checkout = "";
 $count = count($_SESSION["prodID"]);
-if($count == 0){
+if ($count == 0) {
   $checkout = "disabled";
 }
 
@@ -128,12 +128,12 @@ include 'php/navigationBar.php';
       ?>
     </table>
     <div class="m-2 me-5 pe-3 text-end">
-      <a class="btn btn-danger <?= $checkout;?>" href="checkout.php">Checkout</a>
+      <a class="btn btn-danger <?= $checkout; ?>" href="checkout.php">Checkout</a>
     </div>
   </form>
 </section>
 
-
 <?php mysqli_close($conn);
+include 'php/footer.php';
 include 'php/htmlBody.php';
 ?>

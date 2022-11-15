@@ -19,11 +19,10 @@ $rsInventory = mysqli_query($conn, $queryInventory);
 // $rcInventory = mysqli_fetch_array($rsInventory);
 $countInventory = mysqli_num_rows($rsInventory);
 $quantitySize = array();
-for($i = 0; $i < $countInventory; $i++){
+for ($i = 0; $i < $countInventory; $i++) {
   $rcInventory = mysqli_fetch_array($rsInventory);
   array_push($quantitySize, $rcInventory);
 }
-// $InQuantity = $rcInventory[0];
 
 $disabledAdd = "";
 // if ($InQuantity == 0) {
@@ -35,19 +34,19 @@ $showSize39 = "";
 $showSize40 = "";
 $showSize41 = "";
 $showSize42 = "";
-if($quantitySize[0][0] == 0){
+if ($quantitySize[0][0] == 0) {
   $showSize38 = "disabled";
 }
-if($quantitySize[1][0] == 0){
+if ($quantitySize[1][0] == 0) {
   $showSize39 = "disabled";
 }
-if($quantitySize[2][0] == 0){
+if ($quantitySize[2][0] == 0) {
   $showSize40 = "disabled";
 }
-if($quantitySize[3][0] == 0){
+if ($quantitySize[3][0] == 0) {
   $showSize41 = "disabled";
 }
-if($quantitySize[4][0] == 0){
+if ($quantitySize[4][0] == 0) {
   $showSize42 = "disabled";
 }
 
@@ -66,11 +65,23 @@ if (isset($_POST['btnAdd'])) {
     //     }
     //   }
     // }
-
-    array_push($_SESSION["prodID"], $proID);
-    array_push($_SESSION["size"], $size);
-    array_push($_SESSION["quantity"], $quantity);
+    if (count($_SESSION["prodID"]) == 0) {
+      array_push($_SESSION["prodID"], $proID);
+      array_push($_SESSION["size"], $size);
+      array_push($_SESSION["quantity"], $quantity);
+    } else {
+      if (in_array($proID, $_SESSION["prodID"])) {
+        $index = array_search($proID, $_SESSION["prodID"]);
+        $_SESSION["quantity"][$index] = $_SESSION["quantity"][$index] + $quantity;
+      } else {
+        array_push($_SESSION["prodID"], $proID);
+        array_push($_SESSION["size"], $size);
+        array_push($_SESSION["quantity"], $quantity);
+      }
+    }
   }
+
+  echo "<script type='text/javascript'>alert('Add to cart successfully!');</script>";
 }
 
 $query1 = "SELECT * FROM tbbrand ";
@@ -105,23 +116,23 @@ include 'php/navigationBar.php';
       <p class="product-price">$<?= $rcProduct[2] ?></p>
       <div class="size m-0 my-2 p-0">
         <div class="container d-inline m-0 p-0">
-          <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" value="38" required <?= $showSize38?>/>
+          <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" value="38" required <?= $showSize38 ?> />
           <label class="btn btn-secondary" for="option1">38</label>
         </div>
         <div class="container d-inline mx-1 p-0">
-          <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" value="39" <?= $showSize39?>/>
+          <input type="radio" class="btn-check" name="options" id="option2" autocomplete="off" value="39" <?= $showSize39 ?> />
           <label class="btn btn-secondary" for="option2">39</label>
         </div>
         <div class="container d-inline mx-1 p-0">
-          <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" value="40" <?= $showSize40?>/>
+          <input type="radio" class="btn-check" name="options" id="option3" autocomplete="off" value="40" <?= $showSize40 ?> />
           <label class="btn btn-secondary" for="option3">40</label>
         </div>
         <div class="container d-inline mx-1 p-0">
-          <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off" value="41" <?= $showSize41?>/>
+          <input type="radio" class="btn-check" name="options" id="option4" autocomplete="off" value="41" <?= $showSize41 ?> />
           <label class="btn btn-secondary" for="option4">41</label>
         </div>
         <div class="container d-inline d-inline mx-1 p-0">
-          <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off" value="42" <?= $showSize42?>/>
+          <input type="radio" class="btn-check" name="options" id="option5" autocomplete="off" value="42" <?= $showSize42 ?> />
           <label class="btn btn-secondary" for="option5">42</label>
         </div>
       </div>

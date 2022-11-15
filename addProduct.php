@@ -66,8 +66,8 @@ include 'php/sidebar.php';
 <div class="container mx-auto m-5 p-0 w-50">
     <form method="post" class="p-2 needs-validation" enctype="multipart/form-data" novalidate>
         <div class="row justify-content-center mb-4">
-            <div class="col-8 text-end input-label my-auto">
-                <h2>New Product information form</h2>
+            <div class="col-8 text-center input-label my-auto">
+                <h2>New Product</h2>
             </div>
         </div>
         <table class="table table-borderless">
@@ -225,9 +225,10 @@ include 'php/sidebar.php';
                     </div>
                 </td>
                 <td>
-                <div class="col-8">
-                    <textarea name="txtDesc" id="desc" cols="30" rows="5" class="form-control"></textarea>
-                    </div>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-10">
+                    <textarea name="txtDesc" id="desc" cols="30" rows="10" class="form-control"></textarea>
+                    </div></div>
                 </td>
             </tr>
 

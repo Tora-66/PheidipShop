@@ -76,14 +76,14 @@ include 'php/htmlHead.php';
 include 'php/sidebar.php';
 ?>
 <div  class="container mx-auto m-5 p-0 w-50">
-        <form method="post" class="p-2 needs-validation" enctype="multipart/form-data">
+        <form method="post" class="p-2 needs-validation" enctype="multipart/form-data" novalidate>
         <div class="row justify-content-center mb-4">
-                <div class="col-8 text-end input-label my-auto">
-        <h2>Update Product information form</h2>
+                <div class="col-8 text-center input-label my-auto">
+        <h2>Update Product</h2>
         </div></div>
        
             <table class="table table-borderless">
-
+                <hr>
                 <tr>
                     <td>
                     <div class="row justify-content-center mb-4">
@@ -257,8 +257,11 @@ include 'php/sidebar.php';
                             </div>
                         </div>
                     </td>
-                    <td colspan="4">
+                    <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-10">
                         <textarea name="txtDesc" id="desc" cols="30" rows="10"  class="form-control"><?= $data[7]?></textarea>
+                        </div></div>
                     </td>
                 </tr>
 
@@ -274,7 +277,7 @@ include 'php/sidebar.php';
                             <div class="col-8">
                         <input type="submit" class="btn btn-success rounded-pill d-flex justify-content-center"
                         name="btnSave" value="Save" 
-                    onclick="return confirm('Are you sure to update <?= $data[1]?>''Are you sure to update <?= $data[1]?>')">
+                    onclick="return confirm('Are you sure to update <?= $data[1]?>')">
                     </div>
                         </div>
                 </td>

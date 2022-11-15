@@ -86,12 +86,16 @@ if (isset($_POST["addOrder"])) {
     $quantity = $_SESSION["quantity"][$i];
 
 
-    $queryInventory = "SELECT `InventoryID` FROM `tbInventory` WHERE `ProductID` = '{$prodID}' AND `Size` = '{$size}';";
+    $queryInventory = "SELECT `InventoryID`, `Quantity` FROM `tbInventory` WHERE `ProductID` = '{$prodID}' AND `Size` = '{$size}';";
     $rsInventory = mysqli_query($conn, $queryInventory);
     $rcInventory = mysqli_fetch_array($rsInventory);
 
-    // Add Details
+    if($rcInventory[1] < $quantity) {
+      echo "<script type='text/javascript'>alert('Quantity in cart is more than stock remaining, please reduce quantity in cart before checkout!');</script>";
+      header("location: cart.php");
+    }
 
+    // Add Details
     $detailsID = substr($rcInventory[0], 3, 3) . "$quantity" . date('s');
     $queryDetails = "INSERT INTO `tbOrder_Details` VALUES ('$detailsID', '{$rcInventory[0]}', {$quantity});";
     $rsDetails = mysqli_query($conn, $queryDetails);

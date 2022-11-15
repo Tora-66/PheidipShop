@@ -44,7 +44,7 @@ include 'php/sidebar.php';
                 <?php 
             endwhile;
         endif;
-        mysqli_close($conn);
+
             ?>
             </tbody>
             

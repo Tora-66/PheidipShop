@@ -30,8 +30,8 @@ include 'php/sidebar.php';
 <div class="container mx-auto m-5 p-0 w-50">
         <form method="post" class="p-2 needs-validation" enctype="multipart/form-data" novalidate >
             <div class="row justify-content-center mb-4">
-                <div class="col-8 text-end input-label my-auto">
-                    <h2>New brand information Form</h2> 
+                <div class="col-8 text-center input-label my-auto">
+                    <h2>New brand</h2> 
                 </div>
             </div>
             <table class="table table-borderless" >

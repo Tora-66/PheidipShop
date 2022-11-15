@@ -116,7 +116,7 @@ include 'php/sidebar.php';
                 <td>
                     <div class="row justify-content-center mb-4">
                         <div class="col-10">
-                    <textarea name="txtDesc" id="description" class="form-input input-file ps-0 form-control" 
+                    <textarea name="txtDesc" id="description" class="form-control" 
                     cols="30" rows="10"><?= $data[3]?></textarea>
                     </div></div>
                 </td>

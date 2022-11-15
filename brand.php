@@ -44,10 +44,8 @@ include 'php/sidebar.php';
                 <?php 
             endwhile;
         endif;
-
             ?>
             </tbody>
-            
         </table>
        
     </div>

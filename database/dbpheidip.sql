@@ -197,22 +197,25 @@ INSERT INTO `tbType`VALUES
 ('004SLI', 'Slippers', 'Slippers');
 
 INSERT INTO `tbProduct` VALUES 	
-('NIK01', 'Nike K50 G-Series Ultra',        '555',  'img/thumbnail_1.jpg',  'img/image_1.jpg',  'NIK001',   '001SNE', ''),
-('NIK02', 'Nike ROG 6 Pro',                 '199',  'img/thumbnail_2.jpg',  'img/image_2.jpg',  'NIK001',   '002BOO', ''),
-('NIK03', 'Nike Red Magic 7S Pro Premium',  '199',  'img/thumbnail_3.jpg',  'img/image_3.jpg',  'NIK001',   '003SAN', ''),
-('NIK04', 'Nike F4 GT Pro',                 '199',  'img/thumbnail_4.jpg',  'img/image_4.jpg',  'NIK001',   '004SLI', ''),
+('NIK01', 'Nike K50 G-Series Ultra',        '555.99',  'img/thumbnail_1.jpg',   'img/image_1.jpg',  'NIK001',   '001SNE', ''),
+('NIK02', 'Nike ROG 6 Pro',                 '199.99',  'img/18.jpg',   'img/18.jpg',  'NIK001',   '002BOO', ''),
+('NIK03', 'Nike Red Magic 7S Pro Premium',  '199.99',  'img/carousel-7.jpg',   'img/carousel-7.jpg',  'NIK001',   '003SAN', ''),
+('NIK04', 'Nike F4 GT Pro',                 '199.99',  'img/10.jpg',   'img/10.jpg',  'NIK001',   '004SLI', ''),
 
-('ADI01', 'Adidas ROG Stix Scar G15', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
-('ADI02', 'Adidas BS 5 Pro', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '002BOO', ''),
-('ADI03', 'Adidas 10T Pro GI Hutao', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '003SAN', ''),
-('ADI04', 'Adidas 9RT GI Sucrose', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '004SLI', ''),
+('ADI01', 'Adidas ROG Stix Scar G15',       '239.99',   'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
+('ADI02', 'Adidas BS 5 Pro',                '79.99',    'img/type-2.jpg',    'img/type-2.jpg', 'ADI002', '002BOO', ''),
+('ADI03', 'Adidas 10T Pro GI Hutao',        '69.99',    'img/12.jpg', 'img/12.jpg', 'ADI002', '003SAN', ''),
+('ADI04', 'Adidas 9RT GI Sucrose',          '99.99',    'img/15.jpg', 'img/15.jpg', 'ADI002', '004SLI', ''),
 
-('TIM01', 'Timberland Strix Scar G15', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
-('TIM02', 'Timberland Legion 5 Pro', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
-('TIM03', 'Timberland X15 R2', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '003SAN', ''),
-('TIM04', 'Timberland Predator Helios 300', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '004SLI', '');
+('TIM01', 'Timberland Omen 15',      '529.99',   'img/8.jpg', 'img/8.jpg', 'TIM003', '002BOO', ''),
+('TIM02', 'Timberland Legion 5 Pro',        '64.99',    'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
+('TIM03', 'Timberland X15 R2',              '299.99',   'img/19.jpg', 'img/19.jpg', 'TIM003', '003SAN', ''),
+('TIM04', 'Timberland Predator Helios 300', '96.99',    'img/9.jpg', 'img/9.jpg', 'TIM003', '004SLI', ''),
 
-
+('DRM01', 'DrMartens Zephyrus M16',    '499.99',   'img/3.jpg', 'img/3.jpg', 'DRM004', '001SNE', ''),
+('DRM02', 'DrMartens Zephyrus Dou 16 ',    '149.99',   'img/17.jpg', 'img/17.jpg', 'DRM004', '002BOO', ''),
+('DRM03', 'DrMartens Katana GF66',    '169.99',   'img/14.jpg', 'img/14.jpg', 'DRM004', '003SAN', ''),
+('DRM04', 'DrMartens Crosshail 15',    '79.99',    'img/16.jpg', 'img/16.jpg', 'DRM004', '004SLI', '');
 
 INSERT INTO `tbInventory` VALUES
 ('NIK0138', 'NIK01', '38', 10),

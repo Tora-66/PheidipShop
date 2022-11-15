@@ -19,6 +19,10 @@ $field = mysqli_fetch_array($rs);
 $query1 = "SELECT * FROM tbDelivery_Address WHERE userid = '$field[0]'";
 $rs1 = mysqli_query($conn, $query1);
 
+$feedback = mysqli_fetch_array($rs);
+$rsfeeedback = "SELECT * FROM tbfeedback WHERE FeedBackID = '$field[0]'";
+$rs2 = mysqli_query($conn, $rsfeeedback);
+
 include 'php/htmlHead.php';
 include 'php/navigationBar.php';
 include 'php/htmlBody.php';
@@ -82,6 +86,33 @@ include 'php/htmlBody.php';
 
     <div id="feedbackhis" class="tabcontent">
         <h3>Feedback History</h3>
+        <table class="table-sm">
+            <tr>
+                <th style="vertical-align: top"> Contents </th>
+                <td>
+                    <?php
+                    while ($field2 = mysqli_fetch_array($rs2)) :
+                    ?>
+                        <?= $field2[3]?> <br>
+                    <?php
+                    endwhile;
+                    ?>
+                </td>
+            </tr>
+
+            <tr>
+                <th style="vertical-align: top"> Date Time </th>
+                <td>
+                    <?php
+                    while ($field2 = mysqli_fetch_array($rs2)) :
+                    ?>
+                        <?= $field2[4]?> <br>
+                    <?php
+                    endwhile;
+                    ?>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
 <script>

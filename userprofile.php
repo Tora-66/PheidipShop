@@ -36,12 +36,19 @@ include 'php/htmlBody.php';
         padding-bottom: 5px
     }
     .tabcontent {
+       display: flex;
+       float: left;
+       padding: 0px 12px;
+       border: 1px solid #ccc;
+       width: 70%;
+       border-left: none;
+}
+    .tab1 {
+    flex: 1;
     float: left;
-    padding: 0px 12px;
     border: 1px solid #ccc;
-    width: 70%;
-    border-left: none;
-    min-height: 300px;	    
+    background-color: black;
+    width: 30%;
 }
 </style>
 <div class="container user">   
@@ -55,7 +62,7 @@ include 'php/htmlBody.php';
     <h2>User Profile</h2>
     <hr style="height:2px;border-width:0;color:gray;background-color:gray">
     <h3><?= $field[3] ?></h3> <br>
-    <div class="tab1">
+    <div class="tab1" id="tab1">
         <button class="tablinks" onclick="openCity(event, 'accountinfo')" id="defaultOpen">Account Information</button>
         <button class="tablinks" onclick="openCity(event, 'purchasehis')">Purchase History</button>
         <button class="tablinks" onclick="openCity(event, 'feedbackhis')">Feedback History</button>
@@ -134,7 +141,7 @@ include 'php/htmlBody.php';
         </table>
     </div>
 </div>
-<div style="margin-top: 400px">
+<div style="padding-top: 400px">
         <?php
             include 'php/footer.php';
         ?>
@@ -154,7 +161,7 @@ include 'php/htmlBody.php';
         document.getElementById(cityName).style.display = "block";
         evt.currentTarget.className += " active";
     }
-
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
+    $(".tabcontent").height($("#tab1").height());
 </script>

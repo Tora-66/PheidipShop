@@ -155,7 +155,7 @@ input:focus{
 						</div>						
                                                 <div class="inline-block col-sm-6">
                                                     <div style=" margin-top: 23px"> 
-                                                    <input class="btn btn-primary btn-block" type="submit" name="signup-btn"
+                                                    <input class="btn btn-success rounded-pill" type="submit" name="signup-btn"
                                                             id="signup-btn" value="Create new account">
                                                     </div>
                                                 </div>

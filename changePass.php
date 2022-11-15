@@ -23,7 +23,7 @@ if($_POST["currentPassword"] == $field["Password"]) {
         $message = "Confirm password and password must be the same";
     }
 } else{
-    $message = "Password is not correct";
+    $message = "Current password is incorrect";
 }
 endif;
 include 'php/htmlHead.php';

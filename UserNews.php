@@ -67,9 +67,9 @@ include 'php/navigationBar.php';
 <body>
     <!-- Backround - top -->
     <div class="navbar-top">
-        <div class="navbar-top-home">
+        <!-- <div class="navbar-top-home">
             <button type="button" class="btn btn-light"><a href="#.php" class="text-decoration-none text-warning">Home Pate</a></button>
-        </div>
+        </div> -->
 
         <div class="navbar-top-Notify">
             <h1>Philip Shop would like to introduce Information about some new </h1> <br>

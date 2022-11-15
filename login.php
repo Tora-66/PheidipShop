@@ -17,13 +17,13 @@ if (! empty($_POST["login-btn"])) {
 <BODY>
 	<div class="container">
 		<div class="sign-up-container">
-			<div class="login-signup">
+			<div class="login-signup" >
 				<a href="user-registration.php">Sign up</a>
 			</div>
 			<div class="signup-align">
 				<form name="login" action="" method="post"
 					onsubmit="return loginValidation()">
-					<div class="signup-heading">Login</div>
+					<div class="signup-heading" style="color: #3F4E4F">Login</div>
 				<?php if(!empty($loginResult)){?>
 				<div class="error-msg"><?php echo $loginResult;?></div>
 				<?php }?>

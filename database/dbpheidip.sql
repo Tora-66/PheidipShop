@@ -217,7 +217,7 @@ INSERT INTO `tbProduct` VALUES
 ('ADI03', 'Adidas 10T Pro GI Hutao',        '69.99',    'img/12.jpg', 'img/12.jpg', 'ADI002', '003SAN', ''),
 ('ADI04', 'Adidas 9RT GI Sucrose',          '99.99',    'img/15.jpg', 'img/15.jpg', 'ADI002', '004SLI', ''),
 
-('TIM01', 'Timberland Omen 15',      '529.99',   'img/8.jpg', 'img/8.jpg', 'TIM003', '002BOO', ''),
+('TIM01', 'Timberland Omen 15',      '529.99',   'img/8.png', 'img/8.png', 'TIM003', '002BOO', ''),
 ('TIM02', 'Timberland Legion 5 Pro',        '64.99',    'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
 ('TIM03', 'Timberland X15 R2',              '299.99',   'img/19.jpg', 'img/19.jpg', 'TIM003', '003SAN', ''),
 ('TIM04', 'Timberland Predator Helios 300', '96.99',    'img/9.jpg', 'img/9.jpg', 'TIM003', '004SLI', ''),
@@ -287,7 +287,27 @@ INSERT INTO `tbInventory` VALUES
 ('TIM0439', 'TIM04', '39', 10),
 ('TIM0440', 'TIM04', '40', 10),
 ('TIM0441', 'TIM04', '41', 10),
-('TIM0442', 'TIM04', '42', 10)
+('TIM0442', 'TIM04', '42', 10),
+('DRM0138', 'DRM01', '38', 6),
+('DRM0139', 'DRM01', '39', 6),
+('DRM0140', 'DRM01', '40', 10),
+('DRM0141', 'DRM01', '41', 7),
+('DRM0142', 'DRM01', '42', 6),
+('DRM0238', 'DRM02', '38', 6),
+('DRM0239', 'DRM02', '39', 6),
+('DRM0240', 'DRM02', '40', 10),
+('DRM0241', 'DRM02', '41', 7),
+('DRM0242', 'DRM02', '42', 6),
+('DRM0338', 'DRM03', '38', 6),
+('DRM0339', 'DRM03', '39', 6),
+('DRM0340', 'DRM03', '40', 10),
+('DRM0341', 'DRM03', '41', 7),
+('DRM0342', 'DRM03', '42', 6),
+('DRM0438', 'DRM04', '38', 6),
+('DRM0439', 'DRM04', '39', 6),
+('DRM0440', 'DRM04', '40', 10),
+('DRM0441', 'DRM04', '41', 7),
+('DRM0442', 'DRM04', '42', 6)
 ;
 
 INSERT INTO `tbPayment`(`Method`, `Desc`) VALUES 
@@ -318,3 +338,23 @@ INSERT INTO `tbTag` VALUES
 ('WomTIM02', 'Women', 'TIM02', 'Women'),
 ('WomTIM03', 'Women', 'TIM03', 'Women'),
 ('WomTIM04', 'Women', 'TIM04', 'Women');
+
+INSERT INTO `tbOrder_Details` VALUES
+('014132', 'TIM0141', '1'),
+('014206', 'NIK0142', '2'),
+('023232', 'NIK0239', '2'),
+('024106', 'DRM0241', '1'),
+('034222', 'TIM0341', '2'),
+('044154', 'ADI0442', '1');
+
+INSERT INTO `tbOrder_Master` VALUES
+('M014064', '014132', '1', '1', '2022-11-15 15:17:32
+', ''),
+('M023321', '023232', '1', '1', '2022-11-15 15:17:32
+', ''),
+('M024064', '024106', '4', '1', '2022-11-15 15:19:06
+', ''),
+('M034222', '034222', '2', '1', '2022-11-15 15:18:22
+', ''),
+('M044541', '044154', '1', '3', '2022-11-15 15:17:54
+', '');

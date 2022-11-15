@@ -3,6 +3,8 @@
 include_once 'php/DBConnect.php';
 session_start();
 
+$pageTitle = "Information";
+
 //Lay du lieu tu database
 $query = "SELECT *  FROM  tbnews";
 $rs    = mysqli_query($conn, $query);
@@ -15,20 +17,17 @@ include 'php/navigationBar.php';
 <style>
     .navbar-top {
         border: 1px solid wheat;
-        background-color: wheat;
+        background-color: burlywood;
         height: 400px;
     }
 
-    .navbar-top-icon {
-        margin: 20px 880px 0px 20px;
-    }
-
     .navbar-top-home {
-        margin: 40px 40px 0px 320px;
+        margin: 40px 40px 0px 180px;
     }
 
     .navbar-top-Notify {
-        margin: 40px 40px 0px 320px;
+        margin: 40px 40px 0px 180px;
+        font-family: Blippo, fantasy;
     }
 
     .navbar-top-Notify h1 {
@@ -48,20 +47,18 @@ include 'php/navigationBar.php';
     }
 
     .navbar-title {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 50px;
+        font-family: Florence, cursive, Blippo;
+        font-size: 40px;
     }
 
-    .navbar-image {
-        padding-left: 100px;
-        padding-right: 200px;
+    .table {
+        margin: 10px 0px 0px 0px;
     }
 
-    .navbar-commnet {
-        padding-left: 100px;
-        padding-right: 30px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 20px;
+
+    .navbar-Information {
+        font-family: Florence, cursive;
+        font-size: 17px;
     }
 </style>
 
@@ -70,56 +67,45 @@ include 'php/navigationBar.php';
 <body>
     <!-- Backround - top -->
     <div class="navbar-top">
-        <div class="navbar-top-icon">
-            <a href=""><img src="img/source/Logo.png" alt=""></a>
-        </div>
-
         <div class="navbar-top-home">
             <button type="button" class="btn btn-light"><a href="#.php" class="text-decoration-none text-warning">Home Pate</a></button>
         </div>
 
         <div class="navbar-top-Notify">
-            <h1>Philip Shop would like to introduce Information about some new SHOE MODELS on the market today</h1>
-        </div>
-
-        <div class="navbar-top-time">
-            <?php
-            $today = date("d/m/Y");
-            echo $today;
-            ?>
+            <h1>Philip Shop would like to introduce Information about some new </h1> <br>
+            <h1>SHOE MODELS on the market today</h1>
         </div>
     </div>
 
     <!-- News -->
     <div class="col-lg-10 col-md-10 col-sm-9 col-xs-12 container">
-        <!-- Mo du lieu -->
-        <?php
-        if ($count == 0) :
-            echo 'Record not found!';
-        else :
-            while ($data = mysqli_fetch_array($rs)) :
-        ?>
-                <!-- Code Html -->
-                <div class="navbar">
-                    <div class="navbar-title">
-                        <p><?= $data[1] ?></p>
-                    </div>
-                    <br>
-                    <div class="navbar-image">
-                        <img src="<?= $data[3] ?>" alt="Image" height="600" width="600">
-                    </div>
+        <div class="navbar">
+            <!-- Mo du lieu -->
+            <?php
+            if ($count == 0) :
+                echo '';
+            else :
+                while ($data = mysqli_fetch_array($rs)) :
+            ?>
+                    <table class="table">
+                        <tr>
+                            <td class="navbar-title"><?= $data[1] ?></td>
+                            <td></td>
+                        </tr>
 
-                    <div class="navbar-commnet">
-                        <p><?= $data[2] ?></p>
-                    </div>
-                </div>
-                <!-- Dong du lieu -->
-        <?php
-            endwhile;
+                        <tr>
+                            <td class="navbar-Information"><?= $data[2] ?></td>
+                            <td style="text-align:center"><img src="<?= $data[3] ?>" alt="Image" width="500px" height="500px"></td>
+                        </tr>
+                    </table>
 
-        endif;
-        mysqli_close($conn);
-        ?>
+                    <!-- Dong du lieu -->
+            <?php
+                endwhile;
+            endif;
+            mysqli_close($conn);
+            ?>
+        </div>
     </div>
 </body>
 </head>

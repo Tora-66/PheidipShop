@@ -18,10 +18,25 @@ if (! empty($_POST["login-btn"])) {
     />
 <script src="registerandlogin/vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
 <style>
-    .form-label {
+.form-label {
     margin-bottom: 5px;
     margin-left: 20px;
     text-align: left;
+}
+.sign-up-container {
+    border: 1px solid;
+    border-color: #9a9a9a;
+    background: #fff;
+    border-radius: 4px;
+    padding: 10px;
+    width: 300px;
+    margin: 50px auto;
+}
+.login-signup {
+    margin: 10px;
+    text-decoration: none;
+    float: left;
+    margin-left: 15px
 }
 </style>
 </HEAD>
@@ -29,7 +44,7 @@ if (! empty($_POST["login-btn"])) {
 	<div class="container">
 		<div class="sign-up-container">
 			<div class="login-signup" >
-				<a href="user-registration.php">Sign up</a>
+				<a href="home.php">Homepage</a> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a href="user-registration.php">Sign up</a>
 			</div>
 			<div class="signup-align">
 				<form name="login" action="" method="post"

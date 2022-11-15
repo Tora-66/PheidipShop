@@ -172,9 +172,19 @@ ADD FOREIGN KEY (GuestID) REFERENCES tbGuest(GuestID);
 
 INSERT INTO `tbAdmin`(`AdminName`, `Password`) VALUES ('admin', '123');
 
-INSERT INTO `tbUser_Account`(`UserName`, `Password`, `FullName`, `Email`, `PhoneNumber`) VALUES ('user01', 'User01', 'Tester San', 'tester01@user.com', '0989796961');
+INSERT INTO `tbUser_Account`(`UserName`, `Password`, `FullName`, `Email`, `PhoneNumber`) VALUES 
+('user01', 'User01', 'Tester San', 'tester01@user.com', '0989796961'),
+('user02', 'User02', 'Cristiano Ronaldo', 'ronaldo@gmail.com', '0912131415'),
+('user03', 'User03', 'Lionel Messi', 'messi@yahoo.com', '0923242526'),
+('user04', 'User04', 'Wayne Rooney', 'rooney@gmail.com', '0934353637'),
+('user05', 'User05', 'Neymar Jr', 'neymar@user.com', '0945464748');
 
-INSERT INTO `tbDelivery_Address`(`UserID`, `Address`, `Is_default`) VALUES (1, '001 Tester, Tired, Nowhere', '1');
+INSERT INTO `tbDelivery_Address`(`UserID`, `Address`, `Is_default`) VALUES 
+(1, '001 Tester, Tired, Nowhere', '1'),
+(2, '69 Truong Chinh Street,Tan Binh District, HCM City', '1'),
+(3, '123 Thien Quang Street, Hai Ba Trung District, Hanoi City', '1'),
+(4, '420 Pham Ngu Lao Street, District 1, HCM City', '1'),
+(5, '26 Hung Vuong Street, Ba Dinh District, Hanoi City', '1');
 
 INSERT INTO `tbGuest` VALUES
 (1, 'The Guest', 'Themailwhichisntexist@mail.com', '0978767670');

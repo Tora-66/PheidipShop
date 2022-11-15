@@ -236,6 +236,7 @@ include 'php/navigationBar.php';
 </script>
 
 <?php
+include 'php/slider.php';
 mysqli_close($conn);
 include 'php/footer.php';
 include 'php/htmlBody.php';

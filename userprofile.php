@@ -23,6 +23,11 @@ $feedback = mysqli_fetch_array($rs);
 $rsfeeedback = "SELECT * FROM tbfeedback WHERE FeedBackID = '$field[0]'";
 $rs2 = mysqli_query($conn, $rsfeeedback);
 
+
+$feedback = mysqli_fetch_array($rs);
+$rsfeeedback = "SELECT * FROM tbfeedback WHERE FeedBackID = '$field[0]'";
+$rs3 = mysqli_query($conn, $rsfeeedback);
+
 include 'php/htmlHead.php';
 include 'php/navigationBar.php';
 include 'php/htmlBody.php';
@@ -31,19 +36,7 @@ include 'php/htmlBody.php';
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link href="css/userprofile.css" type="text/css"
 	rel="stylesheet" />
-<style>
-    td{
-        padding-bottom: 5px
-    }
-    .tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: 1px solid #ccc;
-    width: 70%;
-    border-left: none;
-}
-</style>
-<div class="container user">   
+<div class="col-lg-10 col-md-10 col-sm-9 col-xs-12 container user">   
     <div class="notification">
         <?php
         if (isset($_GET["msgSuccess"])) :
@@ -84,14 +77,8 @@ include 'php/htmlBody.php';
                 </td>
             </tr>
             <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <div class="btn-group btn-group-justified">
-                        <a href="editprofile.php?code=<?= $field[0] ?>" class="btn btn-primary">Edit profile</a>
-                        <a href="changePass.php?code=<?= $field[0] ?>" class="btn btn-primary">Change password</a>
-                    </div>
+                <td>
+                    <a  class="edit" href="editprofile.php?code=<?= $field[0] ?>">Edit profile</a>
                 </td>
             </tr>
         </table>
@@ -122,7 +109,7 @@ include 'php/htmlBody.php';
                 <th style="vertical-align: top"> Date Time </th>
                 <td>
                     <?php
-                    while ($field2 = mysqli_fetch_array($rs2)) :
+                    while ($field2 = mysqli_fetch_array($rs3)) :
                     ?>
                         <?= $field2[4]?> <br>
                     <?php

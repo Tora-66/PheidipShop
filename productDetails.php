@@ -71,8 +71,14 @@ if (isset($_POST['btnAdd'])) {
       array_push($_SESSION["quantity"], $quantity);
     } else {
       if (in_array($proID, $_SESSION["prodID"])) {
-        $index = array_search($proID, $_SESSION["prodID"]);
-        $_SESSION["quantity"][$index] = $_SESSION["quantity"][$index] + $quantity;
+        $indexProd = array_search($proID, $_SESSION["prodID"]);
+        if ($_SESSION["size"][$indexProd] == $size) {
+          $_SESSION["quantity"][$indexProd] = $_SESSION["quantity"][$indexProd] + $quantity;
+        } else {
+          array_push($_SESSION["prodID"], $proID);
+          array_push($_SESSION["size"], $size);
+          array_push($_SESSION["quantity"], $quantity);
+        }
       } else {
         array_push($_SESSION["prodID"], $proID);
         array_push($_SESSION["size"], $size);

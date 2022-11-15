@@ -34,17 +34,16 @@ include 'php/htmlHead.php';
 include 'php/sidebar.php';
 
 ?>
-<div class="container-fluid">
+<section class="container">
     <div class="container">
-        <h2>View FeedBack</h2>
+        <h2 class="border-bottom">View FeedBack</h2>
     </div>
-
-    <table class="table">
+    <table class="table text-nowrap table-responsive text-center">
         <thead>
             <tr>
-                <th scope="col">FeedBack Id:</th>
+                <th scope="col">ID</th>
                 <th scope="col">Customer</th>
-                <th scope="col">Comment</th>
+                <th scope="col">Content</th>
                 <th scope="col">Date</th>
                 <th scope="col">Details</th>
                 <th scope="col">Function</th>
@@ -72,8 +71,7 @@ include 'php/sidebar.php';
                         };
                         ?>
                     </td>
-                    </td>
-                    <td><?= $rcfeedback[3] ?></td>
+                    <td class="overflow-hidden text-start"><?= $rcfeedback[3] ?></td>
                     <td><?= $rcfeedback[4] ?></td>
 
                     <td><a href="DetailsFeedBack.php?code=<?= $rcfeedback[0] ?>" class="text-primary">View</a></td>
@@ -84,7 +82,7 @@ include 'php/sidebar.php';
             ?>
         </tbody>
     </table>
-</div>
+</section>
 
 <?php
 include 'php/htmlBody.php';

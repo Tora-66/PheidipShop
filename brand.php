@@ -12,7 +12,7 @@ include 'php/htmlHead.php';
 include 'php/sidebar.php';
 ?>
 
-<section style="margin-top: 8rem;">
+<section>
 <div class="container">
         <h2 >Brand List</h2>
         <a href="addBrand.php" class="btn btn-success rounded-pill">ADD NEW BRAND</a>

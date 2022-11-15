@@ -65,14 +65,13 @@ for ($i = 0; $i < count($address); $i++) {
 
 $submit = "";
 $count = count($_SESSION["prodID"]);
-if($count == 0) {
+if ($count == 0) {
   $submit = "disabled";
 }
 
 
 // Order Submit
 if (isset($_POST["addOrder"])) {
-
   //Add address
   $delivery = $_POST['delivery'];
   if ($delivery !== $addressDefault) {
@@ -90,37 +89,41 @@ if (isset($_POST["addOrder"])) {
     $rsInventory = mysqli_query($conn, $queryInventory);
     $rcInventory = mysqli_fetch_array($rsInventory);
 
-    if($rcInventory[1] < $quantity) {
-      echo "<script type='text/javascript'>alert('Quantity in cart is more than stock remaining, please reduce quantity in cart before checkout!');</script>";
+    if ($rcInventory[1] > $quantity) {
+      // Add Details
+      $detailsID = substr($rcInventory[0], 3, 3) . "$quantity" . date('s');
+      $queryDetails = "INSERT INTO `tbOrder_Details` VALUES ('$detailsID', '{$rcInventory[0]}', {$quantity});";
+      $rsDetails = mysqli_query($conn, $queryDetails);
+
+      // Reduce Quantity in Inventory
+      $queryStock = "UPDATE `tbInventory` SET `Quantity` = `Quantity` - {$quantity} WHERE `InventoryID` = '{$rcInventory[0]}';";
+      $rsStock = mysqli_query($conn, $queryStock);
+
+      // Add Master
+      $paymentID = $_POST['payment'];
+      $note = $_POST['note'];
+      $masterID = "M" . substr($detailsID, 0, 3) . date('s') . $rc[0];
+      $queryMaster = "INSERT INTO `tbOrder_Master` VALUES ('$masterID', '{$detailsID}', '{$userID}', '{$paymentID}', NOW(), '{$note}');";
+      $rsMaster = mysqli_query($conn, $queryMaster);
+
+
+      header("Location: php/clearCart.php");
+    } else {
+      $_SESSION["quantity"][$i] = $rcInventory[1];
       header("location: cart.php");
     }
-
-    // Add Details
-    $detailsID = substr($rcInventory[0], 3, 3) . "$quantity" . date('s');
-    $queryDetails = "INSERT INTO `tbOrder_Details` VALUES ('$detailsID', '{$rcInventory[0]}', {$quantity});";
-    $rsDetails = mysqli_query($conn, $queryDetails);
-
-    // Reduce Quantity in Inventory
-    $queryStock = "UPDATE `tbInventory` SET `Quantity` = `Quantity` - {$quantity} WHERE `InventoryID` = '{$rcInventory[0]}';";
-    $rsStock = mysqli_query($conn, $queryStock);
-
-    // Add Master
-    $paymentID = $_POST['payment'];
-    $note = $_POST['note'];
-    $masterID = "M" . substr($detailsID, 0, 3) . date('s') . $rc[0];
-    $queryMaster = "INSERT INTO `tbOrder_Master` VALUES ('$masterID', '{$detailsID}', '{$userID}', '{$paymentID}', NOW(), '{$note}');";
-    $rsMaster = mysqli_query($conn, $queryMaster);
   endfor;
-
-  header("Location: php/clearCart.php");
 }
 
 
 include 'php/htmlHead.php';
 include 'php/navigationBar.php';
 ?>
-
-<section style="margin-top: 8rem;">
+<div class="container title-box d-flex border-bottom">
+  <i class="bi bi-x-diamond-fill title-icon fs-1 me-4"></i>
+  <div class="section-title ms-2 fs-3 mt-2">Checkout</div>
+</div>
+<section class="container">
   <form method="post">
     <!-- Form table -->
     <table class="table">
@@ -152,7 +155,7 @@ include 'php/navigationBar.php';
             <td>
               <div class="product-card">
                 <img src="<?= $rcProduct[3]; ?>" alt="" class="product-card-item product-card-img">
-                <div class="product-card-item">
+                <div class="product-card-item text-start">
                   <h5><?= $rcProduct[1]; ?></h5>
                   <p><?php
                       for ($x = 0; $x < count($brand); $x++) {
@@ -162,18 +165,18 @@ include 'php/navigationBar.php';
                       }
 
                       ?></p>
-                  <p><?= $size; ?></p>
+                  <p>Size: <?= $size; ?></p>
                 </div>
               </div>
             </td>
             <td>
               <div>
-                <p class="quantity"><?= $quantity; ?></p>
+                <span><?= $quantity; ?></span>
               </div>
             </td>
             <td>$<span class="price"><?= $rcProduct[2]; ?></span></td>
             <td>
-              <p class="total">$<?= total((float)$rcProduct[2], (int)$quantity) ?></p>
+              $<span class="total"><?= total((float)$rcProduct[2], (int)$quantity) ?></span>
             </td>
           </tr>
         </tbody>
@@ -186,7 +189,7 @@ include 'php/navigationBar.php';
 
     <div class="container-fluid text-start my-5">
       <div class="row align-items-start border-bottom">
-        <div class="col fs-3 fw-bold">
+        <div class="col fs-3 fw-bold my-3">
           Order Confirmation
         </div>
       </div>
@@ -219,7 +222,7 @@ include 'php/navigationBar.php';
           Payment:
         </div>
         <div class="col-10">
-          <select class="form-select" name="payment" id="payment">
+          <select class="form-select bg-white" name="payment" id="payment">
             <?php for ($i = 0; $i < count($payment); $i++) : ?>
               <option value="<?= $payment[$i][0] ?>"><?= $payment[$i][1] ?></option>
             <?php endfor; ?>

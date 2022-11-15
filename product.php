@@ -32,7 +32,7 @@ include 'php/sidebar.php';
 
 ?>
 
-<section style="margin-top: 8rem;">
+<section>
     <div class="container">
         <h2>Product List</h2>
         <a href="addProduct.php" class="btn btn-success rounded-pill">Add new product</a>
@@ -42,7 +42,7 @@ include 'php/sidebar.php';
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>price</th>
+                    <th>Price</th>
                     <th>Thumbnail</th>
                     <th>Brand</th>
                     <th>Type</th>

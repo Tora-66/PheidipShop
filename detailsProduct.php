@@ -83,7 +83,8 @@ include 'php/sidebar.php';
         </tr>
         <tr>
             <td align="center" colspan="3">
-            <a href="editProduct.php?id=<?= $data[0]?>" class="btn btn-success rounded-pill m-0">Update</a>
+            <a href="editProduct.php?id=<?= $data[0]?>" 
+            class="btn btn-success rounded-pill m-0">Update</a>
             </td>
         </tr>
     </Table>

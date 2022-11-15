@@ -36,8 +36,8 @@ include 'php/sidebar.php';
     <div class="container">
         <h2>Product List</h2>
         <a href="addProduct.php" class="btn btn-success rounded-pill">Add new product</a>
-        <hr>
         <table class="table table-hover table-striped  text-nowrap table-responsive">
+        <hr>
             <thead class="table-dark">
                 <tr>
                     <th>ID</th>

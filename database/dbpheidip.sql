@@ -186,7 +186,9 @@ INSERT INTO `tbFeedBack` VALUES
 INSERT INTO `tbBrand` VALUES
 ('NIK001', 'Nike', 'img/brand_nike.png', ''),
 ('ADI002', 'Adidas', 'img/brand_adidas.png', ''),
-('TIM003', 'Timberland', 'img/brand_Timberland.png', '');
+('TIM003', 'Timberland', 'img/brand_Timberland.png', ''),
+('DRM004','DrMartens','img/brand_DrMartens.png',''),
+('CON005','Converse','img/brand_converse.png','');
 
 INSERT INTO `tbType`VALUES 
 ('001SNE', 'Sneaker', 'Sneaker shoes'),
@@ -195,18 +197,22 @@ INSERT INTO `tbType`VALUES
 ('004SLI', 'Slippers', 'Slippers');
 
 INSERT INTO `tbProduct` VALUES 	
-('NIK01', 'Nike K50 Ultra', '555', 'img/thumbnail_1.jpg', 'img/image_1.jpg', 'NIK001', '001SNE', ''),
-('NIK02', 'Nike JS Ultra', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', 'NIK001', '001SNE', ''),
-('NIK03', 'Nike 12S Premium', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', 'NIK001', '001SNE', ''),
-('NIK04', 'Nike F4 Gt ', '199', 'img/thumbnail_2.jpg', 'img/image_2.jpg', 'NIK001', '001SNE', ''),
-('ADI01', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
-('ADI02', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
-('ADI03', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
-('ADI04', 'Adidas Ultra Pro Max', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
-('TIM01', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
-('TIM02', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
-('TIM03', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
-('TIM04', 'Timberland Boots New Earth', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', '');
+('NIK01', 'Nike K50 G-Series Ultra',        '555',  'img/thumbnail_1.jpg',  'img/image_1.jpg',  'NIK001',   '001SNE', ''),
+('NIK02', 'Nike ROG 6 Pro',                 '199',  'img/thumbnail_2.jpg',  'img/image_2.jpg',  'NIK001',   '002BOO', ''),
+('NIK03', 'Nike Red Magic 7S Pro Premium',  '199',  'img/thumbnail_3.jpg',  'img/image_3.jpg',  'NIK001',   '003SAN', ''),
+('NIK04', 'Nike F4 GT Pro',                 '199',  'img/thumbnail_4.jpg',  'img/image_4.jpg',  'NIK001',   '004SLI', ''),
+
+('ADI01', 'Adidas ROG Stix Scar G15', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '001SNE', ''),
+('ADI02', 'Adidas BS 5 Pro', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '002BOO', ''),
+('ADI03', 'Adidas 10T Pro GI Hutao', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '003SAN', ''),
+('ADI04', 'Adidas 9RT GI Sucrose', '80', 'img/thumbnail_product-4.jpg', 'img/image_product-4.jpg', 'ADI002', '004SLI', ''),
+
+('TIM01', 'Timberland Strix Scar G15', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
+('TIM02', 'Timberland Legion 5 Pro', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '002BOO', ''),
+('TIM03', 'Timberland X15 R2', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '003SAN', ''),
+('TIM04', 'Timberland Predator Helios 300', '96', 'img/thumbnail_timberland-1.jpg', 'img/image_timberland-1.jpg', 'TIM003', '004SLI', '');
+
+
 
 INSERT INTO `tbInventory` VALUES
 ('NIK0138', 'NIK01', '38', 10),

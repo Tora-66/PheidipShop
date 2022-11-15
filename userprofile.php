@@ -41,6 +41,7 @@ include 'php/htmlBody.php';
     border: 1px solid #ccc;
     width: 70%;
     border-left: none;
+    min-height: 300px;	    
 }
 </style>
 <div class="container user">   

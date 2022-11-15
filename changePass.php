@@ -41,6 +41,7 @@ include 'php/navigationBar.php';
                 <img class="img-responsive" src="img/changepass.png" alt="" width="400px" style="float: right"/>
             </div>
             <div class="col-sm-8 border border-dark rounded border-3">
+                <br>
                 <h2 style="text-align: center">User Password</h2>
                 <?php if(isset($message)) { echo $message; } ?>
                 <hr>
@@ -86,3 +87,8 @@ include 'php/navigationBar.php';
 <?php
 include 'php/htmlBody.php';
 ?>
+<div class="container-fluid" style="margin-top: 100px">
+        <?php
+            include 'php/footer.php';
+        ?>
+</div>

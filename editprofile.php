@@ -105,3 +105,8 @@ include 'php/navigationBar.php';
 <?php
 include 'php/htmlBody.php';
 ?>
+<div class="container-fluid" style="margin-top: 100px">
+        <?php
+            include 'php/footer.php';
+        ?>
+</div>

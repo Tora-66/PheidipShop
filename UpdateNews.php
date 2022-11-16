@@ -1,3 +1,4 @@
+
 <?php
 include_once 'php/DBConnect.php';
 session_start();
@@ -37,41 +38,131 @@ if (isset($_POST["txtSubmit"])) :
     endif;
     header("Location: ViewsNews.php");
 endif;
-mysqli_close($conn);
+
 
 
 include 'php/htmlHead.php';
 include 'php/sidebar.php';
 ?>
-<form method="post" enctype="multipart/form-data">
-    <table class="table">
-        <tr>
-            <td>Title:</td>
-            <td><input name="txtTitle" value="<?= $data[1] ?>"></td>
-        </tr>
 
-        <tr>
-            <td>Content:</td>
-            <td><input name="txtContent" value="<?= $data[2] ?>"></td>
-        </tr>
+<form method="post" class="p-2 needs-validation" enctype="multipart/form-data" novalidate>
+        <table class="table table-borderless">
+            <div class="row justify-content-center mb-4">
+                <div class="col-8 text-center input-label my-auto">
+                    <h2> Update <?= $data[1]?></h2>
+                </div>
+            </div>
 
-        <tr>
-            <td>Image</td>
-            <td><input type="file" name="txtImage" value="<?= $data[3] ?>"><img src="<?= $data[3] ?>" alt="Image" width="40" height="30" aria-readonly=""></td>
-        </tr>
+            <hr>
+            
+            <tr>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-4 text-end input-label my-auto">
+                    Id
+                        </div>
+                    </div>
+                 </td>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-10">
+                    <input name="txtBrandId" value="<?= $data[0]?>" 
+                    class="rounded-pill form-input form-control" 
+                    disabled readonly>
+                    </div></div>
+                </td>
+            </tr>
 
-        <tr>
-            <td>Date Time:</td>
-            <td><input type="text" name="" value="<?= $data[4]?>" readonly></td>
-        </tr>
+            <tr>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-4 text-end input-label my-auto">
+                            Title*
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-10">
+                    <input name="txtTitle" value="<?= $data[1]?>"
+                    class="rounded-pill form-input form-control"
+                            required>
+                    <div class="invalid-feedback">*Required.</div>
+                        </div></div>
+                </td>
+            </tr>
 
-        <tr>
-            <td><a href="ViewsNews.php" class="btn btn-warning">Back</a></td>
-            <td><button type="submit" name="txtSubmit" value="save" class="btn btn-success">Update News</button></td>
+            <tr>
+                <td>
+                        <div class="row justify-content-center mb-4">
+                            <div  class="col-4 text-end input-label my-auto">
+                                Img*                            
+                            </div>
+                        </div>
+                </td>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-10">
+                    <input type="file" name="txtImage" value="<?= $data[3]?>" 
+                    class="rounded-pill form-input input-file ps-0 form-control"
+                    accept=".jpg, .jpeg, .png,. gif">
+                    <?= $data[3]?><img src="<?= $data[3] ?>" alt="Image" width="80" height="80" aria-readonly=""></div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                            <div  class="col-4 text-end input-label my-auto">
+                                Content*                            
+                            </div>
+                        </div>
+                </td>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-10">
+                    <textarea name="txtContent" id="description" class="form-control" 
+                    cols="30" rows="10"><?= $data[2]?></textarea>
+                    </div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-4 text-end input-label my-auto">
+                    Date Time
+                        </div>
+                    </div>
+                 </td>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-10">
+                    <input name="txtBrandId" value="<?= $data[4]?>" 
+                    class="rounded-pill form-input form-control" 
+                    disabled readonly>
+                    </div></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                        <div class="row justify-content-center mb-4">
+                            <div class="col-4 text-end input-label my-auto">
+                                <a href="ViewsNews.php"
+                                class="btn btn-warning rounded-pill">Back</a>
+                                </div>
+                        </div>
+                </td>
+                <td>
+                    <div class="row justify-content-center mb-4">
+                            <div class="col-8">
+                    <input type="submit" name="txtSubmit" value="Save"
+                onclick="return confirm('Are you sure to update <?= $data[1]?>')"
+                class="btn btn-success rounded-pill d-flex justify-content-center">
+                </div></div>
+                </td>
+            </tr>
 
-        </tr>
-    </table>
-</form>
+        </table>
+    </form>
 
 <?php
 include 'php/htmlBody.php';

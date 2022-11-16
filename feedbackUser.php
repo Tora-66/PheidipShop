@@ -41,7 +41,7 @@ include 'php/navigationBar.php';
     }
 </style>
 <section class="container my-5 px-5">
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" onsubmit="return signupValidation()">
         <h2 class="text-center text-white">Contact Us</h2>
         <table class="table table-hove table-bordered bg-white w-50 mx-auto">
             <tr>
@@ -74,7 +74,7 @@ include 'php/navigationBar.php';
             
                 <td>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="txtContent" rows="40" cols="20" style="height: 10rem;" maxlength="1000" required></textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingInputInvalid3" name="txtContent" rows="40" cols="20" style="height: 10rem;" maxlength="1000"></textarea>
                         <label for="floatingTextarea">Leave your feedback here</label>
                     </div>
                 </td>
@@ -90,3 +90,21 @@ include 'php/navigationBar.php';
 include 'php/footer.php';
 include 'php/htmlBody.php';
 ?>
+
+<!--  -->
+<script>
+    function signupValidation() {
+	    var valid = true;
+        
+	$("#floatingInputInvalid3").removeClass("is-invalid");
+
+	var fullname = $ ("#floatingInputInvalid3").val();
+
+    if (fullname.trim() == "") {
+		$("#floatingInputInvalid3").addClass("is-invalid");
+		valid = false;
+	}
+
+	return valid;
+    }
+</script>

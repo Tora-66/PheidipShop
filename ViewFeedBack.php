@@ -34,23 +34,24 @@ include 'php/htmlHead.php';
 include 'php/sidebar.php';
 
 ?>
-<section class="container">
-    <div class="container">
-        <h2 class="border-bottom">View FeedBack</h2>
-    </div>
-    <table class="table text-nowrap table-responsive text-center">
+
+<div class="container">
+    <table class="table">
+
+        <h2 class="border-bottom">View FeedBack Management</h2>
+
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Customer</th>
                 <th scope="col">Content</th>
-                <th scope="col">Date</th>
+                <th scope="col">DateTime</th>
                 <th scope="col">Details</th>
                 <th scope="col">Function</th>
             </tr>
         </thead>
         <tbody>
-            <?php
+        <?php
             for ($i = 0; $i < $datafeedback; $i++) :
                 $rcfeedback = mysqli_fetch_array($rsfeedback);
             ?>
@@ -74,15 +75,15 @@ include 'php/sidebar.php';
                     <td class="overflow-hidden text-start"><?= $rcfeedback[3] ?></td>
                     <td><?= $rcfeedback[4] ?></td>
 
-                    <td><a href="DetailsFeedBack.php?code=<?= $rcfeedback[0] ?>" class="text-primary">View</a></td>
-                    <td><a href="responseFeedBack.php" class="text-warning">Response</a></td>
+                    <td class="text-center"><a href="DetailsFeedBack.php?code=<?= $rcfeedback[0]?>" class="btn btn-outline-info rounded-pill m-0">View</a></td>
+                    <td class="text-center"><a href="responseFeedBack.php" class="btn btn-warning rounded-pill m-0">Response</a></td>
                 </tr>
             <?php
             endfor;
             ?>
         </tbody>
     </table>
-</section>
+</div>
 
 <?php
 include 'php/htmlBody.php';

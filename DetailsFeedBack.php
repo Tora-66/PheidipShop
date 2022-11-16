@@ -29,7 +29,7 @@ include 'php/sidebar.php';
 <div class="container-fluid">
     <div class="container">
         <h2>View FeedBack</h2>
-        <h4><a href="ViewFeedBack.php">Back FeedBack</a></h4>
+        <h4><a href="ViewFeedBack.php" class="btn btn-success rounded-pill">Back FeedBack</a></h4>
     </div>
 
     <div>
@@ -58,7 +58,7 @@ include 'php/sidebar.php';
 
                 <tr>
                     <td></td>
-                    <td><a href="responseFeedBack.php" class="text-warning">Response</a></td>
+                    <td class="text-center"><a href="responseFeedBack.php" class="btn btn-warning rounded-pill m-0">Response</a></td>
                 </tr>
             </table>
         </form>

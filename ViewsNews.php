@@ -11,6 +11,25 @@ $count = mysqli_num_rows($rs); //mysqli_num_rows: trả về 1 truy vấn đư�
 include 'php/htmlHead.php';
 include 'php/sidebar.php';
 ?>
+<style>
+    .container {
+        margin-left: 100px;
+    }
+    .content-news {
+        width: 500px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .content-title{
+        width: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
+
 <div class="container">
     <table class="table">
 
@@ -21,7 +40,7 @@ include 'php/sidebar.php';
         <thead>
             <tr>
                 <th scope="col">News ID</th>
-                <th scope="col">Title</th>
+                <th scope="col" class="content-title">Title</th>
                 <th scope="col">Content</th>
                 <th scope="col">Image</th>
                 <th scope="col">DateTime</th>
@@ -36,12 +55,12 @@ include 'php/sidebar.php';
             ?>
                     <tr class="news-row">
                         <td><?= $data[0] ?></td>
-                        <td><?= $data[1] ?></td>
-                        <td><?= $data[2] ?></td>
-                        <td style="text-align:center"><img src="<?= $data[3] ?>" alt="Image" width="40" height="30"></td>
+                        <td class="content-title"><?= $data[1] ?></td>
+                        <td class="content-news"><?= $data[2] ?></td>
+                        <td style="text-align:center"><img src="<?= $data[3] ?>" alt="Image" width="80" height="80"></td>
                         <td><?= $data[4] ?></td>
-                        <td><a href="UpdateNews.php?id=<?= $data[0] ?>">Update</a></td>
-                        <td><a href="DetailsNews.php?id=<?= $data[0] ?>">Details</a></td>
+                        <td class="text-center"><a href="UpdateNews.php?id=<?= $data[0]?>" class="btn btn-outline-info rounded-pill m-0">Update</a></td>
+                        <td class="text-center"><a href="DetailsNews.php?id=<?= $data[0]?>" class="btn btn-warning rounded-pill m-0">Details</a></td>
                     </tr>
             <?php
                 endwhile;
